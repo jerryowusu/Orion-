@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agent Profile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100  flex items-center justify-center p-6">
+
+  <div class="bg-white p-8 rounded-xl shadow-md  w-full">
+    <div class="topbar">
+        <div class="flex items-center justify-between mb-6">
+            <!-- Left Part -->
+            <div  class="flex items-center">
+                <button id="toggleSidebar" class="mr-4">
+                    <!-- Expand Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+                <!-- Logo -->
+                <img src="logo.png" alt="Logo" class="h-8">
+            </div>
+    
+            <!-- Right Part -->
+            <div class="flex items-center space-x-6">
+                <!-- Supervisor Link -->
+                <a href="#" class="text-gray-800 hover:underline">Supervisor</a>
+    
+                <!-- Bell Icon -->
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6 6 0 10-12 0v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                    </svg>
+                </button>
+    
+                <!-- Profile -->
+                <div class="flex items-center space-x-2">
+                    <div class="text-right">
+                        <p class="text-sm font-medium text-gray-800">John Doe</p>
+                        <p class="text-xs text-gray-600">john.doe@example.com</p>
+                    </div>
+                    <img src="profile.jpg" alt="Profile" class="h-8 w-8 rounded-full">
+                </div>
+    
+                <!-- Three Dot Icon -->
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v.01M12 12v.01M12 18v.01" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="flex w-full">
+        <!-- Sidebar -->
+        <div class="flex flex-col bg-white text-gray-800 h-screen p-4 transition-all duration-300 ease-in-out w-20 hover:w-48">
+        <!-- Icons Section -->
+            <div id="iconSection" class="space-y-6">
+                <!-- Icon 1 -->
+                <div class="flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h11M9 21V3m0 0L3 10m6-7l6 7" />
+                    </svg>
+                    <span class="hidden text-sm text-gray-800">Dashboard</span>
+                </div>
+
+                <!-- Icon 2 -->
+                <div class="flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span class="hidden text-sm text-gray-800">Tasks</span>
+                </div>
+
+                <!-- Icon 3 -->
+                <div class="flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3-1.343 3-3S13.657 2 12 2 9 3.343 9 5s1.343 3 3 3zm0 2c-2.21 0-4 1.79-4 4v5h8v-5c0-2.21-1.79-4-4-4z" />
+                    </svg>
+                    <span class="hidden text-sm text-gray-800">Profile</span>
+                </div>
+
+                <!-- Icon 4 -->
+                <div class="flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h18M3 12h18m-9 5h9" />
+                    </svg>
+                    <span class="hidden text-sm text-gray-800">Settings</span>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Main Content -->
+        <div class="flex-1 p-6 bg-gray-100 m-auto">
+            <div class="flex-1 p-6 bg-gray-100">
+                <!-- Top Title -->
+                <div class="flex justify-between items-center mb-4">
+                    <!-- Left Section -->
+                    <h1 class="text-lg font-semibold text-gray-800">Home &gt; Assigned Agents &gt; 8866175</h1>
+                
+                    <!-- Right Section (Date Picker) -->
+                    <div class="relative inline-block">
+                        <!-- Date Picker Input -->
+                        <button id="date-picker-button" class="flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm bg-white text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 4h10M5 11h14M5 15h14M5 19h14M3 7h18a2 2 0 012 2v12a2 2 0 01-2 2H3a2 2 0 01-2-2V9a2 2 0 012-2z" />
+                            </svg>
+                            <span id="selected-date">4 May 2025</span>
+                            <svg id="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 ml-2 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                
+                        <!-- Calendar Dropdown -->
+                        <div id="calendar-dropdown" class="absolute mt-2 w-64 bg-white border border-gray-300 rounded-md shadow-lg p-4 hidden">
+                            <input type="date" id="date-input" class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex space-x-6 w-full">
+                    <!-- First Column -->
+                    <div class="flex-1 space-y-4">
+                        <!-- First Row -->
+                        <div class="flex flex-col">
+                            <div class="flex justify-between">
+                                <span class="font-semibold">Jerry</span>
+                                <span>Great</span>
+                            </div>
+                        </div>
+                        <!-- Second Row -->
+                        <div class="flex justify-between">
+                            <span class="font-semibold">Agent ID:</span>
+                            <span>8866175</span>
+                        </div>
+                    </div>
+                
+                    <!-- Second Column -->
+                    <div class="flex-1 space-y-4 bg-blue-500 text-white p-4 rounded-md">
+                        <div class="flex justify-between">
+                            <span class="font-semibold">Text 1:</span>
+                            <span>Value 1</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="font-semibold">Text 2:</span>
+                            <span>Value 2</span>
+                        </div>
+                    </div>
+                
+                    <!-- Third Column -->
+                    <div class="flex-1 space-y-4 bg-blue-500 text-white p-4 rounded-md">
+                        <div class="flex justify-between">
+                            <span class="font-semibold">Indicator:</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                            </svg>
+                            <span class="text-sm font-semibold">3.6</span>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Secondary Bar -->
+                <div class="flex items-center justify-between bg-white p-4 shadow rounded mb-6">
+                    <!-- Left Side -->
+                    <div class="flex flex-col">
+                        <span class="text-gray-800 font-medium">List of Agents</span>
+                        <span class="text-gray-600 text-sm">Your Assigned Agents</span>
+                    </div>
+            
+                    <!-- Right Side -->
+                    <div class="flex items-center space-x-4">
+                        <!-- Search Input -->
+                        <input type="text" placeholder="Search..." class="px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+            
+                        <!-- Filter Button -->
+                        <button class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+                            Filter
+                        </button>
+                    </div>
+                </div>
+            
+                <!-- Table -->
+                <table class="w-full border-collapse border border-gray-300 text-left">
+                    <!-- Table Header -->
+                    <thead class="bg-gray-200">
+                        <tr>
+                            <th class="border border-gray-300 px-4 py-2">#</th>
+                            <th class="border border-gray-300 px-4 py-2">Call ID</th>
+                            <th class="border border-gray-300 px-4 py-2">Time</th>
+                            <th class="border border-gray-300 px-4 py-2">Number</th>
+                            <th class="border border-gray-300 px-4 py-2">Language</th>
+                            <th class="border border-gray-300 px-4 py-2">Qualification</th>
+                            <th class="border border-gray-300 px-4 py-2">Score</th>
+                            <th class="border border-gray-300 px-4 py-2"></th>
+                        </tr>
+                    </thead>
+                    <!-- Table Body -->
+                    <tbody>
+                        <!-- Row 1 -->
+                        <tr>
+                            <td class="border border-gray-300 px-4 py-2">1</td>
+                            <td class="border border-gray-300 px-4 py-2">12345</td>
+                            <td class="border border-gray-300 px-4 py-2">10:30 AM</td>
+                            <td class="border border-gray-300 px-4 py-2">******5678</td>
+                            <td class="border border-gray-300 px-4 py-2">English</td>
+                            <td class="border border-gray-300 px-4 py-2">Qualified</td>
+                            <td class="border border-gray-300 px-4 py-2 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="ml-2 text-green-500 font-semibold">0.75</span>
+                            </td>
+                            <td class="border border-gray-300 px-4 py-2 text-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 cursor-pointer" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm0 5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm0 5a1.5 1.5 0 110 3 1.5 1.5 0 010-3z" />
+                                </svg>
+                            </td>
+                        </tr>
+                        <!-- Row 2 -->
+                        <tr>
+                            <td class="border border-gray-300 px-4 py-2">2</td>
+                            <td class="border border-gray-300 px-4 py-2">67890</td>
+                            <td class="border border-gray-300 px-4 py-2">11:15 AM</td>
+                            <td class="border border-gray-300 px-4 py-2">******1234</td>
+                            <td class="border border-gray-300 px-4 py-2">Spanish</td>
+                            <td class="border border-gray-300 px-4 py-2">Not Qualified</td>
+                            <td class="border border-gray-300 px-4 py-2 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="ml-2 text-green-500 font-semibold">0.75</span>
+                            </td>
+                            <td class="border border-gray-300 px-4 py-2 text-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 cursor-pointer" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm0 5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm0 5a1.5 1.5 0 110 3 1.5 1.5 0 010-3z" />
+                                </svg>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                      <!-- Pagination -->
+        <div class="flex justify-end items-center mt-6">
+            <!-- Left Arrow -->
+            <button class="px-3 py-2 bg-gray-200 text-gray-400 rounded hover:bg-gray-300 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+
+            <!-- Page Numbers -->
+            <div class="flex space-x-2 mx-4">
+                <button class="px-3 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+                    1
+                </button>
+                <button class="px-3 py-2 bg-gray-200 text-gray-600 rounded hover:bg-gray-300 transition">
+                    2
+                </button>
+                <button class="px-3 py-2 bg-gray-200 text-gray-600 rounded hover:bg-gray-300 transition">
+                    3
+                </button>
+            </div>
+
+            <!-- Right Arrow -->
+            <button class="px-3 py-2 bg-gray-200 text-gray-600 rounded hover:bg-gray-300 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
+            </div>   
+        </div>
+    </div>
+    
+   
+   
+  </div>
+<script src="Index.js"></script>
+</body>
+</html>
