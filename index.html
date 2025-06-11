@@ -9,20 +9,18 @@
 <body class="bg-gray-100  flex items-center justify-end">
 
   <div class="bg-gray-100 top-0 w-full">
-    <div class="topbar h-24 bg-white p-4 md:p-8">
-        <div class="flex items-center justify-between flex-wrap">
+    <div class="items-center full h-24 bg-white p-4 md:p-8 ">
+        <div class="flex justify-between flex-wrap">
             <div class="flex items-center space-x-4 md:space-x-12">
                 <button id="toggleSidebar" class="mr-4 md:mr-8">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                    </svg>
+                    <img src="/images/Component 3 (1).png" class="w-8 h-8" alt="">
                 </button>
-                <a href="Agent.html">
-                    <img src="/images/logo.png" alt="Logo" class="h-12">
+                <a class="left-40" href="index.html">
+                    <img src="/images/logo.png" alt="Logo" class="h-12 w-34">
                 </a>
             </div>
             <div class="flex items-center space-x-4 md:space-x-8 mt-4 md:mt-0">
-                <a href="#" class="text-[rgba(79,70,229)] font-bold text-sm rounded-full p-1 px-3 bg-[rgba(79,70,229,0.2)]">Supervisor</a>
+                <p class="flex items-center justify-center text-[rgba(79,70,229)] w-26 h-7 font-bold text-sm rounded-full p-2 bg-[rgba(79,70,229,0.2)]">Supervisor</p>
                 <button>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6 6 0 10-12 0v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
@@ -30,12 +28,12 @@
                 </button>
                 <div class="flex left-align space-x-2">
                     <div class="text-left">
-                        <p class="font-medium text-gray-800">William Adu</p>
-                        <p class="font-light text-gray-600">williamadu@biggs.com</p>
+                        <p class="font-medium text-gray-800 text-base">William Adu</p>
+                        <p class="font-light text-gray-600 text-xs">williamadu@biggs.com</p>
                     </div>
                 </div>
                 <button class="font-bold">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v.01M12 12v.01M12 18v.01" />
                     </svg>
                 </button>
@@ -43,43 +41,39 @@
         </div>
     </div>
     <div class="flex w-full h-screen">
-        <div id="sidebar" class="flex flex-col justify-between bg-white text-gray-800 w-[85px] left-0 min-h-[600px] pt-12 transition-all duration-300 ease-in-out">
-            <div id="iconSection" class="space-y-2 pl-4">
-                <div class="flex items-center space-x-2">
-                    <img src="/images/Group 85.png" alt="">
-                    <span class="opacity-0 -translate-x-2 cursor-pointer text-sm text-gray-800 transition-all duration-300 ease-in-out">Dashboard</span>
+        <div id="sidebar" class="flex flex-col items-center justify-between bg-white text-gray-800 w-[125px] sm:w-[85px] left-0 min-h-[700px] pt-14 pb-4 transition-all duration-300 ease-in-out">
+            <div id="iconSection" class="flex flex-col items-center justify-end gap-4">
+                <div class="flex items-center w-full justify-end space-x-2">
+                    <img src="/images/Group 85.png" class="w-8 h-8" alt="">
                 </div>
-                <div class="flex items-center space-x-2">
-                    <img src="/images/Group 85 (1).png" alt="">
-                    <span class="opacity-0 -translate-x-2 cursor-pointer text-sm text-gray-800 transition-all duration-300 ease-in-out">Agents</span>
+                <div class="flex items-center w-full justify-end space-x-2">
+                    <img src="/images/Group 85 (1).png" class="w-8 h-8" alt="">
                 </div>
-                <div class="flex items-center space-x-2">
-                    <img src="/images/Group 85 (2).png" alt="">
-                    <span class="opacity-0 -translate-x-2 cursor-pointer text-sm text-gray-800 transition-all duration-300 ease-in-out">Profile</span>
+                <div class="flex items-center w-full justify-end space-x-2">
+                    <img src="/images/Group 85 (2).png" class="w-8 h-8" alt="">
                 </div>
-                <div class="flex items-center space-x-2">
-                    <img src="/images/Group 85 (3).png" alt="">
-                    <span class="opacity-0 -translate-x-2 cursor-pointer text-sm text-gray-800 transition-all duration-300 ease-in-out">Settings</span>
+                <div class="flex items-center w-full justify-end space-x-2">
+                    <img src="/images/Group 85 (3).png" class="w-8 h-8" alt="">
                 </div>
             </div>
-            <div id="iconSection" class="bottom-icon">
-                <div class="flex items-center space-x-2 pl-4 bottom-5">
-                    <img src="/images/Group 85 (4).png" alt="">
-                    <span class="opacity-0 -translate-x-2 cursor-pointer text-sm text-gray-800 transition-all duration-300 ease-in-out">Settings</span>
+            <div id="iconSection" class="flex flex-col items-center justify-end bottom-icon">
+                <div class="flex items-center w-full justify-end space-x-2 pl-4 bottom-5">
+                    <img src="/images/Group 85 (4).png" class="w-8 h-8" alt="">
                 </div>
             </div>
         </div>
         <!-- Main Content -->
-        <div class="flex p-4 bg-white w-[90%] h-[90%] m-auto mt-16 mx-16 justify-between rounded-md shadow-lg ">
+        <div class="flex p-4 bg-white w-[90%] h-[90%] m-auto mt-16 mx-16 justify-between rounded-2xl shadow-lg "  style="box-shadow: 0 -1px 2px #919EAB33, 0 12px 24px -14px #919EAB1F;"
+        >
             <div class="flex flex-col flex-1 p-6 justify-between"> 
-                <div>
+                <div class="overflow-x-auto">
                     <div class="flex items-center justify-between bg-white p-2  mb-8">
                         <div class="flex flex-col">
-                            <span class="text-gray-800 font-bold">List of Agents</span>
-                            <span class="text-gray-600 text-sm">Your Assigned Agents</span>
+                            <span class="text-[#1F2937] font-semibold text-[20.36px]">List of Agents</span>
+                            <span class="text-[#1F2937] text-sm font-normal text-[12.73px] leading-[21px]">Your Assigned Agents</span>
                         </div>
-                        <div class="flex items-center space-x-4">
-                            <div class="relative">
+                        <div class="relative flex items-center justify-between">
+                            <div class="relative w-[73%] rounded-[6px]">
                                 <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M16.65 16.65A7.5 7.5 0 1116.65 2a7.5 7.5 0 010 14.5z" />
@@ -88,35 +82,36 @@
                                 <input
                                     type="text"
                                     placeholder="Search calls"
-                                    class="pl-10 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    class="w-full font-normal text-[#62697366] pl-10 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 />
                             </div>
-                            <button class="flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition space-x-2">
+                            <button class="flex items-center w-[24%] px-4 py-2 bg-[#4F46E5] text-white rounded-[6px] hover:bg-blue-700 transition space-x-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707L15 13.414V19a1 1 0 01-1.447.894l-4-2A1 1 0 019 17v-3.586L3.293 6.707A1 1 0 013 6V4z" />
                                 </svg>
-                                <span>Filter</span>
+                                <span class="text[13.44px] font-semibold" >Filter</span>
                             </button>
                         </div>
                     </div>
                     <!-- Table -->
                     <div class="bg-white overflow-hidden">
                         <table class="w-full text-left border-collapse">
-                            <thead class="bg-[rgba(79,70,229,0.07)]">
-                                <tr>
-                                    <th class="px-4 py-2 font-medium">#</th>
-                                    <th class="px-4 py-2 font-medium">Agent ID</th>
-                                    <th class="px-4 py-2 font-medium">Name</th>
-                                    <th class="px-4 py-2 font-medium">Email</th>
-                                    <th class="px-4 py-2 font-medium">Overall Score</th>
-                                    <th class="px-4 py-2 font-medium"></th>
+                            <thead >
+                                <tr class="bg-[#4F46E512] rounded-t-md h-[59px]">
+                                    <th class="px-4 py-2 font-medium text-gray-600 text-sm leading-5">#</th>
+                                    <th class="px-4 py-2 font-medium text-gray-600 text-sm leading-5">Agent ID</th>
+                                    <th class="px-4 py-2 font-medium text-gray-600 text-sm leading-5">Name</th>
+                                    <th class="px-4 py-2 font-medium text-gray-600 text-sm leading-5">Email</th>
+                                    <th class="px-4 py-2 font-medium text-gray-600 text-sm leading-5">Overall Score</th>
+                                    <th class="px-4 py-2 font-medium text-gray-600 text-sm leading-5"></th>
                                 </tr>
-                            </thead>                       <tbody>
-                                <tr class="hover:bg-gray-100 cursor-pointer" onclick="window.location.href='Agent-Details.html'">
-                                    <td class="px-4 py-2">1</td>
-                                    <td class="px-4 py-2 font-bold">8866175</td>
-                                    <td class="px-4 py-2">Kafui Yevu</td>
-                                    <td class="px-4 py-2">kafiyevu@biggs.com</td>
+                            </thead>                       
+                            <tbody>
+                                <tr class="hover:bg-gray-100 cursor-pointer h-[59px]" onclick="window.location.href='Agent-Details.html'">
+                                    <td class="px-4 py-2 text-[15.5px] text-[#1F2937] leading-5">1</td>
+                                    <td class="px-4 py-2 text-[15.5px] text-[#1F2937] leading-5 font-bold">8866175</td>
+                                    <td class="px-4 py-2 text-[15.5px] text-[#1F2937] leading-5">Kafui Yevu</td>
+                                    <td class="px-4 py-2 text-[15.5px] text-[#1F2937] leading-5">kafiyevu@biggs.com</td>
                                     <td class="flex flex-row gap-1 w-16 px-2 mt-2 text-[rgba(79,70,229)] font-semibold bg-[rgba(79,70,229,0.10)] rounded-sm p-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none">
                                             <circle cx="12" cy="12" r="10" fill="#4F46E5" />
@@ -126,17 +121,17 @@
                                     </td>
                                     <td class="px-4 py-2 text-center">
                                         <button>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#1C274C]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v.01M12 12v.01M12 18v.01" />
                                             </svg>
                                         </button>
                                     </td>
                                 </tr>
-                                <tr class="hover:bg-gray-100 cursor-pointer" onclick="window.location.href='Agent-Details.html'">
-                                    <td class="px-4 py-2">2</td>
-                                    <td class="px-4 py-2 font-bold">8345695</td>
-                                    <td class="px-4 py-2">Kwame Mensah</td>
-                                    <td class="px-4 py-2">kwamemensag@biggs.com</td>
+                                <tr class="hover:bg-gray-100 cursor-pointer h-[59px]" onclick="window.location.href='Agent-Details.html'">
+                                    <td class="px-4 py-2 text-[15.5px] text-[#1F2937] leading-5">2</td>
+                                    <td class="px-4 py-2 text-[15.5px] text-[#1F2937] leading-5 font-bold">8345695</td>
+                                    <td class="px-4 py-2 text-[15.5px] text-[#1F2937] leading-5">Kwame Mensah</td>
+                                    <td class="px-4 py-2 text-[15.5px] text-[#1F2937] leading-5">kwamemensag@biggs.com</td>
                                     <td class="flex flex-row gap-1 w-16 px-2 mt-2 text-[rgba(79,70,229)] font-semibold bg-[rgba(79,70,229,0.10)] rounded-sm p-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none">
                                             <circle cx="12" cy="12" r="10" fill="#4F46E5" />
@@ -152,11 +147,11 @@
                                         </button>
                                     </td>
                                 </tr>
-                                <tr class="hover:bg-gray-100 cursor-pointer" onclick="window.location.href='Agent-Details.html'">
-                                    <td class="px-4 py-2">2</td>
-                                    <td class="px-4 py-2 font-bold">8345695</td>
-                                    <td class="px-4 py-2">Kwame Mensah</td>
-                                    <td class="px-4 py-2">kwamemensag@biggs.com</td>
+                                <tr class="hover:bg-gray-100 cursor-pointer h-[59px]" onclick="window.location.href='Agent-Details.html'">
+                                    <td class="px-4 py-2 text-[15.5px] text-[#1F2937] leading-5">3</td>
+                                    <td class="px-4 py-2 text-[15.5px] text-[#1F2937] leading-5 font-bold">8345695</td>
+                                    <td class="px-4 py-2 text-[15.5px] text-[#1F2937] leading-5">Kwame Mensah</td>
+                                    <td class="px-4 py-2 text-[15.5px] text-[#1F2937] leading-5">kwamemensag@biggs.com</td>
                                     <td class="flex flex-row gap-1 w-16 px-2 mt-2 text-[rgba(79,70,229)] font-semibold bg-[rgba(79,70,229,0.10)] rounded-sm p-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none">
                                             <circle cx="12" cy="12" r="10" fill="#4F46E5" />
@@ -177,23 +172,25 @@
                     </div>
                 </div>           
                 <!-- Pagination -->
-                <div class="flex justify-end items-center mb-2 mr-4">
-                    <button class="px-2 py-2 text-gray-400 rounded hover:bg-gray-300 transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div class="flex justify-end w[202px] h-[44px] items-center mt-24 mb-4 bottom-0">
+                    <button class="px-2 py-2 text-[#6269734D] rounded hover:bg-gray-300 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5  text-[#6269734D]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                         </svg>
                     </button>
-                    <div class="flex space-x-2 mx-4">
+
+                    <div class="flex">
                         <button class="px-3 py-1 bg-blue-700 text-white rounded hover:bg-blue-700 transition">
                             1
                         </button>
-                        <button class="px-3 py-1 text-gray-600 rounded hover:bg-gray-300 transition">
+                        <button class="px-3 py-1 text-gray-600 text-[#626973] rounded hover:bg-gray-300 transition">
                             2
                         </button>
-                        <button class="px-3 py-1 text-gray-600 rounded hover:bg-gray-300 transition">
+                        <button class="px-3 py-1 text-gray-600 text-[#626973] rounded hover:bg-gray-300 transition">
                             3
                         </button>
                     </div>
+
                     <button class="px-2 py-2 text-gray-600 rounded hover:bg-gray-300 transition">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />

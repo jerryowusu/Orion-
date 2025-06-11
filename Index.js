@@ -1,16 +1,16 @@
-    const toggleButton = document.getElementById('toggleSidebar');
-    const iconSection = document.getElementById('iconSection');
-    const sidebar = document.getElementById('sidebar');
+    // const toggleButton = document.getElementById('toggleSidebar');
+    // const iconSection = document.getElementById('iconSection');
+    // const sidebar = document.getElementById('sidebar');
     
-    toggleButton.addEventListener('click', () => {
-        const spans = iconSection.querySelectorAll('span');
-        spans.forEach(span => {
-            span.classList.toggle('opacity-0');
-            span.classList.toggle('-translate-x-2');
-        });
+    // toggleButton.addEventListener('click', () => {
+    //     const spans = iconSection.querySelectorAll('span');
+    //     spans.forEach(span => {
+    //         span.classList.toggle('opacity-0');
+    //         span.classList.toggle('-translate-x-2');
+    //     });
 
-        sidebar.classList.toggle('w-36');
-    });
+    //     sidebar.classList.toggle('w-36');
+    // });
     
 
 

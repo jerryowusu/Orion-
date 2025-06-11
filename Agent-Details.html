@@ -6,24 +6,21 @@
   <title>Agent List</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100  flex items-center justify-end">
+<body class="bg-gray-100 flex items-center justify-end">
 
   <div class="bg-gray-100 top-0 w-full">
-    <div class="topbar h-24 bg-white p-4 md:p-8">
-        <div class="flex items-center justify-between flex-wrap">
+    <div class="items-center w-full h-24 bg-white p-4 md:p-8">
+        <div class="flex justify-between flex-wrap">
             <div class="flex items-center space-x-4 md:space-x-12">
                 <button id="toggleSidebar" class="mr-4 md:mr-8">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                    </svg>
+                    <img src="/images/Component 3 (1).png" class="w-8 h-8" alt="">
                 </button>
-                <a href="Agent.html">
-                    <img src="/images/logo.png" alt="Logo" class="h-12">
+                <a class="left-40" href="index.html">
+                    <img src="/images/logo.png" alt="Logo" class="h-12 w-34">
                 </a>
             </div>
-    
             <div class="flex items-center space-x-4 md:space-x-8 mt-4 md:mt-0">
-                <a href="#" class="text-[rgba(79,70,229)] font-bold text-sm rounded-full p-1 px-3 bg-[rgba(79,70,229,0.2)]">Supervisor</a>
+                <p class="flex items-center justify-center text-[rgba(79,70,229)] w-26 h-7 font-bold text-sm rounded-full p-2 bg-[rgba(79,70,229,0.2)]">Supervisor</p>
                 <button>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6 6 0 10-12 0v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
@@ -31,60 +28,46 @@
                 </button>
                 <div class="flex left-align space-x-2">
                     <div class="text-left">
-                        <p class="font-medium text-gray-800">William Adu</p>
-                        <p class="font-light text-gray-600">williamadu@biggs.com</p>
+                        <p class="font-medium text-gray-800 text-base">William Adu</p>
+                        <p class="font-light text-gray-600 text-xs">williamadu@biggs.com</p>
                     </div>
                 </div>
                 <button class="font-bold">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v.01M12 12v.01M12 18v.01" />
                     </svg>
                 </button>
             </div>
         </div>
     </div>
-   
     <div class="flex w-full h-screen">
-        <!-- Sidebar -->
-        <div id="sidebar" class="flex flex-col justify-between bg-white text-gray-800 w-[85px] left-0 min-h-[600px] pt-12 transition-all duration-300 ease-in-out">
-            <!-- Icons Section -->
-            <div id="iconSection" class="space-y-2 pl-4">
-                <div class="flex items-center space-x-2">
-                    <img src="/images/Group 85.png" alt="">
-                    <span class="opacity-0 -translate-x-2 cursor-pointer text-sm text-gray-800 transition-all duration-300 ease-in-out">Dashboard</span>
-
+        <div id="sidebar" class="flex flex-col items-center justify-between bg-white text-gray-800 w-[85px] left-0 min-h-[600px] pt-14 pb-4 transition-all duration-300 ease-in-out">
+            <div id="iconSection" class="flex flex-col items-center justify-end gap-4">
+                <div class="flex items-center w-full justify-end space-x-2">
+                    <img src="/images/Group 85.png" class="w-8 h-8" alt="">
                 </div>
-        
-                <div class="flex items-center space-x-2">
-                    <img src="/images/Group 85 (1).png" alt="">
-                    <span class="opacity-0 -translate-x-2 cursor-pointer text-sm text-gray-800 transition-all duration-300 ease-in-out">Agents</span>
+                <div class="flex items-center w-full justify-end space-x-2">
+                    <img src="/images/Group 85 (1).png" class="w-8 h-8" alt="">
                 </div>
-        
-                <div class="flex items-center space-x-2">
-                    <img src="/images/Group 85 (2).png" alt="">
-                    <span class="opacity-0 -translate-x-2 cursor-pointer text-sm text-gray-800 transition-all duration-300 ease-in-out">Profile</span>
+                <div class="flex items-center w-full justify-end space-x-2">
+                    <img src="/images/Group 85 (2).png" class="w-8 h-8" alt="">
                 </div>
-        
-                <div class="flex items-center space-x-2">
-                    <img src="/images/Group 85 (3).png" alt="">
-                    <span class="opacity-0 -translate-x-2 cursor-pointer text-sm text-gray-800 transition-all duration-300 ease-in-out">Settings</span>
+                <div class="flex items-center w-full justify-end space-x-2">
+                    <img src="/images/Group 85 (3).png" class="w-8 h-8" alt="">
                 </div>
-                
             </div>
-            <div id="iconSection" class="bottom-icon">
-                <div class="flex items-center space-x-2 pl-4 bottom-5">
-                    <img src="/images/Group 85 (4).png" alt="">
-                    <span class="opacity-0 -translate-x-2 cursor-pointer text-sm text-gray-800 transition-all duration-300 ease-in-out">Settings</span>
+            <div id="iconSection" class="flex flex-col items-center justify-end bottom-icon">
+                <div class="flex items-center w-full justify-end space-x-2 pl-4 bottom-5">
+                    <img src="/images/Group 85 (4).png" class="w-8 h-8" alt="">
                 </div>
             </div>
         </div>
-    
         <!-- Main Content -->
-        <div class="flex-1 bg-gray-100 overflow-y-auto p-2 mx-2">
+        <div class="flex-1 bg-gray-100 overflow-y-auto p-2 mx-2" style="box-shadow: 0 -1px 2px #919EAB33, 0 12px 24px -14px #919EAB1F;">
 
             <div class="flex justify-between items-center w-[94%] m-auto mb-4 my-4 py-4">
-                <h1 class="text-lg font-semibold text-gray-800"> 
-                    <span class="text-blue-600" > Assigned Agents</span> 
+                <h1 class="text-[15.2px] font-semibold text-[#1F2937] w-[233px]"> 
+                    <span class="text-[#A3A1F4] text-[15.2px]" > Assigned Agents</span> 
                     &gt; 8866175
                 </h1>
             
@@ -108,56 +91,62 @@
 
             <div class="flex flex-col justify-between flex-1 p-6 ">
                 <div class="w-full  px-4">
-                    <div class="flex flex-col lg:flex-row gap-6 mb-16">
+
+                    <div class="flex flex-col lg:flex-row gap-6 mb-20 mt-6">
                         
-                        <div class="flex-1 space-y-4 my-auto justify-center">
+                        <div class="flex-1  my-auto justify-center gap-2">
                         <div class="flex flex-col">
-                            <span class="font-bold text-base md:text-lg">Kafui Yevu</span>
-                            <span class="font-semibold text-[#626973] text-sm md:text-base">Kafuiyevu@biggs.com</span>
+                            <span class="font-bold text-[#1F2937] text-[33.26px] leading-[100%] space-y-[1.49px]">Kafui Yevu</span>
+                            <span class="text-[#626973] font-medium text-[18px] leading-[34.16px] mb-[1.49px]">Kafuiyevu@biggs.com</span>
                         </div>
                         <div class="flex flex-col">
-                            <span class="font-light text-[#4F46E5] text-sm md:text-base">Agent ID</span>
-                            <span class="font-bold text-base md:text-lg">8866175</span>
+                            <span class="font-light text-[#4F46E5] text-[13px]">Agent ID</span>
+                            <span class="font-bold text-[21px]">8866175</span>
                         </div>
                         </div>
-                    
-                        <div class="flex-1 bg-[#4F46E5] text-white p-6 rounded-lg shadow-lg space-y-3 text-[#919EAB]">
-                        <div class="flex justify-between items-center">
-                            <div class="flex flex-col">
-                            <span class="font-bold text-base md:text-lg">Average Handle Time</span>
-                            <span class="font-light text-sm md:text-base">Average duration of your interaction</span>
+
+                        
+                        <!-- second blue part -->
+
+                        <div class="flex flex-col md:flex-row justify-between max-h-full w-full md:w-[956px] gap-6">
+                            <!-- Card 1 -->
+                            <div class="flex flex-col sm:flex-row flex-1 justify-between items-center bg-[#4F46E5] text-white p-6 rounded-lg shadow-lg space-y-4 sm:space-y-0 sm:space-x-4 text-[#919EAB]">
+                              <div class="flex flex-col justify-between gap-2 sm:gap-4">
+                                <div class="flex flex-col">
+                                  <span class="font-bold text-base md:text-lg">Average Handle Time</span>
+                                  <span class="font-light text-sm">Average duration of your interaction</span>
+                                </div>
+                                <span class="font-semibold text-[18px] md:text-[20px]">
+                                  <span class="font-bold text-[28px] md:text-[36px]">8</span> min
+                                  <span class="font-bold text-[28px] md:text-[36px] ml-2 md:ml-4">24</span> sec
+                                </span>
+                              </div>
+                              <div class="relative mt-24">
+                                <img src="/images/Frame 427318294.png" alt="" class="mt-0 sm:-mt-16 top-0 w-11 h-11"/>
                             </div>
-                            <img src="/images/Frame 427318294.png" alt="" class="w-12 h-12 md:w-14 md:h-14 object-contain" />
-                        </div>
-                        <div class="flex">
-                            <span class="font-semibold"> 
-                                <span class="font-bold text-xl md:text-2xl">8</span> min 
-                                <span class="font-bold text-xl md:text-2xl ml-4">24</span> sec
-                            </span>
-                        </div>
-                        </div>
-                    
-                    <div class="relative flex-1 bg-[#4F46E5] text-white p-6 rounded-lg shadow-lg text-[#919EAB] overflow-visible">
-                        <div class="flex flex-row justify-between items-center mb-4">
-                            <div class="flex flex-col">
-                                <span class="font-bold text-base md:text-lg">Overall Performance</span>
-                                <span class="font-light text-sm md:text-base">Average of Score</span>
                             </div>
-                            <img src="/images/Group-70.png"
-                                        alt=""
-                                        class="w-2/5 md:w-1/3 lg:w-2/5 object-contain" style="margin-top: 0;" />
-                        </div>
-                    
+                          
+                            <!-- Card 2 -->
+                            <div class="flex flex-col flex-1 bg-[#4F46E5] text-white p-6 rounded-lg shadow-lg space-y-4 text-[#919EAB]">
+                              <div class="flex flex-col sm:flex-row justify-between items-center">
+                                <div class="flex flex-col mb-4 sm:mb-0">
+                                  <span class="font-bold text-base md:text-lg">Overall Performance</span>
+                                  <span class="font-light text-sm">Average of Score</span>
+                                </div>
+                                <img src="/images/Group-70.png" alt="" class="w-full sm:w-2/5 object-contain"/>
+                              </div>
+                            </div>
+                          </div>
+                          
                     </div>
-                    </div>
-                    <div class="flex items-center justify-between bg-white p-4  mb-6">
+                    <div class="flex items-center justify-between bg-white pb-2  mb-6">
                         <div class="flex flex-col">
-                            <span class="text-gray-800 font-bold">Agent Call History</span>
-                            <span class="text-gray-600 text-sm">View all <strong>150</strong> call history of <strong>4 May 2025</strong> </span>
+                            <span class="text-[#1F2937] text-[20px] font-semibold">Agent Call History</span>
+                            <span class="text-[#1F2937] text-[12.4px]">View all <strong>150</strong> call history of <strong>4 May 2025</strong> </span>
                         </div>
                 
-                        <div class="flex items-center space-x-4">
-                            <div class="relative">
+                        <div class="relative flex items-center justify-between">
+                            <div class="relative w-[73%] rounded-[6px]">
                                 <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M16.65 16.65A7.5 7.5 0 1116.65 2a7.5 7.5 0 010 14.5z" />
@@ -166,41 +155,41 @@
                                 <input
                                     type="text"
                                     placeholder="Search calls"
-                                    class="pl-10 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    class="w-full font-normal text-[#62697366] pl-10 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500  border border-[#D9D9D9]"
                                 />
                             </div>
-                        
-                            <button class="flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition space-x-2">
+                            <button class="flex items-center w-[24%] px-4 py-2 bg-[#4F46E5] text-white rounded-[6px] hover:bg-blue-700 transition space-x-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707L15 13.414V19a1 1 0 01-1.447.894l-4-2A1 1 0 019 17v-3.586L3.293 6.707A1 1 0 013 6V4z" />
                                 </svg>
-                                <span>Filter</span>
+                                <span class="text[13.44px] font-semibold" >Filter</span>
                             </button>
                         </div>
                     </div>
+
                     <div class="bg-white overflow-hidden">
                         <table class="w-full text-left border-collapse">
-                            <thead class="bg-[rgba(79,70,229,0.07)]">
-                                <tr>
-                                    <th class="border px-4 py-2">#</th>
-                                    <th class="border px-4 py-2">Call ID</th>
-                                    <th class="border px-4 py-2">Time</th>
-                                    <th class="border px-4 py-2">Number</th>
-                                    <th class="border px-4 py-2">Language</th>
-                                    <th class="border px-4 py-2">Qualification</th>
-                                    <th class="border px-4 py-2">Score</th>
-                                    <th class="border px-4 py-2"></th>
+                            <thead >
+                                <tr class="bg-[#4F46E512] rounded-t-md h-[59px] " style="border-bottom: 0.26px solid rgba(79, 70, 229, 0.07)">
+                                    <th class="px-4 py-2 font-medium text-sm leading-[16.5px] text-[#626973]">#</th>
+                                    <th class="px-4 py-2 font-medium text-sm leading-[16.5px] text-[#626973]">Call ID</th>
+                                    <th class="px-4 py-2 font-medium text-sm leading-[16.5px] text-[#626973]">Time</th>
+                                    <th class="px-4 py-2 font-medium text-sm leading-[16.5px] text-[#626973]">Number</th>
+                                    <th class="px-4 py-2 font-medium text-sm leading-[16.5px] text-[#626973]">Language</th>
+                                    <th class="px-4 py-2 font-medium text-sm leading-[16.5px] text-[#626973]">Qualification</th>
+                                    <th class="px-4 py-2 font-medium text-sm leading-[16.5px] text-[#626973]">Score</th>
+                                    <th class="px-4 py-2 font-medium text-sm leading-[16.5px] text-[#626973]"></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <!-- Row 1 -->
-                                <tr class="odd:bg-white even:bg-[rgba(235,234,253,0.7)]" >
-                                    <td class="px-4 py-2">1</td>
-                                    <td class="px-4 py-2">12345 <span class="block text-[#A3A1F4]">00:00:00</span></td>
-                                    <td class="px-4 py-2">10:30 AM</td>
-                                    <td class="px-4 py-2">******5678</td>
-                                    <td class="px-4 py-2">1013</td>
-                                    <td class="px-4 py-2">1013</td>
+                                <tr class="odd:bg-white even:bg-[#4F46E512] h-[59px] border-bottom" >
+                                    <td class="px-4 py-2 text-sm">1</td>
+                                    <td class="px-4 py-2 font-semibold font-[15.56px] text-[#1f2937]">8866175 <span class="font-normal text-[13.62px] block text-[#A3A1F4]">00:00:00</span></td>
+                                    <td class="px-4 py-2 text-[15.56px] text-[#1f2937]">10:30 AM</td>
+                                    <td class="px-4 py-2 text-[15.56px] text-[#1f2937]">******5678</td>
+                                    <td class="px-4 py-2 text-[15.56px] text-[#1f2937]">1013</td>
+                                    <td class="px-4 py-2 text-[15.56px] text-[#1f2937]">1013</td>
                                     <td class="flex flex-row gap-1 w-16 px-2 mt-2 text-[#10B981] font-semibold bg-[rgba(183,234,217,0.4)] rounded-sm p-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none">
                                             <circle cx="12" cy="12" r="10" fill="#10B981" />
@@ -214,13 +203,13 @@
                                         </svg>
                                     </td>
                                 </tr>
-                                <tr class="odd:bg-white even:bg-[rgba(235,234,253,0.7)]" >
-                                    <td class="px-4 py-2">2</td>
-                                    <td class="px-4 py-2">67890 <span class="block text-[#A3A1F4]">00:00:00</span></td>
-                                    <td class="px-4 py-2">11:15 AM</td>
-                                    <td class="px-4 py-2">******1234</td>
-                                    <td class="px-4 py-2">1013</td>
-                                    <td class="px-4 py-2">1013</td>
+                                <tr class="odd:bg-white even:bg-[#4F46E512] h-[59px]" >
+                                    <td class="px-4 py-2 text-sm">2</td>
+                                    <td class="px-4 py-2 font-semibold font-[15.56px] text-[#1f2937]">8866175 <span class="font-normal text-[13.62px] block text-[#A3A1F4]">00:00:00</span></td>
+                                    <td class="px-4 py-2 text-[15.56px] text-[#1f2937]">11:15 AM</td>
+                                    <td class="px-4 py-2 text-[15.56px] text-[#1f2937]">******1234</td>
+                                    <td class="px-4 py-2 text-[15.56px] text-[#1f2937]">1013</td>
+                                    <td class="px-4 py-2 text-[15.56px] text-[#1f2937]">1013</td>
                                     <td class="flex flex-row gap-1 w-16 px-2 mt-2 text-[#10B981] font-semibold bg-[rgba(183,234,217,0.4)] rounded-sm p-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none">
                                             <circle cx="12" cy="12" r="10" fill="#10B981" />
@@ -234,13 +223,13 @@
                                         </svg>
                                     </td>
                                 </tr>
-                                <tr class="odd:bg-white even:bg-[rgba(235,234,253,0.7)]" >
-                                    <td class="px-4 py-2">2</td>
-                                    <td class="px-4 py-2">67890 <span class="block text-[#A3A1F4]">00:00:00</span></td>
-                                    <td class="px-4 py-2">11:15 AM</td>
-                                    <td class="px-4 py-2">******1234</td>
-                                    <td class="px-4 py-2">1013</td>
-                                    <td class="px-4 py-2">1013</td>
+                                <tr class="odd:bg-white even:bg-[#4F46E512] h-[59px]" >
+                                    <td class="px-4 py-2 text-sm text-[#1f2937]">3</td>
+                                    <td class="px-4 py-2 font-semibold font-[15.56px] text-[#1f2937]">8866175 <span class="font-normal text-[13.62px] block text-[#A3A1F4]">00:00:00</span></td>
+                                    <td class="px-4 py-2 text-[15.56px] text-[#1f2937]">11:15 AM</td>
+                                    <td class="px-4 py-2 text-[15.56px] text-[#1f2937]">******1234</td>
+                                    <td class="px-4 py-2 text-[15.56px] text-[#1f2937]">1013</td>
+                                    <td class="px-4 py-2 text-[15.56px] text-[#1f2937]">1013</td>
                                     <td class="flex flex-row gap-1 w-16 px-2 mt-2 text-[#EF4444] font-semibold bg-[#FBE7E9] rounded-sm p-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none">
                                             <circle cx="12" cy="12" r="10" fill="#EF4444" />
@@ -258,21 +247,23 @@
                         </table>
                     </div>
                 </div>   
-                    <div class="flex justify-end items-center mt-24 mb-4 bottom-0">
-                        <button class="px-2 py-2 text-gray-400 rounded hover:bg-gray-300 transition">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+                <!-- pagination -->
+                    <div class="flex justify-end w[202px] h-[44px] items-center mt-24 mb-4 bottom-0">
+                        <button class="px-2 py-2 text-[#6269734D] rounded hover:bg-gray-300 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5  text-[#6269734D]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                             </svg>
                         </button>
 
-                        <div class="flex space-x-2 mx-4">
+                        <div class="flex">
                             <button class="px-3 py-1 bg-blue-700 text-white rounded hover:bg-blue-700 transition">
                                 1
                             </button>
-                            <button class="px-3 py-1 text-gray-600 rounded hover:bg-gray-300 transition">
+                            <button class="px-3 py-1 text-gray-600 text-[#626973] rounded hover:bg-gray-300 transition">
                                 2
                             </button>
-                            <button class="px-3 py-1 text-gray-600 rounded hover:bg-gray-300 transition">
+                            <button class="px-3 py-1 text-gray-600 text-[#626973] rounded hover:bg-gray-300 transition">
                                 3
                             </button>
                         </div>
@@ -286,10 +277,11 @@
             </div>
 
         </div>
+        </div>
+        </div>
+
+       
     </div>
-    
-   
-   
   </div>
 <script src="Index.js"></script>
 </body>
