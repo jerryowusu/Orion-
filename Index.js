@@ -52,7 +52,7 @@
   toggleButton.addEventListener('click', () => {
     const isCollapsed = sidebar.classList.contains('w-[85px]');
     sidebar.classList.toggle('w-[85px]');
-    sidebar.classList.toggle('w-40');
+    sidebar.classList.toggle('w-42');
 
     sidebarTexts.forEach(span => {
       if (isCollapsed) {
@@ -84,6 +84,13 @@
     activateMenuItem(0); 
   }
 
+
+  document.querySelectorAll('.menu-item').forEach(item => {
+    item.addEventListener('click', () => {
+      document.querySelectorAll('.menu-item').forEach(el => el.classList.remove('active'));
+      item.classList.add('active');
+    });
+  });
 
 const urlParams = new URLSearchParams(window.location.search);
 const agentId = urlParams.get('id');
