@@ -1,48 +1,3 @@
-
-// const toggleButton = document.getElementById('toggleSidebar');
-// const sidebar = document.getElementById('sidebar');
-// const menuTexts = document.querySelectorAll('.menu-text');
-
-// toggleButton.addEventListener('click', () => {
-//   const isCollapsed = sidebar.classList.contains('w-[85px]');
-
-//   sidebar.classList.toggle('w-[85px]');
-//   sidebar.classList.toggle('w-38');
-
-//   menuTexts.forEach(text => {
-//     if (isCollapsed) {
-//       text.classList.remove('opacity-0', '-translate-x-4');
-//       text.classList.add('opacity-100', 'translate-x-0');
-//     } else {
-//       text.classList.add('opacity-0', '-translate-x-4');
-//       text.classList.remove('opacity-100', 'translate-x-0');
-//     }
-//   });
-// });
-
-// const menuItems = document.querySelectorAll('.menu-item');
-// const indicator = document.getElementById('active-indicator');
-
-
-
-// menuItems.forEach(item => {
-//     item.addEventListener('click', () => {
-//         menuItems.forEach(i => i.classList.remove('active'));
-
-//         item.classList.add('active');
-
-//         const sidebarTop = document.getElementById('sidebar').getBoundingClientRect().top;
-//         const itemTop = item.getBoundingClientRect().top;
-//         const offset = itemTop - sidebarTop;
-
-//         indicator.style.top = `${offset}px`;
-//         indicator.style.height = `${item.offsetHeight}px`;
-
-//         localStorage.setItem('activeMenuIndex', index);
-//     });
-// });
-
-
   const toggleButton = document.getElementById('toggleSidebar');
   const sidebar = document.getElementById('sidebar');
   const menuItems = document.querySelectorAll('.menu-item');
@@ -52,7 +7,7 @@
   toggleButton.addEventListener('click', () => {
     const isCollapsed = sidebar.classList.contains('w-[85px]');
     sidebar.classList.toggle('w-[85px]');
-    sidebar.classList.toggle('w-42');
+    sidebar.classList.toggle('w-[12rem]');
 
     sidebarTexts.forEach(span => {
       if (isCollapsed) {

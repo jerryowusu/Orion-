@@ -48,15 +48,17 @@
 
 <body class="bg-gray-100  flex items-center justify-end">
 
-  <div class="bg-gray-100 top-0 w-full">
+<div class="bg-gray-100 top-0 w-full">
+    <!-- top bar  -->
     <div class="items-center full h-24 bg-white p-4 md:p-8 ">
         <div class="flex justify-between flex-wrap">
             <div class="flex items-center space-x-4 md:space-x-12">
                 <button id="toggleSidebar" class="mr-4 md:mr-8">
-                    <img src="images/Component 3 (1).png" class="w-8 h-8" alt="">
+                    <img src="images/openSideBar.svg" class="w-8 h-8" alt="">
                 </button>
-                <a class="left-40" href="index.html">
-                    <img src="images/logo.png" alt="Logo" class="h-12 w-34">
+                <a class="flex flex-row items-center justify-center gap-2 left-40" href="index.html">
+                    <img src="images/logo.svg" alt="Logo" class="h-31 w-31">
+                    <h1 class="font-bold text-[29.45px] leading-[100%] tracking-[0px]">Orion</h1>
                 </a>
             </div>
             <div class="flex items-center space-x-4 md:space-x-8 mt-4 md:mt-0">
@@ -84,9 +86,9 @@
     </div>
     <div class="flex w-full h-screen">
         <div id="active-indicator" class="absolute left-0 w-1 h-10 bg-[#4F46E5] rounded transition-all duration-300 mt-20"></div>
-        <div id="sidebar" class="flex flex-col bg-white text-gray-800 h-screen transition-all duration-300 ease-in-out w-[85px] overflow-hidden">
+        <div id="sidebar" class="flex flex-col bg-white text-gray-800 min-h-[900px] transition-all duration-300 ease-in-out w-[85px] overflow-hidden">
 
-            <div class="flex flex-col mt-14 px-6 gap-6"> 
+            <div class="flex flex-col mt-24 px-6 gap-6"> 
                 <div class="menu-item flex items-center space-x-3 cursor-pointer active">
                     <div class="icon-wrapper w-[42px] h-[42px] p-2 flex items-center justify-center rounded transition-all duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="transition-colors duration-300" viewBox="0 -0.5 25 25" fill="none">
@@ -137,7 +139,7 @@
 
         <div class="flex w-full h-screen">
         <!-- Main Content -->
-        <div class="flex p-4 bg-white w-[90%] h-[90%] m-auto mt-16 mx-16 justify-between rounded-2xl shadow-lg "  style="box-shadow: 0 -1px 2px #919EAB33, 0 12px 24px -14px #919EAB1F;"
+        <div class="flex p-4 bg-white w-[94%] h-[94%] m-auto mt-24 mx-16 justify-between rounded-2xl shadow-lg "  style="box-shadow: 0 -1px 2px #919EAB33, 0 12px 24px -14px #919EAB1F;"
         >
             <div class="flex flex-col flex-1 p-6 justify-between"> 
                 <div class="overflow-x-auto">
@@ -274,7 +276,8 @@
             </div>   
         </div>
     </div>
-  </div>
+    </div>
+</div>
 <script src="Index.js"></script>
 </body>
 </html>

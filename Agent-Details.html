@@ -49,14 +49,16 @@
 <body class="bg-gray-100 flex items-center justify-end">
 
   <div class="bg-gray-100 top-0 w-full">
-    <div class="items-center w-full h-24 bg-white p-4 md:p-8">
+    <!-- top bar  -->
+    <div class="items-center full h-24 bg-white p-4 md:p-8 ">
         <div class="flex justify-between flex-wrap">
             <div class="flex items-center space-x-4 md:space-x-12">
                 <button id="toggleSidebar" class="mr-4 md:mr-8">
-                    <img src="images/Component 3 (1).png" class="w-8 h-8" alt="">
+                    <img src="images/openSideBar.svg" class="w-8 h-8" alt="">
                 </button>
-                <a class="left-40" href="index.html">
-                    <img src="images/logo.png" alt="Logo" class="h-12 w-34">
+                <a class="flex flex-row items-center justify-center gap-2 left-40" href="index.html">
+                    <img src="images/logo.svg" alt="Logo" class="h-31 w-31">
+                    <h1 class="font-bold text-[29.45px] leading-[100%] tracking-[0px]">Orion</h1>
                 </a>
             </div>
             <div class="flex items-center space-x-4 md:space-x-8 mt-4 md:mt-0">
@@ -82,12 +84,13 @@
             </div>
         </div>
     </div>
+
     <div class="flex w-full h-screen">
         <!-- SIDEBAR -->
         <div id="active-indicator" class="absolute left-0 w-1 h-10 bg-[#4F46E5] rounded transition-all duration-300 mt-20"></div>
-        <div id="sidebar" class="flex flex-col bg-white text-gray-800 h-screen transition-all duration-300 ease-in-out w-[85px] overflow-hidden">
+        <div id="sidebar" class="flex flex-col bg-white text-gray-800 min-h-[900px] transition-all duration-300 ease-in-out w-[85px] overflow-hidden">
 
-            <div class="flex flex-col mt-12 px-6 gap-6"> 
+            <div class="flex flex-col mt-24 px-6 gap-6"> 
                 <div class="menu-item flex items-center space-x-3 cursor-pointer active">
                     <div class="icon-wrapper w-[42px] h-[42px] p-2 flex items-center justify-center rounded transition-all duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="transition-colors duration-300" viewBox="0 -0.5 25 25" fill="none">
@@ -136,34 +139,33 @@
             </div>
         </div>
 
+        <div class="flex flex-col w-full h-screen">
+
+            <!-- top content with date  -->
+        <div class="flex justify-between items-center mt-7 w-[93%] m-auto ">
+            <h1 class="text-[#1F2937] text-[15.2px] leading-[15.89px] mb-[0.69px] list-[0.69px]"> 
+                <span class="text-[#A3A1F4] text-[15.2px]" > Assigned Agents</span> 
+               <span class="px-1"> &gt;</span>  
+               <span>8866175</span> 
+            </h1>
+        
+            <div class="relative inline-block mr-6">
+                <button id="date-picker-button" class="flex items-center px-4 py-2 border rounded-md shadow-sm bg-white text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 4h10M5 11h14M5 15h14M5 19h14M3 7h18a2 2 0 012 2v12a2 2 0 01-2 2H3a2 2 0 01-2-2V9a2 2 0 012-2z" />
+                  </svg>
+                  <span id="selected-date">4 May 2025</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <input type="date" id="date-input" class="absolute left-0 top-0 opacity-0 w-full h-full cursor-pointer" style="pointer-events: none;">
+              </div>
+              
+        </div>
+
         <!-- Main Content -->
-        <div class="flex-1 bg-gray-100 overflow-y-auto p-2 mx-2" style="box-shadow: 0 -1px 2px #919EAB33, 0 12px 24px -14px #919EAB1F;">
-
-            <div class="flex justify-between items-center w-[94%] m-auto mb-4 my-4 py-4">
-                <h1 class="text-[#1F2937] text-[15.2px] leading-[15.89px] mb-[0.69px] list-[0.69px]"> 
-                    <span class="text-[#A3A1F4] text-[15.2px]" > Assigned Agents</span> 
-                   <span class="px-1"> &gt;</span>  
-                   <span>8866175</span> 
-                </h1>
-            
-                <div class="relative inline-block mr-6">
-                    <button id="date-picker-button" class="flex items-center px-4 py-2 border rounded-md shadow-sm bg-white text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 4h10M5 11h14M5 15h14M5 19h14M3 7h18a2 2 0 012 2v12a2 2 0 01-2 2H3a2 2 0 01-2-2V9a2 2 0 012-2z" />
-                      </svg>
-                      <span id="selected-date">4 May 2025</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </button>
-                    <input type="date" id="date-input" class="absolute left-0 top-0 opacity-0 w-full h-full cursor-pointer" style="pointer-events: none;">
-                  </div>
-                  
-            </div>
-
-
-        <div class="flex flex-col p-4 bg-white w-[95%] m-auto justify-between rounded-md shadow-lg ">
-
+        <div class="flex flex-col p-4 bg-white w-[94%] h-[94%] m-auto mt-7 mx-16 justify-between rounded-2xl shadow-lg "  style="box-shadow: 0 -1px 2px #919EAB33, 0 12px 24px -14px #919EAB1F;">
             <div class="flex flex-col justify-between flex-1 p-6">
                 <div class="w-full  px-4">
 
@@ -197,7 +199,7 @@
                                 </span>
                               </div>
                               <div class="relative mt-24">
-                                <img src="images/Frame 427318294.png" alt="" class="mt-0 sm:-mt-16 top-0 w-11 h-11"/>
+                                <img src="images/clock.svg" alt="" class="mt-0 sm:-mt-16 top-0 w-11 h-11"/>
                             </div>
                             </div>
                           
@@ -208,7 +210,7 @@
                                   <span class="font-bold text-base md:text-lg">Overall Performance</span>
                                   <span class="font-light text-sm">Average of Score</span>
                                 </div>
-                                <img src="images/Group-70.png" alt="" class="w-full sm:w-2/5 object-contain"/>
+                                <img src="images/overallPerformance.png" alt="" class="w-full sm:w-2/5 object-contain"/>
                               </div>
                             </div>
                           </div>
@@ -265,8 +267,8 @@
                                     <td class="px-4 py-2 text-[15.56px] text-[#1f2937]">******5678</td>
                                     <td class="px-4 py-2 text-[15.56px] text-[#1f2937]">1013</td>
                                     <td class="px-4 py-2 text-[15.56px] text-[#1f2937]">1013</td>
-                                    <td class="flex flex-row justify-center items-center gap-1 w-16 px-2 mt-2 text-[#10B981] font-semibold bg-[rgba(183,234,217,0.4)] rounded-[6px] p-1">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none">
+                                    <td class="flex flex-row justify-center items-center gap-1 w-[74px] h-[35px] px-2 mt-2 text-[#10B981] font-semibold bg-[rgba(183,234,217,0.4)] rounded-[6px] p-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none">
                                             <circle cx="12" cy="12" r="10" fill="#10B981" />
                                             <path d="M7 12.5L10.5 16L17 9.5" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
@@ -285,8 +287,8 @@
                                     <td class="px-4 py-2 text-[15.56px] text-[#1f2937]">******1234</td>
                                     <td class="px-4 py-2 text-[15.56px] text-[#1f2937]">1013</td>
                                     <td class="px-4 py-2 text-[15.56px] text-[#1f2937]">1013</td>
-                                    <td class="flex flex-row justify-center items-center gap-1 w-16 px-2 mt-2 text-[#10B981] font-semibold bg-[rgba(183,234,217,0.4)] rounded-[6px] p-1">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none">
+                                    <td class="flex flex-row justify-center items-center gap-1 w-[74px] h-[35px] px-2 mt-2 text-[#10B981] font-semibold bg-[rgba(183,234,217,0.4)] rounded-[6px] p-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none">
                                             <circle cx="12" cy="12" r="10" fill="#10B981" />
                                             <path d="M7 12.5L10.5 16L17 9.5" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
@@ -305,8 +307,8 @@
                                     <td class="px-4 py-2 text-[15.56px] text-[#1f2937]">******1234</td>
                                     <td class="px-4 py-2 text-[15.56px] text-[#1f2937]">1013</td>
                                     <td class="px-4 py-2 text-[15.56px] text-[#1f2937]">1013</td>
-                                    <td class="flex flex-row justify-center items-center gap-1 w-16 px-2 mt-2 text-[#EF4444] font-semibold bg-[#FBE7E9] rounded-[6px] p-1">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none">
+                                    <td class="flex flex-row justify-center items-center gap-1 w-[74px] h-[35px] px-2 mt-2 text-[#EF4444] font-semibold bg-[#FBE7E9] rounded-[6px] p-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none">
                                             <circle cx="12" cy="12" r="10" fill="#EF4444" />
                                             <path d="M7 12.5L10.5 16L17 9.5" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
@@ -350,8 +352,6 @@
                         </button>
                     </div>
             </div>
-
-        </div>
         </div>
         </div>
 
