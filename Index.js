@@ -71,3 +71,8 @@ dateInput.addEventListener('change', (event) => {
   selectedDate.textContent = date.toLocaleDateString('en-US', options);
 });
 
+
+// scroll buttons for menu items 
+  const scrollContainer = document.getElementById('menuScroll');
+  document.getElementById('scrollLeft').onclick = () => scrollContainer.scrollBy({ left: -150, behavior: 'smooth' });
+  document.getElementById('scrollRight').onclick = () => scrollContainer.scrollBy({ left: 150, behavior: 'smooth' });
