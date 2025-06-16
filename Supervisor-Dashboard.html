@@ -141,26 +141,26 @@
 
         <div class="flex flex-col w-full h-screen">
 
-            <!-- top content with date  -->
+          <!-- top content with date  -->
         <div class="flex justify-between items-center h-[42px] mt-10 mb-4 w-[93%] m-auto ">
             <h1 class="flex justify-between items-center text-[#1F2937] text-[15.2px] leading-[15.89px] mb-[0.69px] list-[0.69px]"> 
                 <span class="text-[#A3A1F4] text-[15.2px]" > Assigned Agents</span> 
-               <span class="px-1"> <img src="images/right-arrow-blue.svg" alt=""> </span>  
-               <span class="text-[#A3A1F4] text-[15.2px]" > 8866175</span> 
-               <span class="px-1"> <img src="images/right-arrow-blue.svg" alt=""> </span>  
-               <span>Call Details</span> 
+                <span class="px-1"> <img src="images/right-arrow-blue.svg" alt=""> </span>  
+                <span class="text-[#A3A1F4] text-[15.2px]" > 8866175</span> 
+                <span class="px-1"> <img src="images/right-arrow-blue.svg" alt=""> </span>  
+                <span>Call Details</span> 
             </h1>
         </div>
 
         <!-- Main Content -->
-        <div class="flex flex-col p-4 h-[90%] m-auto mt-7 w-full justify-between " >
-            <div class="flex flex-col justify-between p-6 gap-6">
+        <div class="flex flex-col p-4 m-auto w-[98%] -mt-2 justify-between" >
+            <div class="flex flex-col justify-between p-6 gap-8">
             
 
-                <div class="max-w-7xl mx-auto w-full bg-white">
-                    <div class="flex flex-col lg:flex-row gap-6 mb-10 mt-6">
+              <!-- Call Performance Section -->
+                <div class="max-w-9xl mx-auto w-full ">
+                    <div class="flex flex-col justify-between lg:flex-row gap-6">
                       
-                      <!-- Call Performance Section -->
                       <div class="w-full lg:w-1/3 bg-white p-6 rounded-xl shadow-sm flex flex-col gap-4">
                         <h2 class="text-2xl font-semibold text-[#1F2937]">Call Performance</h2>
                         
@@ -182,11 +182,13 @@
                         </div>
                       </div>
                 
+
+
                       <!-- Score + Metrics Section -->
-                      <div class="w-full lg:w-2/3 flex flex-col sm:flex-row sm:justify-center gap-6">
-                
+                      <div class="w-full flex flex-col md:flex-row  md:px-4 gap-4">
+
                         <!-- Score Card -->
-                        <div class="flex justify-between items-center bg-[#4F46E5] text-white p-6 rounded-xl shadow-md">
+                        <div class="w-full md:w-1/3 flex justify-between items-center bg-[#4F46E5] text-white p-6 rounded-xl shadow-md">
                           <div class="flex flex-col gap-1">
                             <span class="text-3xl font-semibold text-white">0.75</span>
                             <span class="text-lg text-white">Overall Score</span>
@@ -197,9 +199,9 @@
                           </div>
                           <img src="images/supervisor-clock.svg" alt="Clock" class="w-16 h-16" />
                         </div>
-                
+
                         <!-- Key Metrics Card -->
-                        <div class="bg-[#4F46E5] p-6 rounded-xl text-white shadow-md">
+                        <div class="w-full md:w-2/3 justify-between items-center bg-[#4F46E5] p-6 rounded-xl text-white shadow-md">
                           <div class="flex justify-between items-start md:items-center gap-4 mb-6">
                             <h3 class="text-lg font-medium">Key Metrics</h3>
                             <div class="flex flex-col sm:flex-row gap-2 sm:gap-4">
@@ -212,9 +214,9 @@
                               </button>
                             </div>
                           </div>
-                
+
                           <!-- Metric Items -->
-                          <div class="flex flex-wrap gap-4">
+                          <div class="flex justify-between flex-wrap gap-4">
                             <!-- Metric Card -->
                             <div class="flex items-center gap-4 bg-[#4F46E5] w-full sm:w-auto">
                               <img src="images/greetings.svg" alt="Greetings" class="w-6 h-6" />
@@ -227,7 +229,7 @@
                               </div>
                               <img src="images/green-mark.svg" alt="Passed" class="w-6 h-6 ml-2" />
                             </div>
-                
+
                             <!-- Metric Card -->
                             <div class="flex items-center gap-4 bg-[#4F46E5] w-full sm:w-auto">
                               <img src="images/empathy.svg" alt="Empathy" class="w-6 h-6" />
@@ -240,7 +242,7 @@
                               </div>
                               <img src="images/green-mark.svg" alt="Passed" class="w-6 h-6 ml-2" />
                             </div>
-                
+
                             <!-- Metric Card -->
                             <div class="flex items-center gap-4 bg-[#4F46E5] w-full sm:w-auto">
                               <img src="images/pace.svg" alt="Pace" class="w-6 h-6" />
@@ -255,14 +257,15 @@
                             </div>
                           </div>
                         </div>
-                
+
                       </div>
+
                     </div>
                   </div>
 
 
                 <!-- Scrollable Menu -->
-                    <div class="relative w-full">
+                    <div class="relative md:mx-4">
                         <div id="menuScroll" class="flex overflow-x-auto h-[58px] no-scrollbar scroll-smooth bg-[#F5F5FF] border-y border-[#F5F5FF]">
                           <div class="flex flex-nowrap">
                             <div class="flex items-center gap-3 border min-w-[175px] px-4 py-3 cursor-pointer hover:text-[#4F46E5]">
@@ -300,7 +303,7 @@
                   
 
                 <!-- Call Summary and Details -->
-                <div class="rounded-[16px] p-10 bg-white shadow-md space-y-12" style="box-shadow: 0 0 2px 0 #919EAB33, 0 12px 24px -4px #919EAB1F;">
+                <div class="rounded-[16px] p-10 sm:mx-10 m-auto bg-white shadow-md space-y-12" style="box-shadow: 0 0 2px 0 #919EAB33, 0 12px 24px -4px #919EAB1F;">
                     <div class="flex justify-between items-center flex-col gap-4 sm:flex-row border-b border-[#62697333] pb-5 ">
                       <div class="flex flex-col space-y-2 mt-6 gap-6">
                         <h2 class="text-[24px] font-semibold italic leading-[1.23px]">Call Summary</h2>
@@ -349,7 +352,7 @@
                 </div>
 
                 <!-- opening  -->
-                <div class="rounded-[16px] p-10 bg-white shadow-md space-y-12" style="box-shadow: 0 0 2px 0 #919EAB33, 0 12px 24px -4px #919EAB1F;">
+                <div class="rounded-[16px] p-10 sm:mx-10 m-auto bg-white shadow-md space-y-12" style="box-shadow: 0 0 2px 0 #919EAB33, 0 12px 24px -4px #919EAB1F;">
                     <div class="flex justify-between items-start border-b border-[#E5E7EB] pb-5">
                       <div class="flex flex-col space-y-2 mt-6 gap-6">
                         <h2 class="text-[24px] font-semibold italic leading-[1.23px]">Opening</h2>
@@ -399,7 +402,7 @@
                 </div>
 
                 <!-- listening skills  -->
-                <div class="rounded-[16px] p-10 bg-white shadow-md space-y-12" style="box-shadow: 0 0 2px 0 #919EAB33, 0 12px 24px -4px #919EAB1F;">
+                <div class="rounded-[16px] p-10 sm:mx-10 m-auto bg-white shadow-md space-y-12" style="box-shadow: 0 0 2px 0 #919EAB33, 0 12px 24px -4px #919EAB1F;">
                     <div class="flex justify-between items-start border-b border-[#E5E7EB] pb-5 ">
                       <div class="flex flex-col space-y-2 mt-6 gap-6">
                         <h2 class="text-[24px] font-semibold italic leading-[1.23px]">Listening Skills</h2>
@@ -474,7 +477,7 @@
                 </div>
 
                 <!-- profesionalism  -->
-                <div class="rounded-[16px] p-10 bg-white shadow-md space-y-12" style="box-shadow: 0 0 2px 0 #919EAB33, 0 12px 24px -4px #919EAB1F;">
+                <div class="rounded-[16px] py-6 px-10 sm:mx-10 m-auto bg-white shadow-md space-y-8" style="box-shadow: 0 0 2px 0 #919EAB33, 0 12px 24px -4px #919EAB1F;">
                     <div class="flex justify-between items-start">
                         <div class="flex flex-col space-y-2 mt-6 gap-6">
                             <h2 class="text-[24px] font-semibold italic leading-[1.23px]">Professionalism</h2>
@@ -489,7 +492,7 @@
                 </div>
 
                 <!-- Problem Solving  -->
-                <div class="rounded-[16px] p-10 bg-white shadow-md space-y-12" style="box-shadow: 0 0 2px 0 #919EAB33, 0 12px 24px -4px #919EAB1F;">
+                <div class="rounded-[16px] py-6 px-10 sm:mx-10 m-auto bg-white shadow-md space-y-8" style="box-shadow: 0 0 2px 0 #919EAB33, 0 12px 24px -4px #919EAB1F;">
                     <div class="flex justify-between items-start">
                         <div class="flex flex-col space-y-2 mt-6 gap-6">
                             <h2 class="text-[24px] font-semibold italic leading-[1.23px]">Problem Solving</h2>
@@ -505,7 +508,7 @@
 
 
                 <!-- Linguistic Abilities  -->
-                <div class="rounded-[16px] p-10 bg-white shadow-md space-y-12" style="box-shadow: 0 0 2px 0 #919EAB33, 0 12px 24px -4px #919EAB1F;">
+                <div class="rounded-[16px] py-6 px-10 sm:mx-10 m-auto bg-white shadow-md space-y-8" style="box-shadow: 0 0 2px 0 #919EAB33, 0 12px 24px -4px #919EAB1F;">
                     <div class="flex justify-between items-start">
                         <div class="flex flex-col space-y-2 mt-6 gap-6">
                             <h2 class="text-[24px] font-semibold italic leading-[1.23px]">Linguistic  Abilities</h2>
@@ -520,7 +523,7 @@
                 </div>
                   
                 <!-- conclusion  -->
-                <div class="rounded-[16px] p-10 bg-white shadow-md space-y-12" style="box-shadow: 0 0 2px 0 #919EAB33, 0 12px 24px -4px #919EAB1F;">
+                <div class="rounded-[16px] py-6 px-10 sm:mx-10 m-auto bg-white shadow-md space-y-8" style="box-shadow: 0 0 2px 0 #919EAB33, 0 12px 24px -4px #919EAB1F;">
                     <div class="flex justify-between items-start">
                         <div class="flex flex-col space-y-2 mt-6 gap-6">
                             <h2 class="text-[24px] font-semibold italic leading-[1.23px]">Conclusion</h2>
@@ -536,7 +539,7 @@
 
                 <!-- comment  -->
 
-                <div class="rounded-[16px] p-10 bg-white shadow-md space-y-12" style="box-shadow: 0 0 2px 0 #919EAB33, 0 12px 24px -4px #919EAB1F;">
+                <div class="rounded-[16px] py-6 px-10 sm:mx-10 m-auto bg-white shadow-md space-y-8" style="box-shadow: 0 0 2px 0 #919EAB33, 0 12px 24px -4px #919EAB1F;">
                     <div class="flex justify-between items-start border-b border-[#E5E7EB] pb-4">
                       <div class="flex flex-col space-y-2 mt-6 gap-6">
                         <h2 class="text-[24px] font-semibold italic leading-[1.23px]">Comment</h2>
