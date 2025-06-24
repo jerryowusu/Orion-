@@ -76,3 +76,15 @@ dateInput.addEventListener('change', (event) => {
   const scrollContainer = document.getElementById('menuScroll');
   document.getElementById('scrollLeft').onclick = () => scrollContainer.scrollBy({ left: -150, behavior: 'smooth' });
   document.getElementById('scrollRight').onclick = () => scrollContainer.scrollBy({ left: 150, behavior: 'smooth' });
+
+
+   function setActiveTab(tab) {
+    document.getElementById("tab-overview").classList.remove("border-[#4F46E5]", "text-[#1F2937]");
+    document.getElementById("tab-swap").classList.remove("border-[#4F46E5]", "text-[#626973]");
+
+    document.getElementById("tab-content-overview").classList.add("hidden");
+    document.getElementById("tab-content-swap").classList.add("hidden");
+
+    document.getElementById("tab-" + tab).classList.add("border-[#4F46E5]", "text-[#1F2937]");
+    document.getElementById("tab-content-" + tab).classList.remove("hidden");
+  }

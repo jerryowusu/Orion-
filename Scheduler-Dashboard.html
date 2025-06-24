@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home</title>
+  <title>Scheduler</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet" />
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar/index.global.min.js'></script>
+ 
 </head>
 
 <style>
@@ -26,11 +29,11 @@
 }
 
 .menu-item svg {
-  color: #6B7280; /* gray-500 for unselected */
+  color: #6B7280; 
 }
 
 .menu-item.active svg {
-  color: #4F46E5; /* purple-600 when selected */
+  color: #4F46E5; 
 }
 
 .menu-item.active .icon-wrapper {
@@ -44,11 +47,15 @@
 .menu-item.active .sidebar-text {
   color: #4F46E5;
 }
+
+.fc .fc-daygrid-day-frame {
+    display: none;
+}
 </style>
 
-<body class="bg-gray-100  flex items-center justify-end">
+<body class="bg-gray-100 flex items-center justify-end">
 
-<div class="bg-gray-100 top-0 w-full">
+  <div class="bg-gray-100 top-0 w-full">
     <!-- top bar  -->
     <div class="items-center full h-24 bg-white p-4 md:p-8 ">
         <div class="flex justify-between flex-wrap">
@@ -84,7 +91,9 @@
             </div>
         </div>
     </div>
+
     <div class="flex w-full h-screen">
+        <!-- SIDEBAR -->
         <div id="active-indicator" class="absolute left-0 w-1 h-10 bg-[#4F46E5] rounded transition-all duration-300 mt-20"></div>
         <div id="sidebar" class="flex flex-col bg-white text-gray-800 min-h-[900px] transition-all duration-300 ease-in-out w-[85px] overflow-hidden">
 
@@ -96,7 +105,7 @@
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M9.918 4.0006H7.082C6.23326 3.97706 5.52559 4.64492 5.5 5.4936V6.5076C5.52559 7.35629 6.23326 8.02415 7.082 8.0006H9.918C10.7667 8.02415 11.4744 7.35629 11.5 6.5076V5.4936C11.4744 4.64492 10.7667 3.97706 9.918 4.0006Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M15.082 13.0007H17.917C18.3333 13.0044 18.734 12.8425 19.0309 12.5507C19.3278 12.2588 19.4966 11.861 19.5 11.4447V5.55666C19.4966 5.14054 19.328 4.74282 19.0313 4.45101C18.7346 4.1592 18.3341 3.9972 17.918 4.00066H15.082C14.6659 3.9972 14.2654 4.1592 13.9687 4.45101C13.672 4.74282 13.5034 5.14054 13.5 5.55666V11.4447C13.5034 11.8608 13.672 12.2585 13.9687 12.5503C14.2654 12.8421 14.6659 13.0041 15.082 13.0007Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M15.082 19.0006H17.917C18.7661 19.0247 19.4744 18.3567 19.5 17.5076V16.4936C19.4744 15.6449 18.7667 14.9771 17.918 15.0006H15.082C14.2333 14.9771 13.5256 15.6449 13.5 16.4936V17.5066C13.525 18.3557 14.2329 19.0241 15.082 19.0006Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                          </svg>
                     </div>
                     <span class="sidebar-text text-sm transition-all duration-300 opacity-0">Dashboard</span>
                 </div>
@@ -115,13 +124,13 @@
                     </div>
                     <span class="sidebar-text text-sm transition-all duration-300 opacity-0">Profile</span>
                 </div>
-                <a href="Scheduler-Dashboard.html" class="menu-item flex items-center space-x-3 cursor-pointer active">
+                <div class="menu-item flex items-center space-x-3 cursor-pointer active">
                     <div class="icon-wrapper w-[42px] h-[42px] p-2 flex items-center justify-center rounded transition-all duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path fill="currentColor" fill-rule="evenodd" d="M7.263 3.26A2.25 2.25 0 0 1 9.5 1.25h5a2.25 2.25 0 0 1 2.237 2.01c.764.016 1.423.055 1.987.159c.758.14 1.403.404 1.928.93c.602.601.86 1.36.982 2.26c.116.866.116 1.969.116 3.336v6.11c0 1.367 0 2.47-.116 3.337c-.122.9-.38 1.658-.982 2.26s-1.36.86-2.26.982c-.867.116-1.97.116-3.337.116h-6.11c-1.367 0-2.47 0-3.337-.116c-.9-.122-1.658-.38-2.26-.982s-.86-1.36-.981-2.26c-.117-.867-.117-1.97-.117-3.337v-6.11c0-1.367 0-2.47.117-3.337c.12-.9.38-1.658.981-2.26c.525-.525 1.17-.79 1.928-.929c.564-.104 1.224-.143 1.987-.159m.002 1.5c-.718.016-1.272.052-1.718.134c-.566.104-.895.272-1.138.515c-.277.277-.457.665-.556 1.4c-.101.754-.103 1.756-.103 3.191v6c0 1.435.002 2.436.103 3.192c.099.734.28 1.122.556 1.399c.277.277.665.457 1.4.556c.754.101 1.756.103 3.191.103h6c1.435 0 2.436-.002 3.192-.103c.734-.099 1.122-.28 1.399-.556c.277-.277.457-.665.556-1.4c.101-.755.103-1.756.103-3.191v-6c0-1.435-.002-2.437-.103-3.192c-.099-.734-.28-1.122-.556-1.399c-.244-.243-.572-.41-1.138-.515c-.446-.082-1-.118-1.718-.133A2.25 2.25 0 0 1 14.5 6.75h-5a2.25 2.25 0 0 1-2.235-1.99M9.5 2.75a.75.75 0 0 0-.75.75v1c0 .414.336.75.75.75h5a.75.75 0 0 0 .75-.75v-1a.75.75 0 0 0-.75-.75zM6.25 10.5A.75.75 0 0 1 7 9.75h.5a.75.75 0 0 1 0 1.5H7a.75.75 0 0 1-.75-.75m3.5 0a.75.75 0 0 1 .75-.75H17a.75.75 0 0 1 0 1.5h-6.5a.75.75 0 0 1-.75-.75M6.25 14a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5H7a.75.75 0 0 1-.75-.75m3.5 0a.75.75 0 0 1 .75-.75H17a.75.75 0 0 1 0 1.5h-6.5a.75.75 0 0 1-.75-.75m-3.5 3.5a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5H7a.75.75 0 0 1-.75-.75m3.5 0a.75.75 0 0 1 .75-.75H17a.75.75 0 0 1 0 1.5h-6.5a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/></svg>
                     </div>
                     <span class="sidebar-text text-sm transition-all duration-300 opacity-0">Calender</span>
-                </a>
+                </div>
             </div>
 
             <div class="flex mt-auto px-6 pb-4">
@@ -137,147 +146,223 @@
             </div>
         </div>
 
-        <div class="flex w-full h-screen">
-        <!-- Main Content -->
-        <div class="flex p-4 bg-white w-[94%] h-[94%] m-auto mt-24 mx-16 justify-between rounded-2xl shadow-lg "  style="box-shadow: 0 -1px 2px #919EAB33, 0 12px 24px -14px #919EAB1F;"
-        >
-            <div class="flex flex-col flex-1 p-6 justify-between"> 
-                <div class="overflow-x-auto">
-                    <div class="flex flex-col md:flex-row gap-6 items-center justify-between bg-white p-2  mb-8">
-                        <div class="flex flex-col">
-                            <span class="text-[#1F2937] font-semibold text-[20.36px]">List of Agents</span>
-                            <span class="text-[#1F2937] text-sm font-normal text-[12.73px] leading-[21px]">Your Assigned Agents</span>
-                        </div>
-                        <div class="relative flex flex-col md:flex-row items-center justify-between gap-4">
-                            <div class="relative md:w-[298px] rounded-[6px]">
-                                <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M16.65 16.65A7.5 7.5 0 1116.65 2a7.5 7.5 0 010 14.5z" />
-                                    </svg>
-                                </span>
-                                <input
-                                    type="text"
-                                    placeholder="Search calls"
-                                    class="w-full font-normal text-[#62697366] pl-10 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                />
-                            </div>
-                            <button class="flex items-center w-[90px] px-4 py-2 bg-[#4F46E5] text-white rounded-[6px] hover:bg-blue-700 transition space-x-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707L15 13.414V19a1 1 0 01-1.447.894l-4-2A1 1 0 019 17v-3.586L3.293 6.707A1 1 0 013 6V4z" />
-                                </svg>
-                                <span class="text[13.44px] font-semibold" >Filter</span>
-                            </button>
-                        </div>
-                    </div>
-                    <!-- Table -->
-                    <div class="overflow-x-auto">
-                        <table class="min-w-full text-left border-collapse">
-                            <thead >
-                                <tr class="bg-[#4F46E512] rounded-t-md h-[59px]">
-                                    <th class="px-4 py-2 font-medium text-gray-600 text-sm leading-5">#</th>
-                                    <th class="px-4 py-2 font-medium text-gray-600 text-sm leading-5">Agent ID</th>
-                                    <th class="px-4 py-2 font-medium text-gray-600 text-sm leading-5">Name</th>
-                                    <th class="px-4 py-2 font-medium text-gray-600 text-sm leading-5">Email</th>
-                                    <th class="px-4 py-2 font-medium text-gray-600 text-sm leading-5">Overall Score</th>
-                                    <th class="px-4 py-2 font-medium text-gray-600 text-sm leading-5"></th>
-                                </tr>
-                            </thead>                       
-                            <tbody>
-                                <tr class="hover:bg-gray-100 cursor-pointer h-[59px]" onclick="window.location.href='Agent-Details.html'">
-                                    <td class="px-4 py-2 text-[15.5px] text-[#1F2937] leading-5">1</td>
-                                    <td class="px-4 py-2 text-[15.5px] text-[#1F2937] leading-5 font-bold">8866175</td>
-                                    <td class="px-4 py-2 text-[15.5px] text-[#1F2937] leading-5">Kafui Yevu</td>
-                                    <td class="px-4 py-2 text-[15.5px] text-[#1F2937] leading-5">kafiyevu@biggs.com</td>
-                                    <td class="flex flex-row justify-center items-center gap-1 w-16 px-2 mt-2 text-base text-[rgba(79,70,229)] font-semibold bg-[rgba(79,70,229,0.10)] rounded-[6px] p-1">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none">
-                                            <circle cx="12" cy="12" r="10" fill="#4F46E5" />
-                                            <path d="M7 12.5L10.5 16L17 9.5" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                        3.6
-                                    </td>
-                                    <td class="px-4 py-2 text-center">
-                                        <button>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#1C274C]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v.01M12 12v.01M12 18v.01" />
-                                            </svg>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr class="hover:bg-gray-100 cursor-pointer h-[59px]" onclick="window.location.href='Agent-Details.html'">
-                                    <td class="px-4 py-2 text-[15.5px] text-[#1F2937] leading-5">2</td>
-                                    <td class="px-4 py-2 text-[15.5px] text-[#1F2937] leading-5 font-bold">8345695</td>
-                                    <td class="px-4 py-2 text-[15.5px] text-[#1F2937] leading-5">Kwame Mensah</td>
-                                    <td class="px-4 py-2 text-[15.5px] text-[#1F2937] leading-5">kwamemensag@biggs.com</td>
-                                    <td class="flex flex-row justify-center items-center gap-1 w-16 px-2 mt-2 text-base text-[rgba(79,70,229)] font-semibold bg-[rgba(79,70,229,0.10)] rounded-[6px] p-1">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none">
-                                            <circle cx="12" cy="12" r="10" fill="#4F46E5" />
-                                            <path d="M7 12.5L10.5 16L17 9.5" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                        4.2
-                                    </td>
-                                    <td class="px-4 py-2 text-center">
-                                        <button>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v.01M12 12v.01M12 18v.01" />
-                                            </svg>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr class="hover:bg-gray-100 cursor-pointer h-[59px]" onclick="window.location.href='Agent-Details.html'">
-                                    <td class="px-4 py-2 text-[15.5px] text-[#1F2937] leading-5">3</td>
-                                    <td class="px-4 py-2 text-[15.5px] text-[#1F2937] leading-5 font-bold">8345695</td>
-                                    <td class="px-4 py-2 text-[15.5px] text-[#1F2937] leading-5">Kwame Mensah</td>
-                                    <td class="px-4 py-2 text-[15.5px] text-[#1F2937] leading-5">kwamemensag@biggs.com</td>
-                                    <td class="flex flex-row justify-center items-center gap-1 w-16 px-2 mt-2 text-base text-[rgba(79,70,229)] font-semibold bg-[rgba(79,70,229,0.10)] rounded-[6px] p-1">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none">
-                                            <circle cx="12" cy="12" r="10" fill="#4F46E5" />
-                                            <path d="M7 12.5L10.5 16L17 9.5" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                        4.2
-                                    </td>
-                                    <td class="px-4 py-2 text-center">
-                                        <button class="font-bold">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v.01M12 12v.01M12 18v.01" />
-                                            </svg>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>           
-                <!-- Pagination -->
-                <div class="flex justify-end w[202px] h-[44px] items-center mt-24 mb-4 bottom-0">
-                    <button class="px-2 py-2 text-[#6269734D] rounded hover:bg-gray-300 transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5  text-[#6269734D]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                        </svg>
-                    </button>
+        <div class="flex flex-col w-full h-screen">
 
-                    <div class="flex">
-                        <button class="px-3 py-1 bg-blue-700 text-white rounded hover:bg-blue-700 transition">
-                            1
-                        </button>
-                        <button class="px-3 py-1 text-gray-600 text-[#626973] rounded hover:bg-gray-300 transition">
-                            2
-                        </button>
-                        <button class="px-3 py-1 text-gray-600 text-[#626973] rounded hover:bg-gray-300 transition">
-                            3
-                        </button>
-                    </div>
+            <div class="flex justify-between items-center mt-7 w-[93%] m-auto ">
+                
+            </div>
 
-                    <button class="px-2 py-2 text-gray-600 rounded hover:bg-gray-300 transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </button>
+            <div class="flex lg:flex-row gap-6 p-6  rounded-lg items-center w-[94%] m-auto">
+
+                <div class="flex flex-1 space-y-6 gap-16">
+                  <div class="flex flex-col space-y-2 justify-center">
+                    <p class="text-[20px] font-semibold text-[#1F2937]">Schedule</p>
+                    <p class="text-[12px] text-[#1F2937] leading-[20.91px]">Schedule Page</p>
+                  </div>
+              
+                  <div>
+                    <div class="flex  gap-4">
+                      <button id="tab-overview" onclick="setActiveTab('overview')" class="tab-button border-b-2  border-b border-gray-300 hover:text-blue-600 hover:border-blue-300 px-4 py-2 text-[20px] text-[#626973] px-4 py-2 text-[20px] font-semibold">
+                        Overview
+                      </button>
+                      <button id="tab-swap" onclick="setActiveTab('swap')" class="tab-button border-b-2 border-b border-gray-300 hover:text-blue-600 hover:border-blue-300 px-4 py-2 text-[20px] text-[#626973]">
+                        Swap Request
+                      </button>
+                    </div>
+              
+                    <div id="tab-content-overview" class="mt-4 text-sm text-gray-700">
+                      This is the overview section.
+                    </div>
+                    <div id="tab-content-swap" class="mt-4 text-sm text-gray-700 hidden">
+                      This is the swap request section.
+                    </div>
+                  </div>
                 </div>
-            </div>   
+              
+                <div class="flex flex-col w-[180px] h-[45px] justify-center">
+                  <!-- <label for="team-select" class="mb-2 text-sm font-medium text-gray-700">Select Team</label> -->
+                  <select id="team-select" class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+                    <option>Select Team</option>
+                    <option>Team 1</option>
+                    <option>Team 2</option>
+                    <option>Team 3</option>
+                    <option>Team 4</option>
+                  </select>
+                </div>
+            </div>
+              
+            <!-- Main Content -->
+            <!-- <div id="tab-content-overview h-full flex flex-col gap-4"> -->
+                <div id="calendar" class="w-[94%] h-full m-auto mt-12"></div>
+                <div class="flex flex-wrap gap-4 justify-between w-[94%] m-auto mt-4 bg-[#F9FAFE] border border-[#C8C8C8] border-[0.37px]">
+                
+                        <div class="flex flex-col justify-center gap-2 px-[22px] py-[15px] border-r border-[#C8C8C8]">
+                        <span class="text-sm text-gray-800">Sunrise</span>
+                        <div class="flex gap-2">
+                            <div class="w-[13px] h-[13px] rounded-[2px]" style="background-color: #0EA5E9;"></div>
+                            <span class="text-[13px] text-[#626973] items-center">6:00 AM - 2:00 PM</span>
+                        </div>
+                        </div>
+                    
+                        <div class="flex flex-col justify-center gap-2 px-[22px] py-[15px] border-r border-[#C8C8C8]">
+                        <span class="text-sm text-gray-800">Sunrise Special</span>
+                        <div class="flex gap-2 items-center">
+                            <div class="w-[13px] h-[13px] rounded-[2px]" style="background-color: #10B981;"></div>
+                            <span class="text-[13px] text-[#626973] ">7:00 AM - 3:00 PM</span>
+                        </div>
+                        </div>
+                    
+                        <div class="flex flex-col justify-center gap-2 px-[22px] py-[15px] border-r border-[#C8C8C8]">
+                        <span class="text-sm text-gray-800">Morning Normal</span>
+                        <div class="flex gap-2 items-center">
+                            <div class="w-[13px] h-[13px] rounded-[2px]" style="background-color: #A3A1F4;"></div>
+                            <span class="text-[13px] text-[#626973] ">8:00 AM - 4:00 PM</span>
+                        </div>
+                        </div>
+                    
+                        <div class="flex flex-col justify-center gap-2 px-[22px] py-[15px] border-r border-[#C8C8C8]">
+                        <span class="text-sm text-gray-800">Flexi Shift</span>
+                        <div class="flex gap-2 items-center">
+                            <div class="w-[13px] h-[13px] rounded-[2px]" style="background-color: #F59E0B;"></div>
+                            <span class="text-[13px] text-[#626973] ">6:00 AM - 1:00 PM</span>
+                        </div>
+                        </div>
+                    
+                        <div class="flex flex-col justify-center gap-2 px-[22px] py-[15px] border-r border-[#C8C8C8]">
+                        <span class="text-sm text-gray-800">Zaaf</span>
+                        <div class="flex gap-2 items-center">
+                            <div class="w-[13px] h-[13px] rounded-[2px]" style="background-color: #BF58B5;"></div>
+                            <span class="text-[13px] text-[#626973] ">2:00 PM - 9:00 PM</span>
+                        </div>
+                        </div>
+                    
+                        <div class="flex flex-col justify-center gap-2 px-[22px] py-[15px] border-r border-[#C8C8C8]">
+                        <span class="text-sm text-gray-800">Night</span>
+                        <div class="flex gap-2 items-center">
+                            <div class="w-[13px] h-[13px] rounded-[2px]" style="background-color: #001726;"></div>
+                            <span class="text-[13px] text-[#626973] ">9:00 PM - 6:00 AM</span>
+                        </div>
+                        </div>
+                    
+                        <div class="flex flex-col justify-center gap-2 px-[22px] py-[15px] border-r border-[#C8C8C8]">
+                        <span class="text-sm text-gray-800">Night Special</span>
+                        <div class="flex gap-2 items-center">
+                            <div class="w-[13px] h-[13px] rounded-[2px]" style="background-color: #00172633;"></div>
+                            <span class="text-[13px] text-[#626973] ">12:00 AM - 10:00 AM</span>
+                        </div>
+                        </div>
+                    
+                </div>
+                <div class="flex justify-between items-center w-[94%] m-auto mt-4 gap-4">
+                    <!-- Section A -->
+                    <div class="flex gap-3">
+                    <button class="flex items-center gap-2 bg-[#4F46E5] text-white px-4 py-2 rounded-md">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M3 10h14M10 3l7 7-7 7"/></svg>
+                        <span>Button 1</span>
+                    </button>
+                    <button class="flex items-center gap-2 bg-[#4F46E5] text-white px-4 py-2 rounded-md">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M5 10h10M10 5l5 5-5 5"/></svg>
+                        <span>Button 2</span>
+                    </button>
+                    <button class="flex items-center gap-2 bg-[#4F46E5] text-white px-4 py-2 rounded-md">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4h12v12H4z"/></svg>
+                        <span>Button 3</span>
+                    </button>
+                    </div>
+                
+                    <!-- Section B -->
+                    <div>
+                    <button class="flex items-center gap-2 bg-[#4F46E5] text-white px-4 py-2 rounded-md">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16 8 8 0 000-16z"/></svg>
+                        <span>Button 4</span>
+                    </button>
+                    </div>
+                </div>
+            <!-- </div> -->
+        
+            <div id="tab-content-swap" class="mt-4 text-sm text-gray-700 hidden">
+                This is the swap request section.
+            </div>
         </div>
+
+       
     </div>
-    </div>
-</div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const calendarEl = document.getElementById('calendar');
+
+      function getOrdinal(n) {
+            const s = ["th", "st", "nd", "rd"];
+            const v = n % 100;
+            return n + (s[(v - 20) % 10] || s[v] || s[0]);
+        }
+
+      const calendar = new FullCalendar.Calendar(calendarEl, {      
+        initialView: 'dayGridWeek',
+
+        // headerToolbar: {
+        //     left: 'prev,next today',
+        //     center: 'title',
+        //     right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        // },
+
+        dayHeaderContent: function(arg) {
+            const weekday = arg.date.toLocaleDateString('en-US', { weekday: 'short' });
+            const day = getOrdinal(arg.date.getDate());
+
+            return {
+                html: `
+                    <div class="flex flex-col items-center font-normal gap-2">
+                    <span class="text-[18px] text-[#BBBBBB] ">${weekday}</span>
+                    <span class="text-[18px]  text-[#1F2937]">${day}</span>
+                </div>
+            `
+            }
+        },
+        
+        dayCellDidMount: function (info) {
+          info.el.innerHTML = '';
+
+          // Container that fills the cell
+          const container = document.createElement('div');
+          container.className = 'w-full flex flex-col items-center justify-start pt-8 p-[4px] gap-8';
+
+          const labels = [
+          { name: 'EM', text: '#0EA5E9', bg: '#0EA5E933', tip: 'Sunrise: 6:00 AM - 2:00 PM' },
+        { name: 'N',  text: '#10B981', bg: '#10B98133', tip: 'Sunrise Special: 7:00 AM - 3:00 PM' },
+        { name: 'S1', text: '#A3A1F4', bg: '#A3A1F433', tip: 'Morning Normal: 8:00 AM - 4:00 PM' },
+        { name: 'EM', text: '#F59E0B', bg: '#F59E0B33', tip: 'Flexi Shift: 6:00 AM - 1:00 PM' },
+        { name: 'E2', text: '#BF58B5', bg: '#BF58B533', tip: 'Zaaf: 2:00 PM - 9:00 PM' },
+        { name: 'N2', text: '#001726', bg: '#00172633', tip: 'Night: 9:00 PM - 6:00 AM' },
+        { name: 'N3', text: '#00172633', bg: '#62697333', tip: 'Night Special: 12:00 AM - 10:00 AM' }
+          ];
+
+          labels.forEach(item => {
+            const div = document.createElement('div');
+            div.innerText = item.name;
+            div.className = 'text-[20px] text-center truncate rounded';
+            div.style.color = item.text;
+            div.title = item.tip;
+            div.style.backgroundColor = item.bg;
+            div.style.borderLeft = `4px solid ${item.text}`;
+            div.style.width = '70%';
+            div.style.height = '48px';
+            div.style.display = 'flex';
+            div.style.alignItems = 'center';
+            div.style.justifyContent = 'center';
+            container.appendChild(div);
+          });
+
+          
+          info.el.appendChild(container);
+        }
+      })
+      calendar.render()
+    })
+
+  </script>
 <script src="Index.js"></script>
 </body>
 </html>
