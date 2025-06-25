@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invite Member</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="flex h-screen w-full">
+        <!-- blue sidebar -->
+        <div class="flex flex-col py-8 justify-between items-start w-1/4" style="background: linear-gradient(to right, #4F46E5, #3C33C1);">
+            <a class="flex items-center gap-2 ml-10 mt-4" href="index.html">
+                <img src="images/logo-white.svg" alt="Logo" class="h-8 w-8">
+                <h1 class="font-bold text-[29.45px] text-[#F9FAFB] leading-[100%] ">Orion</h1>
+            </a>
+      
+          <div class="flex flex-col items-center text-[#FFFFFF] gap-4 m-6">
+            <img src="images/team-members.svg" alt="Team" class="w-[320px]  object-cover rounded" />
+            <div class="flex flex-col gap-2">   
+              <h2 class="text-[27.94px] leading-[100%] font-semibold font-[Rubik] ">Add Members to Your Team</h2>
+              <p class="text-[14px] leading-[100%] font-[Rubik]">Bring your team onboard to start collaborating. Add users to assign roles, manage access, and streamline productivity from day one.</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- main content -->
+
+        <!-- when it is unchecked  -->
+        <!-- <div class="flex flex-col justify-between items-center pt-12 min-h-screen w-full">
+          <div class="flex flex-col gap-12 px-4 sm:px-6 md:px-[50px] w-full h-full">
+            <div class="w-full mx-auto mt-8 md:mt-[50px] p-4 sm:p-6 space-y-6">
+              
+              <div class="md:px-[50px]">
+                <h2 class="text-[24px] md:text-[30px] font-semibold text-[#1F2937] leading-tight">
+                  Accept Terms & Privacy
+                </h2>
+                <p class="text-[#626973] text-[14px] md:text-[16px] mt-2 leading-snug">
+                  Review and accept to continue using Orion.
+                </p>
+              </div>
+              
+              <div class="flex flex-col justify-between items-start bg-[#F8F8FF] p-4 sm:p-6 md:py-[50px] md:px-[45px] rounded-md space-y-4 rounded-[16px]">
+                <div class="flex flex-col gap-4 w-full md:w-[80%]">
+                  <p class="text-[14px] md:text-[16px] text-[#1F2937] leading-[26px] md:leading-[30px]">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc at convallis tincidunt,
+                    justo lorem bibendum lorem, vel luctus ex mi ut elit. Cras in justo vitae augue tristique tincidunt. 
+                    Morbi ultrices dui nec purus posuere, in pretium quam cursus. Vestibulum ante ipsum primis in faucibus
+                    orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Vivamus malesuada elit vel orci pretium convallis.
+                    Nullam sed eros ac velit ullamcorper volutpat.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc at convallis tincidunt,
+                    justo lorem bibendum lorem, vel luctus ex mi ut elit. Cras in justo vitae augue tristique tincidunt. 
+                    Morbi ultrices dui nec purus posuere, in pretium quam cursus. Vestibulum ante ipsum primis in faucibus
+                    orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Vivamus malesuada elit vel orci pretium convallis.
+                    Nullam sed eros ac velit ullamcorper volutpat.
+                  </p>
+                  <span class="text-[#4F46E5] text-[14px] md:text-[16px] leading-[30px] underline cursor-pointer">Read More</span>
+                </div>
+                <div class="flex items-start gap-2 pt-8 pb-4">
+                  <input type="checkbox" id="acceptTerms" class="w-4 h-4 text-[#4F46E5] border-gray-300 rounded focus:ring-[#4F46E5] mt-1">
+                  <label for="acceptTerms" class="text-[14px] md:text-[16px] text-[#1F2937] leading-snug">
+                    I have read and <span class="font-semibold underline">I Accept the Terms & Privacy</span>
+                  </label>
+                </div>
+              </div>
+              
+              <div class="flex justify-end items-center">
+                <button class="min-w-[200px] bg-[#C5C5C5] my-[70px] px-6 md:px-[43px] py-3 rounded-[8px] text-[16px] md:text-[18px] font-[Rubik] text-white">
+                  Continue
+                </button>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+          <!-- when it is checked  -->
+          <div class="flex flex-col justify-between items-center pt-12 min-h-screen w-full">
+            <div class="flex flex-col gap-12 px-4 sm:px-6 md:px-[50px] w-full h-full">
+              <div class="w-full mx-auto mt-8 md:mt-[50px] p-4 sm:p-6 space-y-6">
+                
+                <div class="md:px-[50px]">
+                  <h2 class="text-[24px] md:text-[30px] font-semibold text-[#1F2937] leading-tight">
+                    Accept Terms & Privacy
+                  </h2>
+                  <p class="text-[#626973] text-[14px] md:text-[16px] mt-2 leading-snug">
+                    Review and accept to continue using Orion.
+                  </p>
+                </div>
+                
+                <div class="flex flex-col justify-between items-start bg-[#F8F8FF] p-4 sm:p-6 md:py-[50px] md:px-[45px] rounded-md space-y-4 rounded-[16px]">
+                  <div class="flex flex-col gap-4 w-full md:w-[80%]">
+                    <p class="text-[14px] md:text-[16px] text-[#1F2937] leading-[26px] md:leading-[30px]">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc at convallis tincidunt,
+                      justo lorem bibendum lorem, vel luctus ex mi ut elit. Cras in justo vitae augue tristique tincidunt. 
+                      Morbi ultrices dui nec purus posuere, in pretium quam cursus. Vestibulum ante ipsum primis in faucibus
+                      orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Vivamus malesuada elit vel orci pretium convallis.
+                      Nullam sed eros ac velit ullamcorper volutpat.
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc at convallis tincidunt,
+                      justo lorem bibendum lorem, vel luctus ex mi ut elit. Cras in justo vitae augue tristique tincidunt. 
+                      Morbi ultrices dui nec purus posuere, in pretium quam cursus. Vestibulum ante ipsum primis in faucibus
+                      orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Vivamus malesuada elit vel orci pretium convallis.
+                      Nullam sed eros ac velit ullamcorper volutpat.
+                    </p>
+                    <span class="text-[#4F46E5] text-[14px] md:text-[16px] leading-[30px] underline cursor-pointer">Read More</span>
+                  </div>
+                  <div class="flex items-start gap-2 pt-8 pb-4">
+                    <input type="checkbox" checked id="acceptTerms" class="w-4 h-4 text-[#4F46E5] border-gray-300 rounded focus:ring-[#4F46E5] mt-1">
+                    <label for="acceptTerms" class="text-[14px] md:text-[16px] text-[#1F2937] leading-snug">
+                      I have read and <span class="font-semibold underline">I Accept the Terms & Privacy</span>
+                    </label>
+                  </div>
+                </div>
+                
+                <div class="flex justify-end items-center">
+                  <button class="min-w-[200px] bg-[#4F46E5] my-[70px] px-6 md:px-[43px] py-3 rounded-[8px] text-[16px] md:text-[18px] font-[Rubik] text-white">
+                    Continue
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      
+</body>
+
+<script src="Index.js"></script>
+</html>

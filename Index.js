@@ -88,3 +88,4 @@ dateInput.addEventListener('change', (event) => {
     document.getElementById("tab-" + tab).classList.add("border-[#4F46E5]", "text-[#1F2937]");
     document.getElementById("tab-content-" + tab).classList.remove("hidden");
   }
+

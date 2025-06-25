@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invite Member</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <div class="relative min-h-screen flex flex-col items-center justify-center bg-[#F9FAFB] overflow-hidden">
+
+    <img src="images/bg-logo.svg" 
+         alt="Decorative" 
+         class="absolute bottom-0 top-[20px] left-0 object-contain pointer-events-none select-none z-0" />
+  
+    <!-- Main Container -->
+    <div class="relative flex flex-col z-10 rounded-xl sm:p-10 ">
+  
+      <div class="flex justify-center gap-2 my-12">
+        <img src="images/logo.svg" alt="Logo" class="h-10 w-auto" />
+        <h1 class="text-center font-bold text-[40px] leading-[100%]">Orion</h1>
+      </div>
+  
+      <div class="flex flex-col gap-8">
+        <div class="text-center space-y-2 w-[380px] m-auto">
+          <h2 class="text-[32px] font-bold text-[#1F2937]">Welcome to Orion</h2>
+          <p class="text-[15px] text-[#626973]">
+            Sign in with your company email to get started. <br> First-time users will set a new password.
+          </p>
+        </div>
+  
+        <!-- Form Inputs -->
+        <form class="flex flex-col gap-4 w-[380px] m-auto ">
+          <div class="relative ">
+            <input type="text" placeholder="First Name"
+                   class="w-full pl-10 pr-4 py-2 h-[50px] text-[#6269734D] text-[16px] border border-gray-300 rounded-md focus:ring-[#4F46E5] focus:border-[#4F46E5]" />
+            <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+              <img src="images/full name.svg" alt="user" class="w-4 h-4" />
+            </span>
+          </div>
+          <div class="relative ">
+            <input type="text" placeholder="Last Name"
+                   class="w-full pl-10 pr-4 py-2 h-[50px] text-[#6269734D] text-[16px] border border-gray-300 rounded-md focus:ring-[#4F46E5] focus:border-[#4F46E5]" />
+            <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+              <img src="images/full name.svg" alt="user" class="w-4 h-4" />
+            </span>
+          </div>
+          <div class="relative ">
+            <input type="text" placeholder="Company Name"
+                   class="w-full pl-10 pr-4 py-2 h-[50px] text-[#6269734D] text-[16px] border border-gray-300 rounded-md focus:ring-[#4F46E5] focus:border-[#4F46E5]" />
+            <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+              <img src="images/company.svg" alt="company" class="w-4 h-4" />
+            </span>
+          </div>
+          <div class="relative ">
+            <input type="email" placeholder="Email"
+                   class="w-full pl-10 pr-4 py-2 h-[50px] text-[#6269734D] text-[16px] border border-gray-300 rounded-md focus:ring-[#4F46E5] focus:border-[#4F46E5]" />
+            <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+              <img src="images/email.svg" alt="email" class="w-4 h-4" />
+            </span>
+          </div>
+  
+          <!-- reCAPTCHA mock -->
+          <div class="flex justify-between items-center h-[74px] my-2 bg-[#D6D6D6] border border-gray-300 p-3 rounded-md shadow-sm shadow-[rgba(0,0,0,0.1)]">
+            <label class="flex items-center gap-2">
+              <input type="checkbox" class="w-4 h-4 text-[#4F46E5] rounded" />
+              <span class="text-[14px] font-medium leading-[100%] text-[#000000]">I'm not a robot</span>
+            </label>
+            <div class="flex flex-col gap-1 ">
+                <img src="images/recaptcha.svg" alt="captcha" class="h-12 w-auto" />
+                <p class="font-medium text-[8px] text-[#A6A6A6] leading-[100%] ">Privacy Terms</p>
+            </div>
+          </div>
+  
+          <button type="submit" class="w-full h-11 bg-[#4F46E5] text-white py-2 rounded-md font-medium hover:bg-[#3C33C1]">
+            Signup
+          </button>
+        </form>
+      </div>
+  
+      <div class="text-[12px] leading-[23px] w-[380px] mt-[70px] text-center text-[#6B7280]">
+        This is protected by reCAPTCHA and Google <span class="text-[#4F46E5]"> Privacy Policy</span> and <span class="text-[#4F46E5]">Terms of Service</span> apply.
+      </div>
+    </div>
+  </div>
+    
+</body>
+
+<script src="Index.js"></script>
+</html>
