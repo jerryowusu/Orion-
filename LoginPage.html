@@ -47,25 +47,35 @@
             </p>
           </div>
     
-          <!-- Form Inputs -->
-          <form class="flex flex-col gap-4  w-[70%] mx-auto max-w-md ">
-            <div class="relative ">
-              <input type="email" placeholder="Email"
-                     class="w-full pl-10 pr-4 py-2 h-[50px] text-[#6269734D] text-[16px] border border-gray-300 rounded-md focus:ring-[#4F46E5] focus:border-[#4F46E5]" />
+
+          <form id="loginForm" class="flex flex-col gap-4 w-[70%] mx-auto max-w-md">
+           
+            <div class="relative mb-6">
+              <input type="email" id="email" placeholder="Email"
+                     class="peer w-full pl-10 pr-4 py-2 h-[50px] text-[16px] border border-gray-300 rounded-md focus:ring-[#4F46E5] focus:border-[#4F46E5]" />
               <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
                 <img src="images/email.svg" alt="email" class="w-4 h-4" />
               </span>
+              <p class="absolute -bottom-5 left-0 text-sm text-red-600 hidden" id="emailError">
+                Please enter a valid email.
+              </p>
             </div>
-            <div class="relative flex items-center mb-4 w-full">
+          
+            <div class="relative mb-6">
               <input type="password" id="new-password" placeholder="New Password"
-                    class="w-full h-[50px] pl-10 pr-10 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4F46E5]" />
+                     class="peer w-full h-[50px] pl-10 pr-10 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4F46E5]" />
               <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
                 <img src="images/password.svg" alt="lock" class="w-4 h-4" />
               </span>
               <button type="button" onclick="togglePassword('new-password', this)" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
                 <img src="images/Eye.svg" alt="show" class="w-4 h-4" />
               </button>
+              <p class="absolute -bottom-5 left-0 text-sm text-red-600 hidden" id="passwordError">
+                Password must be at least 6 characters.
+              </p>
             </div>
+          
+            <!-- Remember Me and Forgot Password -->
             <div class="flex items-center justify-between mb-4">
               <label class="flex items-center gap-2 text-sm text-[#626973]">
                 <input type="checkbox" class="w-4 h-4 text-[#4F46E5] border-gray-300 rounded focus:ring-[#4F46E5]" />
@@ -75,10 +85,14 @@
                 Forgot Password?
               </a>
             </div>
+          
+            <!-- Submit Button -->
             <button type="submit" class="w-full h-11 bg-[#4F46E5] font-[Rubik] text-white py-2 rounded-md font-medium hover:bg-[#3C33C1]">
-             Login
+              Login
             </button>
           </form>
+          
+        
         </div>
     
         <div class="text-[12px] leading-[23px]  w-[70%] mx-auto max-w-md mt-[90px] text-center text-[#6B7280]">
@@ -87,19 +101,60 @@
       </div>
   </div>
   
-  <!-- JS for toggling password -->
   <script>
-    function togglePassword(inputId, toggleBtn) {
-      const input = document.getElementById(inputId);
-      const icon = toggleBtn.querySelector('img');
-      
-      const isHidden = input.type === "password";
-      input.type = isHidden ? "text" : "password";
-      icon.src = isHidden ? "images/Eye Closed.svg" : "images/Eye.svg";
-      icon.alt = isHidden ? "hide" : "show";
-    }
+      // JS for form validation
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        let isValid = true;
+    
+        const email = document.getElementById('email');
+        const password = document.getElementById('new-password');
+        const emailError = document.getElementById('emailError');
+        const passwordError = document.getElementById('passwordError');
+    
+        // Email validation
+       if (!email.value.trim() || !/^\S+@\S+\.\S+$/.test(email.value.trim())) {
+          email.classList.add('border-red-500');
+          emailError.textContent = 'Please enter a valid email.';
+          emailError.classList.remove('hidden');
+          emailError.classList.remove('invisible', 'opacity-0');
+          isValid = false;
+        } else {
+          email.classList.remove('border-red-500');
+          emailError.classList.add('hidden');
+        }
+    
+        // Password validation
+        if (!password.value || password.value.length < 6) {
+          password.classList.add('border-red-500');
+          passwordError.classList.remove('hidden');
+          passwordError.classList.remove('invisible', 'opacity-0');
+          isValid = false;
+        } else {
+          password.classList.remove('border-red-500');
+          passwordError.classList.add('hidden');
+        }
+    
+        // If valid, submit or proceed
+        if (isValid) {
+          // form.submit(); // Uncomment if you want to actually submit
+          // alert('Form is valid!');
+        }
+      });
+    
+
+      // JS for toggling password
+
+      function togglePassword(id, btn) {
+        const input = document.getElementById(id);
+        const icon = btn.querySelector('img');
+        const isPassword = input.type === 'password';
+        input.type = isPassword ? 'text' : 'password';
+        icon.src = isPassword ? 'images/Eye Closed.svg' : 'images/Eye.svg';
+      }
   </script>
   
+
 </body>
 
 <script src="Index.js"></script>
