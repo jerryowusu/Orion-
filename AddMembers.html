@@ -41,8 +41,8 @@
                   <img src="images/add-member.svg" class="w-6 h-5" alt="add-member" />
                   Add Member
                 </button>
-                <button id="openBulkUpload" class="flex items-center gap-2 bg-[#4F46E5] text-[#F9FAFB] font-[Rubik] text-[16px] px-4 py-2 rounded-[8px]">
-                    <img src="images/agent-blue.svg" class="w-6 h-5" alt="" />
+                <button id="openBulkUpload" class="flex items-center gap-2 bg-[#150E67] text-[#F9FAFB] font-[Rubik] text-[16px] px-4 py-2 rounded-[8px]">
+                    <img src="images/agent-white.svg" class="w-6 h-5" alt="" />
                     Bulk Add Members
                   </button>
               </div>
@@ -130,71 +130,96 @@
                 <!-- invite member modal-->
                 <div id="inviteMemberModal" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden flex justify-end items-center m-auto transition-opacity duration-300 ease-in-out">
                   <div class="bg-white p-8  w-[35%] h-screen flex flex-col items-center justify-center gap-2 shadow-lg">
-                    <div class="flex flex-col w-[75%] gap-2">
+                    <div class="flex mt-[75px] flex-col w-[75%] h-full gap-2">
                         <h2 class="text-[30px] font-semibold text-[#1F2937] leading-[100%]">Create Member</h2>
                         <p class="text-[16px] p-2 text-[#626973] leading-[100%]">Invite a team member to join your organisation.</p>
+
+                        <form class="mt-6 flex flex-col gap-4">
+                          <div class="relative flex gap-2">
+                            <input
+                              type="text"
+                              placeholder="First Name"
+                              class="w-full pl-10 pr-4 py-2 h-[55px] rounded-[8px] border border-gray-300 rounded-md placeholder-[#6269734D] focus:outline-none focus:ring-1 focus:ring-[#A3A1F4]"
+                            />
+                            <img src="images/full name.svg" class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#626973]" alt="user icon" />
+                          </div>
+                          <div class="relative flex gap-2">
+                            <input
+                              type="text"
+                              placeholder="Last Name"
+                              class="w-full pl-10 pr-4 py-2 h-[55px] rounded-[8px] border border-gray-300 rounded-md placeholder-[#6269734D] focus:outline-none focus:ring-1 focus:ring-[#A3A1F4]"
+                            />
+                            <img src="images/full name.svg" class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#626973]" alt="user icon" />
+                          </div>
+                          <div class="relative flex gap-2">
+                            <input
+                              type="email"
+                              placeholder="Work Email"
+                              class="w-full pl-10 pr-4 py-2 h-[55px] rounded-[8px] border border-gray-300 rounded-md placeholder-[#6269734D] focus:outline-none focus:ring-1 focus:ring-[#A3A1F4]"
+                            />
+                            <img src="images/email.svg" class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5" alt="email icon" />
+                          </div>
+                          <div class="relative flex gap-2">
+                            <input
+                              type="tel"
+                              placeholder="Phone Number"
+                              class="w-full pl-10 pr-4 py-2 h-[55px] rounded-[8px] border border-gray-300 rounded-md placeholder-[#6269734D] focus:outline-none focus:ring-1 focus:ring-[#A3A1F4]"
+                            />
+                            <img src="images/phone-form.svg" class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5" alt="phone icon" />
+                          </div>
+                          <!-- Role Select -->
+                          <div class="relative">
+                            <img src="images/select-option.svg" class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5" alt="icon" />
+                            <select
+                              class="w-full px-4 py-2 h-[55px] rounded-[8px] border border-gray-300 rounded-md text-[#626973] focus:outline-none focus:ring-1 focus:ring-[#A3A1F4] font-[Rubik] pl-10"
+                            >
+                              <option class="text-[#000112] font-medium text-[14px]" value="">Floor Manager</option>
+                              <option class="text-[#000112] font-medium text-[14px]" value="agent">Agent </option>
+                              <option class="text-[#000112] font-medium text-[14px]" value="supervisor">Supervisor</option>
+                              <option class="text-[#000112] font-medium text-[14px]" value="floor manager">Floor Manager</option>
+                            </select>
+                          </div>
+                        </form>
                     </div>
                   
-                    <form class="mt-6 flex flex-col gap-4 w-[75%]">
-                      <div class="relative flex gap-2">
-                        <input
-                          type="text"
-                          placeholder="Full Name"
-                          class="w-full pl-10 pr-4 py-2 h-[55px] rounded-[8px] border border-gray-300 rounded-md placeholder-[#6269734D] focus:outline-none focus:ring-1 focus:ring-[#A3A1F4]"
-                        />
-                        <img src="images/full name.svg" class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#626973]" alt="user icon" />
-                      </div>
-                      <div class="relative flex gap-2">
-                        <input
-                          type="email"
-                          placeholder="Work Email"
-                          class="w-full pl-10 pr-4 py-2 h-[55px] rounded-[8px] border border-gray-300 rounded-md placeholder-[#6269734D] focus:outline-none focus:ring-1 focus:ring-[#A3A1F4]"
-                        />
-                        <img src="images/email.svg" class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5" alt="email icon" />
-                      </div>
-                      <div class="relative flex gap-2">
-                        <input
-                          type="tel"
-                          placeholder="Phone Number"
-                          class="w-full pl-10 pr-4 py-2 h-[55px] rounded-[8px] border border-gray-300 rounded-md placeholder-[#6269734D] focus:outline-none focus:ring-1 focus:ring-[#A3A1F4]"
-                        />
-                        <img src="images/phone-form.svg" class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5" alt="phone icon" />
-                      </div>
-                      <!-- Role Select -->
-                      <select
-                        class="w-full px-4 py-2 h-[55px] rounded-[8px] border border-gray-300 rounded-md text-[#6269734D] focus:outline-none focus:ring-1 focus:ring-[#A3A1F4] font-[Rubik]"
-                      >
-                        <option class="text-[#000112] font-medium text-[14px border-b border-[#000112]]" value="">Select Role</option>
-                        <option class="text-[#000112] font-medium text-[14px border-b border-[#000112]]" value="admin">Admin</option>
-                        <option class="text-[#000112] font-medium text-[14px border-b border-[#000112]]" value="agent">Agent</option>
-                        <option class="text-[#000112] font-medium text-[14px border-b border-[#000112]]" value="supervisor">Supervisor</option>
-                        <option class="text-[#000112] font-medium text-[14px border-b border-[#000112]]" value="floor manager">Floor Manager</option>
-                      </select>
-                      <button
-                        type="submit" id="submitMemberBtn"
-                        class="bg-[#4F46E5] text-white py-3 px-10 mt-4 rounded-[8px] text-[16px] font-[Rubik] hover:bg-[#3C33C1] transition duration-200"
-                      >
-                        Create Member
-                      </button>
-                    </form>
+                    <button
+                      type="submit" id="submitMemberBtn"
+                      class="bg-[#4F46E5] w-[75%] text-white py-3 px-10 mt-4 rounded-[8px] text-[16px] font-[Rubik] hover:bg-[#3C33C1] transition duration-200"
+                    >
+                      Create Member
+                    </button>
                   </div>
                 </div>
 
-                <!-- invite sent modal  -->
+                <!-- invite sent successfullly modal  -->
                 <div id="inviteSuccessModal" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden flex justify-end items-center m-auto transition-opacity duration-300 ease-in-out">
                   <div class="bg-white p-8  w-[35%] h-screen flex flex-col items-center justify-center gap-8 shadow-lg">
                       <img src="images/checkmark members.svg" class="w-[190px]" alt="success" />
                       <h2 class="text-[27px] leading-[100%] font-semibold text-[#150E67] text-center">
-                        Member Created Successfully
+                        Member Created <br> Successfully
                       </h2>
                       <button id="inviteDone" class="flex w-2/3 items-center justify-center bg-[#4F46E5] text-white px-4 py-2 mt-4 rounded-md ">
                         View Members
                       </button>
                     </div>
                   </div>
+
+                <!-- invite sent not successful modal  -->
+                  <div id="inviteNotSuccessModal" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden flex justify-end items-center m-auto transition-opacity duration-300 ease-in-out">
+                    <div class="bg-white p-8  w-[35%] h-screen flex flex-col items-center justify-center gap-8 shadow-lg">
+                        <img src="images/member-create-not successful.svg" class="w-[190px]" alt="success" />
+                        <h2 class="text-[27px] leading-[100%] font-semibold text-[#150E67] text-center">
+                          Member Creation <br> Not Successful
+                        </h2>
+                        <button id="inviteDone" class="flex w-2/3 items-center justify-center bg-[#4F46E5] text-white px-4 py-2 mt-4 rounded-md ">
+                          Try Again
+                        </button>
+                      </div>
+                    </div>
             </div>
       
-            <div class="flex justify-end w-full">
+            <div class="flex justify-end items-center w-full gap-4">
+                <img src="images/Info Circle.svg" class="w-6 h-6" alt="">
                 <button class="flex justify-center items-center gap-2 border border-[#4F46E5] text-[#4F46E5] text-[14px] font-[Rubik] px-4 py-1 rounded-[4px]">
                   <img src="images/download-sheet.svg" class="w-4 h-4" alt="">
                   Download Skeleton CSV
@@ -282,11 +307,14 @@
       
           
           <div class="flex justify-between items-center  border-t py-4 px-[90px] w-full">
-            <button class="py-2 text-[#1F2937]">Skip</button>          
+            <button class="py-2 text-[#1F2937]">Skip</button> 
+
+            <!-- use this when there is data to display           -->
             <!-- <button class="flex items-center gap-2 px-4 py-2 bg-[#4F46E5] text-white text-[16px] rounded-[8px]">
                 Submit Invitation
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 2L11 13"></path><path d="M22 2l-7 20-4-9-9-4 20-7z"></path></svg>
             </button> -->
+
               <!-- use this when there is no data to display  -->
             <button class="flex items-center gap-2 px-4 py-2 bg-[#CECECE] text-white text-[16px] rounded-[8px]">
                 Submit Invitation
