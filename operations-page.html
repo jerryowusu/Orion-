@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operations Page</title>
+
+  <!-- Plus Jakarta Sans font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+    rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @media (min-width: 1024px) {
+      #sidebar.collapsed {
+        width: 85px !important;
+        min-width: 85px !important;
+        max-width: 85px !important;
+        transition: width 0.3s;
+      }
+
+      #sidebar.collapsed .sidebar-label {
+        display: none !important;
+      }
+
+      #mainContent.sidebar-collapsed {
+        margin-left: 85px !important;
+        transition: margin-left 0.3s;
+      }
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'primary-main': '#4F46E5',
+            'primary-subtle': '#A3A1F4',
+            'success': '#10B981',
+            'warning': '#F59E0B',
+            'danger': '#EF4444',
+            'icon-color': '#626973'
+          }
+        }
+      },
+      plugins: [
+        function ({ addComponents }) {
+          addComponents({
+            '.btn-primary': {
+              '@apply w-full bg-primary-subtle/20 text-primary-main text-sm py-3 px-4 rounded-full font-medium border border-transparent hover:border-primary-main transition-all duration-200': {}
+            },
+            '.btn-secondary': {
+              '@apply w-full bg-primary-main text-white text-sm py-3 px-4 rounded-full font-medium hover:bg-primary-main/90 transition-all duration-200': {}
+            }
+          })
+        }
+      ]
+    }
+  </script>
+</head>
+
+<body class="min-h-screen bg-gray-50" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+  <!-- Sidebar -->
+  <aside id="sidebar"
+    class="fixed left-0 top-0 z-40 lg:z-0 w-64 h-screen bg-white transition-all -translate-x-full lg:translate-x-0 lg:w-64"
+    data-collapsed="false">
+    <div class="h-full px-3 py-4 overflow-y-auto flex flex-col lg:mt-[100px]">
+      <!-- Navigation Items -->
+      <ul class="space-y-4 font-medium flex-1">
+        <li>
+          <a href="operations-page.html" class="flex items-center p-2 text-primary-main bg-primary-main/[8%] rounded group">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M2 6.21053C2 4.22567 2 3.23323 2.65901 2.61662C3.31802 2 4.37868 2 6.5 2C8.62132 2 9.68198 2 10.341 2.61662C11 3.23323 11 4.22567 11 6.21053V17.7895C11 19.7743 11 20.7668 10.341 21.3834C9.68198 22 8.62132 22 6.5 22C4.37868 22 3.31802 22 2.65901 21.3834C2 20.7668 2 19.7743 2 17.7895V6.21053Z"
+                fill="#4F46E5" />
+              <path
+                d="M13 15.4C13 13.3258 13 12.2887 13.659 11.6444C14.318 11 15.3787 11 17.5 11C19.6213 11 20.682 11 21.341 11.6444C22 12.2887 22 13.3258 22 15.4V17.6C22 19.6742 22 20.7113 21.341 21.3556C20.682 22 19.6213 22 17.5 22C15.3787 22 14.318 22 13.659 21.3556C13 20.7113 13 19.6742 13 17.6V15.4Z"
+                fill="#4F46E5" />
+              <path
+                d="M13 5.5C13 4.4128 13 3.8692 13.1713 3.44041C13.3996 2.86867 13.8376 2.41443 14.389 2.17761C14.8024 2 15.3266 2 16.375 2H18.625C19.6734 2 20.1976 2 20.611 2.17761C21.1624 2.41443 21.6004 2.86867 21.8287 3.44041C22 3.8692 22 4.4128 22 5.5C22 6.5872 22 7.1308 21.8287 7.55959C21.6004 8.13133 21.1624 8.58557 20.611 8.82239C20.1976 9 19.6734 9 18.625 9H16.375C15.3266 9 14.8024 9 14.389 8.82239C13.8376 8.58557 13.3996 8.13133 13.1713 7.55959C13 7.1308 13 6.5872 13 5.5Z"
+                fill="#4F46E5" />
+            </svg>
+            <span class="ml-4 sidebar-label">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="all-members-page.html" class="flex items-center p-2 text-icon-color rounded hover:bg-gray-100 group">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M12 1.25C9.37665 1.25 7.25 3.37665 7.25 6C7.25 8.62335 9.37665 10.75 12 10.75C14.6234 10.75 16.75 8.62335 16.75 6C16.75 3.37665 14.6234 1.25 12 1.25ZM8.75 6C8.75 4.20507 10.2051 2.75 12 2.75C13.7949 2.75 15.25 4.20507 15.25 6C15.25 7.79493 13.7949 9.25 12 9.25C10.2051 9.25 8.75 7.79493 8.75 6Z"
+                fill="#626973" />
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M12 12.25C9.96067 12.25 8.07752 12.7208 6.67815 13.5204C5.3 14.3079 4.25 15.5101 4.25 17C4.25 18.4899 5.3 19.6921 6.67815 20.4796C8.07752 21.2792 9.96067 21.75 12 21.75C14.0393 21.75 15.9225 21.2792 17.3219 20.4796C18.7 19.6921 19.75 18.4899 19.75 17C19.75 15.5101 18.7 14.3079 17.3219 13.5204C15.9225 12.7208 14.0393 12.25 12 12.25ZM5.75 17C5.75 16.2807 6.26701 15.483 7.42236 14.8228C8.55649 14.1747 10.1733 13.75 12 13.75C13.8267 13.75 15.4435 14.1747 16.5776 14.8228C17.733 15.483 18.25 16.2807 18.25 17C18.25 17.7193 17.733 18.517 16.5776 19.1772C15.4435 19.8253 13.8267 20.25 12 20.25C10.1733 20.25 8.55649 19.8253 7.42236 19.1772C6.26701 18.517 5.75 17.7193 5.75 17Z"
+                fill="#626973" />
+            </svg>
+            <span class="ml-4 sidebar-label">All Members</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center p-2 text-icon-color rounded hover:bg-gray-100 group">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M7 1.75C7.41421 1.75 7.75 2.08579 7.75 2.5V3.26272C8.41203 3.24999 9.1414 3.24999 9.94358 3.25H14.0564C14.8586 3.24999 15.588 3.24999 16.25 3.26272V2.5C16.25 2.08579 16.5858 1.75 17 1.75C17.4142 1.75 17.75 2.08579 17.75 2.5V3.32709C18.0099 3.34691 18.2561 3.37182 18.489 3.40313C19.6614 3.56076 20.6104 3.89288 21.3588 4.64124C22.1071 5.38961 22.4392 6.33855 22.5969 7.51098C22.6472 7.88567 22.681 8.29459 22.7037 8.74007C22.7337 8.82106 22.75 8.90861 22.75 9C22.75 9.06932 22.7406 9.13644 22.723 9.20016C22.75 10.0021 22.75 10.9128 22.75 11.9436V14.0564C22.75 15.8942 22.75 17.3498 22.5969 18.489C22.4392 19.6614 22.1071 20.6104 21.3588 21.3588C20.6104 22.1071 19.6614 22.4392 18.489 22.5969C17.3498 22.75 15.8942 22.75 14.0564 22.75H9.94359C8.10583 22.75 6.65019 22.75 5.51098 22.5969C4.33856 22.4392 3.38961 22.1071 2.64124 21.3588C1.89288 20.6104 1.56076 19.6614 1.40314 18.489C1.24997 17.3498 1.24998 15.8942 1.25 14.0564V11.9436C1.24999 10.9127 1.24998 10.0021 1.27701 9.20017C1.25941 9.13645 1.25 9.06932 1.25 9C1.25 8.90862 1.26634 8.82105 1.29627 8.74006C1.31895 8.29458 1.35276 7.88566 1.40314 7.51098C1.56076 6.33856 1.89288 5.38961 2.64124 4.64124C3.38961 3.89288 4.33856 3.56076 5.51098 3.40313C5.7439 3.37182 5.99006 3.34691 6.25 3.32709V2.5C6.25 2.08579 6.58579 1.75 7 1.75ZM2.76309 9.75C2.75032 10.4027 2.75 11.146 2.75 12V14C2.75 15.9068 2.75159 17.2615 2.88976 18.2892C3.02502 19.2952 3.27869 19.8749 3.7019 20.2981C4.12511 20.7213 4.70476 20.975 5.71085 21.1102C6.73851 21.2484 8.09318 21.25 10 21.25H14C15.9068 21.25 17.2615 21.2484 18.2892 21.1102C19.2952 20.975 19.8749 20.7213 20.2981 20.2981C20.7213 19.8749 20.975 19.2952 21.1102 18.2892C21.2484 17.2615 21.25 15.9068 21.25 14V12C21.25 11.146 21.2497 10.4027 21.2369 9.75H2.76309ZM21.1683 8.25H2.83168C2.8477 8.06061 2.86685 7.88123 2.88976 7.71085C3.02502 6.70476 3.27869 6.12511 3.7019 5.7019C4.12511 5.27869 4.70476 5.02502 5.71085 4.88976C6.73851 4.75159 8.09318 4.75 10 4.75H14C15.9068 4.75 17.2615 4.75159 18.2892 4.88976C19.2952 5.02502 19.8749 5.27869 20.2981 5.7019C20.7213 6.12511 20.975 6.70476 21.1102 7.71085C21.1331 7.88123 21.1523 8.06061 21.1683 8.25ZM16 13.25C16.4142 13.25 16.75 13.5858 16.75 14V15.25H18C18.4142 15.25 18.75 15.5858 18.75 16C18.75 16.4142 18.4142 16.75 18 16.75H16.75V18C16.75 18.4142 16.4142 18.75 16 18.75C15.5858 18.75 15.25 18.4142 15.25 18V16.75L14 16.75C13.5858 16.75 13.25 16.4142 13.25 16C13.25 15.5858 13.5858 15.25 14 15.25L15.25 15.25V14C15.25 13.5858 15.5858 13.25 16 13.25Z"
+                fill="#626973" />
+            </svg>
+            <span class="ml-4 sidebar-label">Schedule</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center p-2 text-icon-color rounded hover:bg-gray-100 group">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M7.2626 3.26045C7.38219 2.13044 8.33828 1.25 9.5 1.25H14.5C15.6617 1.25 16.6178 2.13044 16.7374 3.26045C17.5005 3.27599 18.1603 3.31546 18.7236 3.41895C19.4816 3.55818 20.1267 3.82342 20.6517 4.34835C21.2536 4.95027 21.5125 5.70814 21.6335 6.60825C21.75 7.47522 21.75 8.57754 21.75 9.94513V16.0549C21.75 17.4225 21.75 18.5248 21.6335 19.3918C21.5125 20.2919 21.2536 21.0497 20.6517 21.6517C20.0497 22.2536 19.2919 22.5125 18.3918 22.6335C17.5248 22.75 16.4225 22.75 15.0549 22.75H8.94513C7.57754 22.75 6.47522 22.75 5.60825 22.6335C4.70814 22.5125 3.95027 22.2536 3.34835 21.6517C2.74643 21.0497 2.48754 20.2919 2.36652 19.3918C2.24996 18.5248 2.24998 17.4225 2.25 16.0549V9.94513C2.24998 8.57754 2.24996 7.47522 2.36652 6.60825C2.48754 5.70814 2.74643 4.95027 3.34835 4.34835C3.87328 3.82342 4.51835 3.55818 5.27635 3.41895C5.83973 3.31546 6.49952 3.27599 7.2626 3.26045ZM8.75 4.00102C8.75 4.00156 8.75 4.0021 8.75 4.00263V4.5C8.75 4.91421 9.08579 5.25 9.5 5.25H14.5C14.9142 5.25 15.25 4.91421 15.25 4.5V4.00263C15.25 4.00209 15.25 4.00156 15.25 4.00103V3.5C15.25 3.08579 14.9142 2.75 14.5 2.75H9.5C9.08579 2.75 8.75 3.08579 8.75 3.5V4.00102ZM16.735 4.76087C16.6058 5.88062 15.6544 6.75 14.5 6.75H9.5C8.34559 6.75 7.39424 5.88062 7.26496 4.76087C6.54678 4.7762 5.99336 4.81234 5.54735 4.89426C4.98054 4.99838 4.65246 5.16556 4.40901 5.40901C4.13225 5.68577 3.9518 6.07435 3.85315 6.80812C3.75159 7.56347 3.75 8.56458 3.75 10V16C3.75 17.4354 3.75159 18.4365 3.85315 19.1919C3.9518 19.9257 4.13225 20.3142 4.40901 20.591C4.68577 20.8678 5.07435 21.0482 5.80812 21.1469C6.56347 21.2484 7.56458 21.25 9 21.25H15C16.4354 21.25 17.4365 21.2484 18.1919 21.1469C18.9257 21.0482 19.3142 20.8678 19.591 20.591C19.8678 20.3142 20.0482 19.9257 20.1469 19.1919C20.2484 18.4365 20.25 17.4354 20.25 16V10C20.25 8.56458 20.2484 7.56347 20.1469 6.80812C20.0482 6.07434 19.8678 5.68577 19.591 5.40901C19.3475 5.16556 19.0195 4.99838 18.4527 4.89426C18.0066 4.81234 17.4532 4.7762 16.735 4.76087ZM6.25 14.5C6.25 14.0858 6.58579 13.75 7 13.75H15C15.4142 13.75 15.75 14.0858 15.75 14.5C15.75 14.9142 15.4142 15.25 15 15.25H7C6.58579 15.25 6.25 14.9142 6.25 14.5ZM6.25 18C6.25 17.5858 6.58579 17.25 7 17.25H12.5C12.9142 17.25 13.25 17.5858 13.25 18C13.25 18.4142 12.9142 18.75 12.5 18.75H7C6.58579 18.75 6.25 18.4142 6.25 18Z"
+                fill="#626973" />
+            </svg>
+            <span class="ml-4 sidebar-label">Report</span>
+          </a>
+        </li>
+        <!-- add a spacer -->
+        <li>
+          <a href="#" class="flex-1 flex items-center p-2 text-icon-color rounded hover:bg-gray-100 group">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M14 14.5C14 12.8431 15.3431 11.5 17 11.5C18.6568 11.5 20 12.8431 20 14.5C20 16.1569 18.6568 17.5 17 17.5C15.3431 17.5 14 16.1569 14 14.5Z"
+                stroke="#1F2937" stroke-opacity="0.7" stroke-width="1.5" />
+              <path
+                d="M3.99998 9.5C3.99998 11.1569 5.34312 12.5 6.99998 12.5C8.65683 12.5 9.99998 11.1569 9.99998 9.5C9.99998 7.84315 8.65683 6.5 6.99998 6.5C5.34312 6.5 3.99998 7.84315 3.99998 9.5Z"
+                stroke="#1F2937" stroke-opacity="0.7" stroke-width="1.5" />
+              <path d="M16.959 9L16.959 2" stroke="#1F2937" stroke-opacity="0.7" stroke-width="1.5"
+                stroke-linecap="round" />
+              <path d="M6.95898 15L6.95898 22" stroke="#1F2937" stroke-opacity="0.7" stroke-width="1.5"
+                stroke-linecap="round" />
+              <path d="M16.959 22L16.959 20" stroke="#1F2937" stroke-opacity="0.7" stroke-width="1.5"
+                stroke-linecap="round" />
+              <path d="M6.95898 2L6.95898 4" stroke="#1F2937" stroke-opacity="0.7" stroke-width="1.5"
+                stroke-linecap="round" />
+            </svg>
+            <span class="ml-4 sidebar-label">Settings</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Sticky Navigation -->
+  <nav class="sticky top-0 z-30 bg-white text-black shadow-sm transition-all duration-300" id="topNav">
+    <div class="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4">
+      <!-- Mobile menu button -->
+      <button id="sidebarToggle" class="lg:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <!-- Logo for mobile -->
+      <div class="flex items-center space-x-2">
+        <!-- Collapse/Expand Button (Desktop only) -->
+        <button id="sidebarCollapseBtn"
+          class="hidden lg:flex mr-24 items-center justify-center w-8 h-8 rounded hover:bg-gray-100 transition"
+          title="Collapse sidebar">
+          <svg id="sidebarCollapseIcon" width="32" height="32" viewBox="0 0 32 32" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_1744_9309)">
+              <path
+                d="M5.33398 7.99999C5.33398 7.29275 5.61494 6.61447 6.11503 6.11438C6.61513 5.61428 7.29341 5.33333 8.00065 5.33333H24.0007C24.7079 5.33333 25.3862 5.61428 25.8863 6.11438C26.3864 6.61447 26.6673 7.29275 26.6673 7.99999V24C26.6673 24.7072 26.3864 25.3855 25.8863 25.8856C25.3862 26.3857 24.7079 26.6667 24.0007 26.6667H8.00065C7.29341 26.6667 6.61513 26.3857 6.11503 25.8856C5.61494 25.3855 5.33398 24.7072 5.33398 24V7.99999Z"
+                stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M12 5.33333V26.6667" stroke="black" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M20.0007 13.3333L17.334 16L20.0007 18.6667" stroke="black" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </g>
+            <defs>
+              <clipPath id="clip0_1744_9309">
+                <rect width="32" height="32" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+        </button>
+        <div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+          <img src="logo.svg" alt="Orion Logo" class="size-5 lg:size-8 text-primary-main">
+        </div>
+        <span class="hidden lg:inline text-black text-[30px] font-bold">Orion</span>
+      </div>
+
+      <!-- Navigation Items -->
+      <div class="flex items-center space-x-4 ml-auto">
+        <!-- Agent Button -->
+        <button
+          class="bg-primary-main/20 text-primary-main px-4 py-1 rounded-full text-sm font-semibold hover:bg-primary-main/30">
+          Administrator
+        </button>
+
+        <!-- Notification -->
+        <button id="notificationMenuButton" class="p-2  hover:bg-white/20 rounded-lg relative">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+            viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ -->
+            <g fill="none" stroke="currentColor" stroke-width="1.5">
+              <path
+                d="M18.75 9.71v-.705C18.75 5.136 15.726 2 12 2S5.25 5.136 5.25 9.005v.705a4.4 4.4 0 0 1-.692 2.375L3.45 13.81c-1.011 1.575-.239 3.716 1.52 4.214a25.8 25.8 0 0 0 14.06 0c1.759-.498 2.531-2.639 1.52-4.213l-1.108-1.725a4.4 4.4 0 0 1-.693-2.375Z" />
+              <path stroke-linecap="round" d="M7.5 19c.655 1.748 2.422 3 4.5 3s3.845-1.252 4.5-3" />
+            </g>
+          </svg>
+          <div class="absolute top-[7px] right-[9px] w-[10px] h-[10px] bg-primary-main rounded-full"></div>
+        </button>
+
+        <!-- Profile -->
+        <div class="flex items-center space-x-3 relative">
+          <div class="hidden sm:block">
+            <div class="text-sm font-medium">Dani Kaei Manze</div>
+            <div class="text-xs">williamadu@biggs.com</div>
+          </div>
+          <button id="profileMenuButton" class=" hover:bg-white/20 p-1 rounded">
+            <svg class="w-6 h-6 rotate-90" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+              viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ -->
+              <path fill="currentColor"
+                d="M7 12a2 2 0 1 1-4 0a2 2 0 0 1 4 0m7 0a2 2 0 1 1-4 0a2 2 0 0 1 4 0m7 0a2 2 0 1 1-4 0a2 2 0 0 1 4 0" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Main Content -->
+  <main class="lg:ml-64 px-4 sm:px-6 transition-all duration-300" id="mainContent">
+    <div class="max-w-8xl mx-auto pt-6 w-[94%] mt-16">
+      <!-- Main Content Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6 items-start">
+        <!-- Left Section: Cards and Table -->
+        <div class="md:col-span-2 space-y-6">
+          <!-- Top Row of Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <!-- Members Card -->
+            <div class="bg-white p-7 space-y-8 rounded-xl shadow-sm border border-gray-100">
+              <div class="flex items-start justify-between">
+                <div>
+                  <h3 class="text-lg font-semibold mb-1">Members</h3>
+                  <p class="text-gray-500 text-sm">All users created in the system</p>
+                </div>
+                <img src="images/members-operations.svg" class="w-[45px] h-[45px]" alt="">
+              </div>
+              <div class="flex items-center justify-between">
+                <p class="text-3xl font-bold text-black">820</p>
+                <div class="px-6 py-3 bg-primary-main/20 rounded-full cursor-pointer">
+                  <p class="text-primary-deep text-sm">Create Member</p>
+                </div>
+              </div>
+            </div>
+            <!-- Invited Members Card -->
+            <div class="bg-white p-7 space-y-8 rounded-xl shadow-sm border border-gray-100">
+              <div class="flex items-start justify-between">
+                <div>
+                  <h3 class="text-lg font-semibold mb-1">Invited Members</h3>
+                  <p class="text-gray-500 text-sm">Invites sent, awaiting response.</p>
+                </div>
+                <img src="images/members-invited.svg" class="w-[45px] h-[45px]" alt="">
+
+              </div>
+              <div class="flex items-center justify-between">
+                <p class="text-3xl font-bold text-black">36</p>
+                <div class="flex items-center space-x-3 text-primary-deep cursor-pointer">
+                  <p class="text-sm">View all</p>
+                <img src="images/right-arrow.svg" class="w-7 h-4" alt="">
+                </div>
+              </div>
+            </div>
+            <!-- Pending Invites Card -->
+            <div class="bg-white p-7 space-y-8 rounded-xl shadow-sm border border-gray-100">
+              <div class="flex items-start justify-between">
+                <div>
+                  <h3 class="text-lg font-semibold mb-1">Pending Invites</h3>
+                  <p class="text-gray-500 text-sm">Invited members who haven't joined yet.</p>
+                </div>
+                <img src="images/members-pending-invites.svg" class="w-[45px] h-[45px]" alt="">
+
+              </div>
+              <div class="flex items-center justify-between">
+                <p class="text-3xl font-bold text-black">12</p>
+                <div class="flex items-center space-x-3 text-primary-deep cursor-pointer">
+                  <p class="text-sm">View all</p>
+                  <img src="images/right-arrow.svg" class="w-7 h-4" alt="">
+
+                </div>
+              </div>
+            </div>
+            <!-- Active Members Card -->
+            <div class="bg-white p-7 space-y-8 rounded-xl shadow-sm border border-gray-100">
+              <div class="flex items-start justify-between">
+                <div>
+                  <h3 class="text-lg font-semibold mb-1">Active Members</h3>
+                  <p class="text-gray-500 text-sm">Members who've joined and are active.</p>
+                </div>
+                <img src="images/members-active.svg" class="w-[45px] h-[45px]" alt="">
+
+              </div>
+              <div class="flex items-center justify-between">
+                <p class="text-3xl font-bold text-black">12</p>
+                <div class="flex items-center space-x-3 text-primary-deep cursor-pointer">
+                  <p class="text-sm">View all</p>
+                  <img src="images/right-arrow.svg" class="w-7 h-4" alt="">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Members by Role Card -->
+        <div class="bg-white px-7 py-9 rounded-2xl shadow-sm border border-gray-100">
+          <h3 class="text-lg font-semibold mb-1">Members by Role</h3>
+          <p class="text-gray-500 text-sm mb-10"><span class="font-bold">580</span> Members by Roles</p>
+          <div class="flex flex-col space-y-8 p-2">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="font-semibold text-lg">Floor Managers</p>
+                <p class="text-xs">Total floor managers</p>
+              </div>
+              <p class="text-primary-main font-bold text-2xl">103</p>
+            </div>
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="font-semibold text-lg">Supervisors</p>
+                <p class="text-xs">Total supervisors</p>
+              </div>
+              <p class="text-primary-main font-bold text-2xl">226</p>
+            </div>
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="font-semibold text-lg">Agents</p>
+                <p class="text-xs">Total Agents</p>
+              </div>
+              <p class="text-primary-main font-bold text-2xl">851</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Profile Dropdown - Positioned outside header to avoid clipping -->
+  <div id="profileDropdown"
+    class="hidden fixed w-80 bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden z-50">
+    <!-- Menu Items -->
+    <div class="p-4 space-y-1">
+      <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-50 transition-colors group">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M14.1285 16.3068C12.7987 16.3068 11.4987 15.9125 10.393 15.1737C9.28731 14.4348 8.4255 13.3848 7.91661 12.1562C7.4077 10.9276 7.27455 9.57566 7.53398 8.27138C7.79342 6.96711 8.4338 5.76905 9.37412 4.82871C10.3145 3.88839 11.5125 3.24801 12.8168 2.98857C14.121 2.72914 15.4729 2.86229 16.7016 3.3712C17.9302 3.88009 18.9803 4.7419 19.7191 5.8476C20.4579 6.95332 20.8523 8.25328 20.8523 9.58311C20.8501 11.3657 20.1411 13.0747 18.8806 14.3352C17.6202 15.5957 15.9111 16.3047 14.1285 16.3068Z"
+            fill="#4F46E5" />
+          <path
+            d="M18.2745 14.8633C17.0928 15.7963 15.6311 16.3037 14.1254 16.3037C12.6197 16.3037 11.158 15.7963 9.9763 14.8633C8.09126 15.615 6.44593 16.8648 5.21623 18.4792C3.98654 20.0936 3.2187 22.0118 2.99482 24.0289C2.96277 24.3242 3.04936 24.6203 3.23555 24.8518C3.42175 25.0835 3.69229 25.2316 3.98769 25.2638L24.1466 25.2705C24.304 25.2706 24.4598 25.2376 24.6036 25.1735C24.7474 25.1095 24.8761 25.0158 24.9813 24.8986C25.0865 24.7815 25.1659 24.6435 25.2142 24.4936C25.2625 24.3437 25.2786 24.1854 25.2616 24.0289C25.037 22.0116 24.2686 20.0932 23.0383 18.4789C21.808 16.8645 20.1622 15.6148 18.2767 14.8633H18.2745Z"
+            fill="#A3A1F4" />
+        </svg>
+        <div>
+          <div class="font-medium text-sm">My Profile</div>
+          <div class="text-xs text-black/50">Account Settings</div>
+        </div>
+      </a>
+    </div>
+    <hr class="border-black/10 mx-8 mb-4">
+    <!-- Logout Button -->
+    <div class="p-4 pt-0">
+      <button class="btn-primary">
+        Logout
+      </button>
+    </div>
+  </div>
+
+  <!-- Notification Dropdown - Positioned outside header to avoid clipping -->
+  <div id="notificationDropdown"
+    class="hidden fixed w-80 bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden z-50">
+    <!-- Notification Items -->
+    <div class="p-4 space-y-2.5">
+      <!-- Notification 1 -->
+      <div class="flex items-center space-x-3 rounded-lg hover:bg-gray-50 transition-colors">
+        <div class="w-12 h-12 bg-gray-300 rounded-full flex-shrink-0"></div>
+        <div class="flex-1 min-w-0">
+          <div class="font-medium text-sm">Kafui Yevu</div>
+          <div class="text-xs text-black/50">Cross check audio AUD110</div>
+        </div>
+      </div>
+
+      <!-- Notification 2 -->
+      <div class="flex items-center space-x-3 rounded-lg hover:bg-gray-50 transition-colors">
+        <div class="w-12 h-12 bg-gray-300 rounded-full flex-shrink-0"></div>
+        <div class="flex-1 min-w-0">
+          <div class="font-medium text-sm">Kafui Yevu</div>
+          <div class="text-xs text-black/50">Cross check audio AUD110</div>
+        </div>
+      </div>
+
+      <!-- Notification 3 -->
+      <div class="flex items-center space-x-3 rounded-lg hover:bg-gray-50 transition-colors">
+        <div class="w-12 h-12 bg-gray-300 rounded-full flex-shrink-0"></div>
+        <div class="flex-1 min-w-0">
+          <div class="font-medium text-sm">Kafui Yevu</div>
+          <div class="text-xs text-black/50">Cross check audio AUD110</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- See All Button -->
+    <div class="p-4 pt-0">
+      <button class="btn-primary">
+        See all Notification
+      </button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
