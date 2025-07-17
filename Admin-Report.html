@@ -81,6 +81,38 @@
   color: #4F46E5;
 }
 
+/* for flatpickr  */
+.flatpickr-day.startRange,
+.flatpickr-day.endRange {
+  background: #4F46E5 !important;
+  color: #fff !important;
+}
+
+/* Remove overall calendar border */
+.flatpickr-calendar {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove borders inside the calendar cells */
+.flatpickr-day,
+.flatpickr-day:hover,
+.flatpickr-day:focus {
+  border: none !important;
+}
+
+/* Remove border around the month and weekdays header */
+.flatpickr-months,
+.flatpickr-weekdays {
+  border: none !important;
+}
+
+/* Optional: Remove inner spacing outlines */
+.flatpickr-innerContainer {
+  border: none !important;
+}
+
+
    
 </style>
 
@@ -193,7 +225,7 @@
                 <div class="relative">
                   <button id="dateBtn" class="border border-gray-300 rounded-md px-4 py-2 text-[14px] text-[#626973] w-48 h-10 flex justify-between items-center hover:ring-2 hover:ring-blue-500">
                     <img src="images/calendar-icon.svg" alt="">
-                    <span id="dateBtnLabel">Last 30 days</span>
+                    <span id="dateBtnLabel" class="date-range">Last 30 days</span>
                     <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                     </svg>
@@ -206,13 +238,13 @@
                   
                       <!-- c: Preset Ranges -->
                       <div class="flex flex-col gap-2 w-[200px]">
-                        <div class="px-3 py-2 bg-[#F6F7F9] rounded cursor-pointer hover:bg-[#E9E8FC]">Today</div>
-                        <div class="px-3 py-2 bg-[#F6F7F9] rounded cursor-pointer hover:bg-[#E9E8FC]">Yesterday</div>
-                        <div class="px-3 py-2 bg-[#F6F7F9] rounded cursor-pointer hover:bg-[#E9E8FC]">Last Week</div>
-                        <div class="px-3 py-2 bg-[#F6F7F9] rounded cursor-pointer hover:bg-[#E9E8FC]">Last 7 days</div>
-                        <div class="px-3 py-2 bg-[#F6F7F9] rounded cursor-pointer hover:bg-[#E9E8FC]">This Month</div>
-                        <div class="px-3 py-2 bg-[#F6F7F9] rounded cursor-pointer hover:bg-[#E9E8FC]">Last 30 days</div>
-                        <div class="px-3 py-2 bg-[#F6F7F9] rounded cursor-pointer hover:bg-[#E9E8FC]">Custom range</div>
+                        <div id="todayBtn" class="px-3 py-2 bg-[#F6F7F9] rounded cursor-pointer hover:bg-[#E9E8FC]">Today</div>
+                        <div id="yesterdayBtn" class="px-3 py-2 bg-[#F6F7F9] rounded cursor-pointer hover:bg-[#E9E8FC]">Yesterday</div>
+                        <div id="lastWeekBtn" class="px-3 py-2 bg-[#F6F7F9] rounded cursor-pointer hover:bg-[#E9E8FC]">Last Week</div>
+                        <div id="last7daysBtn" class="px-3 py-2 bg-[#F6F7F9] rounded cursor-pointer hover:bg-[#E9E8FC]">Last 7 days</div>
+                        <div id="thisMonthBtn" class="px-3 py-2 bg-[#F6F7F9] rounded cursor-pointer hover:bg-[#E9E8FC]">This Month</div>
+                        <div id="last30daysBtn" class="px-3 py-2 bg-[#F6F7F9] rounded cursor-pointer hover:bg-[#E9E8FC]">Last 30 days</div>
+                        <div id="customRangeBtn" class="px-3 py-2 bg-[#F6F7F9] rounded cursor-pointer hover:bg-[#E9E8FC]">Custom range</div>
                       </div>
                   
                       <!-- d: Calendar placeholder -->
@@ -223,10 +255,10 @@
                   
                     <!-- b: Footer with range and buttons -->
                     <div class="flex items-center justify-between border-t border-gray-200 pt-3 px-1">
-                      <div class="text-[14px] text-[#4B5563] font-medium range-label">May 10, 2025 - May 18, 2025</div>
+                      <div class="text-[17px] text-[#14181F] leading-[140%] range-label">May 10, 2025 - May 18, 2025</div>
                       <div class="flex gap-3">
-                        <button class="px-4 py-2 text-[14px] rounded border border-gray-300 text-gray-600 hover:bg-gray-100">Cancel</button>
-                        <button class="px-4 py-2 text-[14px] rounded bg-[#4F46E5] text-white hover:bg-[#4338CA]">Done</button>
+                        <button id="cancelBtn" class="px-4 py-2 text-[14px] w-[95px] h-[35px] rounded-md border border-gray-300 text-gray-600 hover:bg-gray-100">Cancel</button>
+                        <button id="doneBtn" class="px-4 py-2 text-[14px] w-[95px] h-[35px] rounded-md bg-[#4F46E5] text-white hover:bg-[#4338CA]">Done</button>
                       </div>
                     </div>
                   
@@ -695,34 +727,142 @@
 
 
 <!-- Flatpickr JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
 <script>
- document.getElementById("dateBtn").addEventListener("click", function () {
-  const popup = document.getElementById("datePopup");
-  popup.classList.remove("hidden");
+ const dateBtn = document.getElementById("dateBtn");
+ const datePopup = document.getElementById("datePopup");
+
+ dateBtn.addEventListener("click", function () {
+  datePopup.classList.remove("hidden");
 
   // Destroy previous instance if needed
-  if (popup._flatpickrInstance) {
-    popup._flatpickrInstance.destroy();
+  if (datePopup._flatpickrInstance) {
+    datePopup._flatpickrInstance.destroy();
   }
+
+  document.getElementById("cancelBtn").addEventListener("click", function () {
+    datePopup.classList.add("hidden");
+  });
+
+  document.getElementById("doneBtn").addEventListener("click", function () {
+    const popup = document.getElementById("datePopup");
+    const label = document.querySelector(".range-label");
+    const rangeText = label.textContent.trim();
+
+    if (rangeText && rangeText.includes(" - ")) {
+      console.log(`Selected Date: ${rangeText}`);
+    } else {
+      console.log("Please select a full date range.");
+    }
+
+    // Close popup
+    popup.classList.add("hidden");
+  
+  });
+
+
+  const label = document.querySelector(".range-label");
+    let selectedRange = [];
+
+    if (label && label.textContent.includes(" - ")) {
+      const [startStr, endStr] = label.textContent.split(" - ");
+      const startDate = new Date(startStr);
+      const endDate = new Date(endStr);
+
+      // Only push if both dates are valid
+      if (!isNaN(startDate) && !isNaN(endDate)) {
+        selectedRange = [startDate, endDate];
+      }
+    }
 
   // Delay slightly to ensure DOM is ready
   setTimeout(() => {
-    popup._flatpickrInstance = flatpickr("#flatpickrContainer", {
+    datePopup.flatpickrInstance = flatpickr("#flatpickrContainer", {
       inline: true,
-      mode: "range",
-      dateFormat: "M j, Y",
-      defaultDate: ["2025-05-10", "2025-05-18"],
-      onChange: function (selectedDates) {
-        const label = document.querySelector(".range-label");
-        if (selectedDates.length === 2) {
-          const start = selectedDates[0].toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-          const end = selectedDates[1].toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-          label.textContent = `${start} - ${end}`;
+  mode: "range",
+  dateFormat: "M j, Y",
+  defaultDate: selectedRange.length === 2 ? selectedRange : null,
+  onChange: function (selectedDates) {
+    const label = document.querySelector(".range-label");
+    if (selectedDates.length === 2) {
+      const start = selectedDates[0].toLocaleDateString('en-US', {
+        month: 'short', day: 'numeric', year: 'numeric'
+      });
+      const end = selectedDates[1].toLocaleDateString('en-US', {
+        month: 'short', day: 'numeric', year: 'numeric'
+      });
+      label.textContent = `${start} - ${end}`;
         }
       }
     });
   }, 100);
+});
+
+
+  // setting and picking range 
+  function setDateRange(start, end) {
+    datePopup.flatpickrInstance.setDate([start, end], true);
+  }
+
+  document.getElementById("todayBtn").addEventListener("click", () => {
+    const today = new Date();
+    setDateRange(today, today)
+  })
+
+  document.getElementById("yesterdayBtn").addEventListener("click", () => {
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1)
+    setDateRange(yesterday, yesterday)
+  })
+
+  document.getElementById("last7daysBtn").addEventListener("click", () => {
+    const end = new Date();
+    const start = new Date();
+    start.setDate(end.getDate() - 6);
+    setDateRange(start, end);
+  });
+
+
+  document.getElementById("lastWeekBtn").addEventListener("click", () => {
+  const today = new Date();
+  const dayOfWeek = today.getDay(); // Sunday = 0, Monday = 1, ...
+  const daysSinceMonday = (dayOfWeek + 6) % 7;
+
+  const lastWeekEnd = new Date(today);
+  lastWeekEnd.setDate(today.getDate() - daysSinceMonday - 1); // Last Sunday
+
+  const lastWeekStart = new Date(lastWeekEnd);
+  lastWeekStart.setDate(lastWeekEnd.getDate() - 6); // Previous Monday
+
+  setDateRange(lastWeekStart, lastWeekEnd);
+});
+
+
+  document.getElementById("last30daysBtn").addEventListener("click", () => {
+    const end = new Date();
+    const start = new Date();
+    start.setDate(end.getDate() - 29);
+    setDateRange(start, end);
+  });
+
+  document.getElementById("thisMonthBtn").addEventListener("click", () => {
+    const now = new Date();
+    const start = new Date(now.getFullYear(), now.getMonth(), 1);
+    const end = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+    setDateRange(start, end);
+  });
+
+  document.getElementById("customRangeBtn").addEventListener("click", () => {
+   const today = new Date();
+   setDateRange(today, today)
+
+  //  Reset the range label text
+  const label = document.querySelector(".range-label");
+  if (label) {
+    label.textContent = "Select a date range";
+  }
 });
 
 

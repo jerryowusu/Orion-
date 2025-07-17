@@ -218,11 +218,112 @@
                   alt="Upload"
                   class="object-contain absolute -right-10 top-0"
                 />
-                <button class="mt-20 btn-secondary">
+                <button id="uploadScheduleBtn" class="mt-20 btn-secondary z-20 cursor-pointer">
                   Upload Schedule
                 </button>
+
+                <!-- Inset modal upload bulk -->
+                <div id="uploadScheduleModal" class="fixed inset-0 z-50 bg-black/30 hidden justify-end">
+                  <div class="bg-white w-[40%] h-[full] p-[48px] shadow-lg overflow-y-auto flex flex-col justify-between">
+                  <div class="space-y-6">
+                      <h2 class="text-[30px] font-semibold text-[#1F2937]">Upload Schedule</h2>
+
+                      <div class="flex flex-col bg-[#F5F9FF] p-4 rounded-3 gap-4">
+                          <div class="flex gap-4 items-center">
+                            <img src="images/i.svg" class="w-4 h-4 items-center" alt="i">
+                            <div class="text-[12px] text-[#2F3F53] leading-[160%]">
+                                <p>1. Download the template file and enter the required details.</p>
+                                <p>2. Once completed, upload the file below and click Upload File to proceed.</p>
+                            </div>
+                          </div>
+                          
+                          <button class="flex flex-row gap-2 text-[#4F46E5] w-[190px] h-[35px] border border-[#4F46E5] p-2 ml-8 rounded-md text-[14px]">
+                            <img src="images/download-sheet.svg" alt="download-sheet">
+                            Download Template
+                          </button>
+                      </div>
+
+                      <div class="relative my-4 min-w-[300px] sm:min-w-[420px]">
+                        <button id="scheduleTypeBtn" class="border border-gray-300 text-sm rounded-md px-4 py-2 text-[14px] text-[#626973] md:w-[250px] h-11 flex justify-between items-center hover:ring-2 hover:ring-blue-500">
+                          <span id="scheduleTypeLabel" class="text-[17px] text-[#6269734D]">Select Schedule Type</span>
+                          <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                          </svg>
+                        </button>
+                        <ul id="scheduleTypeMenu" class="absolute z-10 hidden md:min-w-[350px] bg-white p-4 rounded-lg shadow-lg text-sm text-[14px] text-[#000112]">
+                          <li class="px-4 py-2 hover:bg-[#F6F6FF] h-11 border-b-[0.35px] border-[#0000001A] text-[14px] leading-[100%] font-semibold cursor-pointer">Quarter 1</li>
+                          <li class="px-4 py-2 hover:bg-[#F6F6FF] h-11 border-b-[0.35px] border-[#0000001A] text-[14px] leading-[100%] font-semibold cursor-pointer">Quarter 2</li>
+                          <li class="px-4 py-2 hover:bg-[#F6F6FF] h-11 border-b-[0.35px] border-[#0000001A] text-[14px] leading-[100%] font-semibold cursor-pointer">Quarter 3</li>
+                          <li class="px-4 py-2 hover:bg-[#F6F6FF] h-11 border-b-[0.35px] border-[#0000001A] text-[14px] leading-[100%] font-semibold cursor-pointer">Weekly</li>
+                        </ul>
+                      </div>
+
+                      <div class="bg-[#F8F7FF] p-6 flex flex-col items-center justify-center border border-2 border-dotted text-center rounded-lg h-[250px] text-white gap-2">
+                          <img src="images/upload.svg" alt="upload">
+                          <h3 class="text-[18px] text-[#1F2937]">Drag and Drop files or <span class="text-[#4F46E5]">Browse</span></h3>
+                          <p class="text-[10px] text-[#626973]">Supported Format CSV</p>
+                      </div>
+
+                      <div class="flex flex-col gap-2 ">
+                          <h4 class="text-[18px] text-[#1F2937]">Uploaded File</h4>
+                          <div class="flex items-center bg-[#E1FFF5] rounded-md px-2 py-2 gap-2">
+                              <p  class="flex-1 outline-none text-[16px] text-[#1F2937]">File Name Here</p>
+                              <div class="bg-[#FFE0E0] p-2 rounded-[100%] cursor-pointer">
+                                  <img src="images/delete-red.svg" alt="delete" class="w-4 h-4">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="flex justify-between mt-6 gap-4">
+                      <button id="closeUploadScheduleBtn" class="flex w-1/3 items-center justify-center border border-gray-300 text-gray-700 px-2 py-2 rounded-md w-full">Cancel</button>
+                      <button id="openProgressUpload" class="flex w-2/3 items-center justify-center bg-indigo-600 text-white px-4 py-2 rounded-md w-full">Upload File</button>
+                  </div>
+                  </div>
+              </div>
               </div>
             </div>
+
+
+            <!-- Top-Right Popup -->
+            <div id="scheduleUploadSuccess" class="fixed hidden top-16 right-16 bg-[#EFFFFA] shadow-lg rounded-lg flex items-center p-4 gap-4 w-[320px] h-[100px] z-50">
+
+              <!-- Image -->
+              <img src="images/green-checkmark.svg" alt="icon" class="w-5 h-5 rounded-lg self-start">
+
+              <!-- Texts Column -->
+              <div class="flex flex-col justify-center gap-2 self-start">
+                <p class="text-[14px] font-semibold text-[#27303A] leading-[140%]">Schedule upload Successful!</p>
+                <p class="text-[12px] text-[#2F3F53] leading-[160%]">Your schedule has been uploaded 
+                  and saved successfully.</p>
+              </div>
+
+              <!-- Close Button -->
+              <button id="closeUploadSuccessBtn"
+                      class="ml-auto self-start">
+               <img src="images/Close button.svg" class="hover:text-red-500 w-5 h-5" alt="">
+              </button>
+            </div>
+
+
+            <div id="progressUploadPanel" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden justify-end items-center transition-opacity duration-300 ease-in-out opacity-100">
+              <div class="bg-white p-8  w-[40%] h-screen flex flex-col items-center justify-center gap-10 shadow-lg">
+                  <!-- Circular Progress SVG -->
+                  <img src="images/upload in progress.svg" class="w-[150px] h-[120px]" alt="loader">
+              
+                  <div class="flex flex-col gap-4">
+                      <h2 class="text-[23px] leading-[100%] font-bold text-[#150E67]  text-center">
+                            Upload in Progress
+                      </h2>
+                  
+                      <p class="text-[18px] text-[#1F2937] text-center leading-[100%]">
+                          You’ll be notified once it’s complete.
+                      </p>
+                  </div>
+
+                  <button id="OkayProgressUploadBtn" class="flex w-[250px] h-11 items-center justify-center bg-indigo-600 text-white px-4 py-2 rounded-md">Okay</button>
+              </div>
+          </div>
 
            <!-- Outside the overflow-hidden container -->
               <div id="tooltipPopup" class="hidden absolute w-[300px] md:w-[420px] bg-[#F5F9FF] p-6 rounded-lg shadow-lg z-[9999]" style="box-shadow: 0 -1px 2px #919EAB33, 0 12px 24px -14px #919EAB1F;">
@@ -405,11 +506,98 @@
       tooltip.classList.add("hidden");
     }
   });
+
+
+
+  const uploadScheduleBtn = document.getElementById('uploadScheduleBtn');
+    const closeBtn = document.getElementById('closeUploadScheduleBtn');
+    const panel = document.getElementById('uploadScheduleModal');
+
+    uploadScheduleBtn.addEventListener('click', () => {
+      panel.classList.remove('hidden');
+      panel.classList.add('flex');
+    });
+
+  
+    panel.addEventListener('click', (e) => {
+      if (e.target === panel) {
+        panel.classList.add('hidden');
+        panel.classList.remove('flex');
+      }
+    });
+
+    closeBtn.addEventListener("click", () => {
+      panel.classList.add("hidden")
+    })
+
+
+    
+
+
+    const progressUploadPanel = document.getElementById("progressUploadPanel")
+    const openProgressUploadPanel = document.getElementById("openProgressUpload");
+
+    openProgressUploadPanel.addEventListener("click", () => {
+        progressUploadPanel.classList.remove("hidden");
+        progressUploadPanel.classList.add("flex");
+        panel.classList.add('hidden');
+    });
+
+    progressUploadPanel.addEventListener("click", (e) => {
+        if (e.target === progressUploadPanel) {
+            progressUploadPanel.classList.add("hidden");
+            progressUploadPanel.classList.remove("flex");
+        }
+    });
+
+   
+    const okayBtn = document.getElementById("OkayProgressUploadBtn");
+    const scheduleUploadSuccess = document.getElementById("scheduleUploadSuccess")
+
+    okayBtn.addEventListener("click", () => {
+      progressUploadPanel.classList.add("hidden");
+      progressUploadPanel.classList.remove("flex");
+
+      setTimeout(() => {
+        progressUploadPanel.classList.add('hidden');
+        scheduleUploadSuccess.classList.remove('hidden');
+        }, 1000);
+    })
+
+    closeUploadSuccessBtn.addEventListener("click", () => {
+      scheduleUploadSuccess.classList.add("hidden")
+    })
+
+     // Status Dropdown
+     const scheduleTypeBtn = document.getElementById("scheduleTypeBtn");
+      const scheduleTypeMenu = document.getElementById("scheduleTypeMenu");
+      const scheduleTypeLabel = document.getElementById("scheduleTypeLabel");
+
+      scheduleTypeBtn.addEventListener("click", () => {
+        scheduleTypeMenu.classList.toggle("hidden");
+        scheduleTypeBtn.classList.toggle("bg-[#E9E8FC]")
+      });
+
+      scheduleTypeMenu.querySelectorAll("li").forEach(item => {
+        item.addEventListener("click", () => {
+          scheduleTypeLabel.textContent = item.textContent;
+          scheduleTypeMenu.classList.add("hidden");
+        });
+      });
+
+
+      document.addEventListener("click", function (e) {
+        if (!scheduleTypeBtn.contains(e.target)) {
+          scheduleTypeMenu.classList.add("hidden");
+          scheduleTypeBtn.classList.remove("bg-[#E9E8FC]")
+        }
+      });
+
 </script>
 
 
 
-<script src="Index.js"></script>
+<!-- <script src="Index.js"></script> -->
 </body>
 </html>
 
