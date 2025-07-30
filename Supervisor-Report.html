@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Flatpickr CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+<!-- Optional Theme (for better styling with Tailwind) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_blue.css">
+
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'primary-main': '#4F46E5',
+            'primary-subtle': '#A3A1F4',
+            'success': '#10B981',
+            'warning': '#F59E0B',
+            'danger': '#EF4444',
+            'icon-color': '#626973'
+          }
+        }
+      },
+      plugins: [
+        function ({ addComponents }) {
+          addComponents({
+            '.btn-primary': {
+              '@apply w-full bg-primary-subtle/20 text-primary-main text-sm py-3 px-4 rounded-full font-medium border border-transparent hover:border-primary-main transition-all duration-200': {}
+            },
+            '.btn-secondary': {
+              '@apply w-full bg-primary-main text-white text-sm py-3 px-4 rounded-full font-medium hover:bg-primary-main/90 transition-all duration-200': {}
+            }
+          })
+        }
+      ]
+    }
+  </script>
+</head>
+
+<style>
+    body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+.menu-item.active .icon-wrapper {
+  background-color: #4F46E514;
+}
+
+.menu-item.active img {
+  filter: brightness(0) saturate(100%) invert(22%) sepia(84%) saturate(2385%) hue-rotate(200deg) brightness(95%) contrast(101%);
+}
+
+.menu-item.active .menu-text {
+  color: #4F46E5;
+}
+
+.menu-item svg {
+  color: #6B7280; /* gray-500 for unselected */
+}
+
+.menu-item.active svg {
+  color: #4F46E5; /* purple-600 when selected */
+}
+
+.menu-item.active .icon-wrapper {
+  background-color: #4F46E514;
+}
+
+.menu-item .sidebar-text {
+  color: #6B7280;
+}
+
+.menu-item.active .sidebar-text {
+  color: #4F46E5;
+}
+
+/* for flatpickr  */
+.flatpickr-day.startRange,
+.flatpickr-day.endRange {
+  background: #4F46E5 !important;
+  color: #fff !important;
+}
+
+/* Remove overall calendar border */
+.flatpickr-calendar {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove borders inside the calendar cells */
+.flatpickr-day,
+.flatpickr-day:hover,
+.flatpickr-day:focus {
+  border: none !important;
+}
+
+/* Remove border around the month and weekdays header */
+.flatpickr-months,
+.flatpickr-weekdays {
+  border: none !important;
+}
+
+/* Optional: Remove inner spacing outlines */
+.flatpickr-innerContainer {
+  border: none !important;
+}
+
+
+   
+</style>
+
+<body class="bg-gray-100  flex items-center justify-end">
+
+<div class="bg-gray-100 top-0 w-full">
+    <!-- top bar  -->
+    <div class="items-center full h-24 bg-white p-4 md:p-8 ">
+        <div class="flex justify-between flex-wrap">
+            <div class="flex items-center space-x-4 md:space-x-12">
+                <button id="toggleSidebar" class="mr-4 md:mr-8">
+                    <img src="images/openSideBar.svg" class="w-8 h-8" alt="">
+                </button>
+                <a class="flex flex-row items-center justify-center gap-2 left-40" href="index.html">
+                    <img src="images/logo.svg" alt="Logo" class="h-31 w-31">
+                    <h1 class="font-bold text-[29.45px] leading-[100%] tracking-[0px]">Orion</h1>
+                </a>
+            </div>
+            <div class="flex items-center space-x-4 md:space-x-8 mt-4 md:mt-0">
+                <div class="flex items-center justify-between mr-6 space-x-4 md:space-x-8">
+                    <a href="Supervisor-Dashboard.html" class="flex items-center justify-center text-[rgba(79,70,229)] w-26 h-7 font-bold text-sm rounded-full p-2 bg-[rgba(79,70,229,0.2)]">Supervisor</a>
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6 6 0 10-12 0v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                        </svg>
+                    </button>
+                    <div class="flex left-align space-x-2">
+                        <div class="text-left">
+                            <p class="font-medium text-gray-800 text-base">William Adu</p>
+                            <p class="font-light text-gray-600 text-xs">williamadu@biggs.com</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="font-bold">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v.01M12 12v.01M12 18v.01" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+   
+    <div class="flex w-full h-screen">
+        <div id="active-indicator" class="absolute left-0 w-1 h-10 bg-[#4F46E5] rounded transition-all duration-300 mt-20"></div>
+        
+        <!-- sidebar  -->
+        <div id="sidebar" class="flex flex-col bg-white text-gray-800 min-h-[900px] transition-all duration-300 ease-in-out w-[85px] overflow-hidden">
+            <div class="flex flex-col mt-24 px-6 gap-6"> 
+                <div class="menu-item flex items-center space-x-3 cursor-pointer active">
+                    <div class="icon-wrapper w-[42px] h-[42px] p-2 flex items-center justify-center rounded transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="transition-colors duration-300" viewBox="0 -0.5 25 25" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.918 10.0005H7.082C6.66587 9.99708 6.26541 10.1591 5.96873 10.4509C5.67204 10.7427 5.50343 11.1404 5.5 11.5565V17.4455C5.5077 18.3117 6.21584 19.0078 7.082 19.0005H9.918C10.3341 19.004 10.7346 18.842 11.0313 18.5502C11.328 18.2584 11.4966 17.8607 11.5 17.4445V11.5565C11.4966 11.1404 11.328 10.7427 11.0313 10.4509C10.7346 10.1591 10.3341 9.99708 9.918 10.0005Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.918 4.0006H7.082C6.23326 3.97706 5.52559 4.64492 5.5 5.4936V6.5076C5.52559 7.35629 6.23326 8.02415 7.082 8.0006H9.918C10.7667 8.02415 11.4744 7.35629 11.5 6.5076V5.4936C11.4744 4.64492 10.7667 3.97706 9.918 4.0006Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.082 13.0007H17.917C18.3333 13.0044 18.734 12.8425 19.0309 12.5507C19.3278 12.2588 19.4966 11.861 19.5 11.4447V5.55666C19.4966 5.14054 19.328 4.74282 19.0313 4.45101C18.7346 4.1592 18.3341 3.9972 17.918 4.00066H15.082C14.6659 3.9972 14.2654 4.1592 13.9687 4.45101C13.672 4.74282 13.5034 5.14054 13.5 5.55666V11.4447C13.5034 11.8608 13.672 12.2585 13.9687 12.5503C14.2654 12.8421 14.6659 13.0041 15.082 13.0007Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.082 19.0006H17.917C18.7661 19.0247 19.4744 18.3567 19.5 17.5076V16.4936C19.4744 15.6449 18.7667 14.9771 17.918 15.0006H15.082C14.2333 14.9771 13.5256 15.6449 13.5 16.4936V17.5066C13.525 18.3557 14.2329 19.0241 15.082 19.0006Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <span class="sidebar-text text-sm transition-all duration-300 opacity-0">Dashboard</span>
+                </div>
+                <div class="menu-item flex items-center space-x-3 cursor-pointer active">
+                    <div class="icon-wrapper w-[42px] h-[42px] p-2 flex items-center justify-center rounded transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="currentColor" fill-rule="evenodd" d="M7 1.75a.75.75 0 0 1 .75.75v.763c.662-.013 1.391-.013 2.194-.013h4.112c.803 0 1.532 0 2.194.013V2.5a.75.75 0 0 1 1.5 0v.827q.39.03.739.076c1.172.158 2.121.49 2.87 1.238c.748.749 1.08 1.698 1.238 2.87q.074.562.107 1.23a.75.75 0 0 1 .019.46c.027.801.027 1.712.027 2.743v2.112c0 1.838 0 3.294-.153 4.433c-.158 1.172-.49 2.121-1.238 2.87c-.749.748-1.698 1.08-2.87 1.238c-1.14.153-2.595.153-4.433.153H9.944c-1.838 0-3.294 0-4.433-.153c-1.172-.158-2.121-.49-2.87-1.238c-.748-.749-1.08-1.698-1.238-2.87c-.153-1.14-.153-2.595-.153-4.433v-2.112c0-1.031 0-1.942.027-2.744a.75.75 0 0 1 .02-.46q.032-.667.106-1.229c.158-1.172.49-2.121 1.238-2.87c.749-.748 1.698-1.08 2.87-1.238q.35-.046.739-.076V2.5A.75.75 0 0 1 7 1.75m-4.237 8c-.013.653-.013 1.396-.013 2.25v2c0 1.907.002 3.262.14 4.29c.135 1.005.389 1.585.812 2.008s1.003.677 2.009.812c1.028.138 2.382.14 4.289.14h4c1.907 0 3.262-.002 4.29-.14c1.005-.135 1.585-.389 2.008-.812s.677-1.003.812-2.009c.138-1.027.14-2.382.14-4.289v-2c0-.854 0-1.597-.013-2.25zm18.405-1.5H2.832q.024-.284.058-.54c.135-1.005.389-1.585.812-2.008s1.003-.677 2.009-.812c1.028-.138 2.382-.14 4.289-.14h4c1.907 0 3.262.002 4.29.14c1.005.135 1.585.389 2.008.812s.677 1.003.812 2.009q.034.255.058.539" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <span class="sidebar-text text-sm transition-all duration-300 opacity-0">Agents</span>
+                </div>
+                <div class="menu-item flex items-center space-x-3 cursor-pointer active">
+                    <div class="icon-wrapper w-[42px] h-[42px] p-2 flex items-center justify-center rounded transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="currentColor" fill-rule="evenodd" d="M12 1.25a4.75 4.75 0 1 0 0 9.5a4.75 4.75 0 0 0 0-9.5M8.75 6a3.25 3.25 0 1 1 6.5 0a3.25 3.25 0 0 1-6.5 0" clip-rule="evenodd"/><path fill="currentColor" d="M18 3.25a.75.75 0 0 0 0 1.5c1.377 0 2.25.906 2.25 1.75S19.377 8.25 18 8.25a.75.75 0 0 0 0 1.5c1.937 0 3.75-1.333 3.75-3.25S19.937 3.25 18 3.25M6.75 4A.75.75 0 0 0 6 3.25c-1.937 0-3.75 1.333-3.75 3.25S4.063 9.75 6 9.75a.75.75 0 0 0 0-1.5c-1.376 0-2.25-.906-2.25-1.75S4.624 4.75 6 4.75A.75.75 0 0 0 6.75 4"/><path fill="currentColor" fill-rule="evenodd" d="M12 12.25c-1.784 0-3.434.48-4.659 1.297c-1.22.814-2.091 2.02-2.091 3.453s.871 2.64 2.091 3.453c1.225.816 2.875 1.297 4.659 1.297s3.434-.48 4.659-1.297c1.22-.814 2.091-2.02 2.091-3.453s-.872-2.64-2.091-3.453c-1.225-.816-2.875-1.297-4.659-1.297M6.75 17c0-.776.472-1.57 1.423-2.204c.947-.631 2.298-1.046 3.827-1.046c1.53 0 2.88.415 3.827 1.046c.951.634 1.423 1.428 1.423 2.204s-.472 1.57-1.423 2.204c-.947.631-2.298 1.046-3.827 1.046c-1.53 0-2.88-.415-3.827-1.046C7.222 18.57 6.75 17.776 6.75 17" clip-rule="evenodd"/><path fill="currentColor" d="M19.267 13.84a.75.75 0 0 1 .894-.573c.961.211 1.828.592 2.472 1.119c.643.526 1.117 1.25 1.117 2.114c0 .865-.474 1.588-1.117 2.114c-.644.527-1.51.908-2.472 1.119a.75.75 0 0 1-.322-1.466c.793-.173 1.426-.472 1.844-.814s.567-.677.567-.953s-.149-.61-.567-.953s-1.051-.64-1.844-.814a.75.75 0 0 1-.572-.894M3.84 13.267a.75.75 0 1 1 .32 1.466c-.792.173-1.425.472-1.843.814s-.567.677-.567.953s.149.61.567.953s1.051.64 1.844.814a.75.75 0 0 1-.322 1.466c-.962-.211-1.828-.592-2.472-1.119C.724 18.088.25 17.364.25 16.5c0-.865.474-1.588 1.117-2.114c.644-.527 1.51-.908 2.472-1.119"/></svg>
+                    </div>
+                    <span class="sidebar-text text-sm transition-all duration-300 opacity-0">Profile</span>
+                </div>
+                <a href="Scheduler-Dashboard.html" class="menu-item flex items-center space-x-3 cursor-pointer active">
+                    <div class="icon-wrapper w-[42px] h-[42px] p-2 flex items-center justify-center rounded transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="currentColor" fill-rule="evenodd" d="M7.263 3.26A2.25 2.25 0 0 1 9.5 1.25h5a2.25 2.25 0 0 1 2.237 2.01c.764.016 1.423.055 1.987.159c.758.14 1.403.404 1.928.93c.602.601.86 1.36.982 2.26c.116.866.116 1.969.116 3.336v6.11c0 1.367 0 2.47-.116 3.337c-.122.9-.38 1.658-.982 2.26s-1.36.86-2.26.982c-.867.116-1.97.116-3.337.116h-6.11c-1.367 0-2.47 0-3.337-.116c-.9-.122-1.658-.38-2.26-.982s-.86-1.36-.981-2.26c-.117-.867-.117-1.97-.117-3.337v-6.11c0-1.367 0-2.47.117-3.337c.12-.9.38-1.658.981-2.26c.525-.525 1.17-.79 1.928-.929c.564-.104 1.224-.143 1.987-.159m.002 1.5c-.718.016-1.272.052-1.718.134c-.566.104-.895.272-1.138.515c-.277.277-.457.665-.556 1.4c-.101.754-.103 1.756-.103 3.191v6c0 1.435.002 2.436.103 3.192c.099.734.28 1.122.556 1.399c.277.277.665.457 1.4.556c.754.101 1.756.103 3.191.103h6c1.435 0 2.436-.002 3.192-.103c.734-.099 1.122-.28 1.399-.556c.277-.277.457-.665.556-1.4c.101-.755.103-1.756.103-3.191v-6c0-1.435-.002-2.437-.103-3.192c-.099-.734-.28-1.122-.556-1.399c-.244-.243-.572-.41-1.138-.515c-.446-.082-1-.118-1.718-.133A2.25 2.25 0 0 1 14.5 6.75h-5a2.25 2.25 0 0 1-2.235-1.99M9.5 2.75a.75.75 0 0 0-.75.75v1c0 .414.336.75.75.75h5a.75.75 0 0 0 .75-.75v-1a.75.75 0 0 0-.75-.75zM6.25 10.5A.75.75 0 0 1 7 9.75h.5a.75.75 0 0 1 0 1.5H7a.75.75 0 0 1-.75-.75m3.5 0a.75.75 0 0 1 .75-.75H17a.75.75 0 0 1 0 1.5h-6.5a.75.75 0 0 1-.75-.75M6.25 14a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5H7a.75.75 0 0 1-.75-.75m3.5 0a.75.75 0 0 1 .75-.75H17a.75.75 0 0 1 0 1.5h-6.5a.75.75 0 0 1-.75-.75m-3.5 3.5a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5H7a.75.75 0 0 1-.75-.75m3.5 0a.75.75 0 0 1 .75-.75H17a.75.75 0 0 1 0 1.5h-6.5a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/></svg>
+                    </div>
+                    <span class="sidebar-text text-sm transition-all duration-300 opacity-0">Calender</span>
+                </a>
+            </div>
+
+            <div class="flex mt-auto px-6 pb-4">
+                <div class="menu-item flex items-center space-x-3 cursor-pointer active">
+                    <div class="icon-wrapper w-[42px] h-[42px] flex items-center justify-center rounded transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 14.5a3 3 0 1 1 6 0a3 3 0 0 1-6 0Zm-10-5a3 3 0 1 0 6 0a3 3 0 0 0-6 0Z"/>
+                                <path stroke-linecap="round" d="M16.959 9V2m-10 13v7m10 0v-2m-10-18v2"/></g>
+                        </svg>
+                    </div>
+                    <span class="sidebar-text text-sm transition-all duration-300 opacity-0">Settings</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col h-screen mr-8 w-[94%]">
+          
+          <!-- top content  -->
+            <div class="flex flex-col gap-4 md:flex-row justify-between items-center w-[94%] ml-14 my-7 pt-4 m-auto">
+
+              <div class="flex flex-wrap items-center justify-between gap-4">
+                <!-- header text  -->
+                <div class="flex flex-col gap-2 mr-6">
+                  <h2 class="text-[21px] font-semibold text-[#1F2937] leading-[100%]">Agents Report</h2>
+                  <p class="text-[13px] text-[#1F2937] leading-[21px]">Report Overview</p>
+                </div>
+
+                <!-- B: Date Dropdown (native select for now) -->
+                <div class="relative">
+                  <button id="dateBtn" class="border border-gray-300 rounded-md px-4 py-2 text-[14px] text-[#626973] w-48 h-10 flex justify-between items-center hover:ring-2 hover:ring-blue-500">
+                    <img src="images/calendar-icon.svg" alt="">
+                    <span id="dateBtnLabel" class="date-range">Last 30 days</span>
+                    <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                  </button>
+                  
+                  <div id="datePopup" class="absolute z-50 mt-2 bg-white border border-gray-200 shadow-lg rounded-lg w-[500px] h-[430px] p-4 flex flex-col gap-4 hidden">
+
+                    <!-- a: Calendar + Presets -->
+                    <div class="flex gap-4">
+                  
+                      <!-- c: Preset Ranges -->
+                      <div class="flex flex-col gap-2 w-[200px]">
+                        <div id="todayBtn" class="px-3 py-2 bg-[#F6F7F9] rounded cursor-pointer hover:bg-[#E9E8FC]">Today</div>
+                        <div id="yesterdayBtn" class="px-3 py-2 bg-[#F6F7F9] rounded cursor-pointer hover:bg-[#E9E8FC]">Yesterday</div>
+                        <div id="lastWeekBtn" class="px-3 py-2 bg-[#F6F7F9] rounded cursor-pointer hover:bg-[#E9E8FC]">Last Week</div>
+                        <div id="last7daysBtn" class="px-3 py-2 bg-[#F6F7F9] rounded cursor-pointer hover:bg-[#E9E8FC]">Last 7 days</div>
+                        <div id="thisMonthBtn" class="px-3 py-2 bg-[#F6F7F9] rounded cursor-pointer hover:bg-[#E9E8FC]">This Month</div>
+                        <div id="last30daysBtn" class="px-3 py-2 bg-[#F6F7F9] rounded cursor-pointer hover:bg-[#E9E8FC]">Last 30 days</div>
+                        <div id="customRangeBtn" class="px-3 py-2 bg-[#F6F7F9] rounded cursor-pointer hover:bg-[#E9E8FC]">Custom range</div>
+                      </div>
+                  
+                      <!-- d: Calendar placeholder -->
+                      <div class="flex-grow w-full">
+                        <div id="flatpickrContainer" class=" rounded-md text-sm p-2"></div>
+                      </div>
+                    </div>
+                  
+                    <!-- b: Footer with range and buttons -->
+                    <div class="flex items-center justify-between border-t border-gray-200 pt-3 px-1">
+                      <div class="text-[17px] text-[#14181F] leading-[140%] range-label">May 10, 2025 - May 18, 2025</div>
+                      <div class="flex gap-3">
+                        <button id="cancelBtn" class="px-4 py-2 text-[14px] w-[95px] h-[35px] rounded-md border border-gray-300 text-gray-600 hover:bg-gray-100">Cancel</button>
+                        <button id="doneBtn" class="px-4 py-2 text-[14px] w-[95px] h-[35px] rounded-md bg-[#4F46E5] text-white hover:bg-[#4338CA]">Done</button>
+                      </div>
+                    </div>
+                  
+                  </div>
+                </div>
+
+                <h2 class="text-[13px] text-[#626973] leading-[21px]" >Compared to <span class="font-bold" >2 May - June 24 2025 </span></h2>
+              </div>
+
+              <!-- Row 2: Export Button -->
+              <div class="relative">
+                <button id="exportBtn" class="relative flex items-center gap-2 border border-[#4F46E5] w-[200px] h-10 rounded-md font-semibold text-sm text-[#4F46E5] hover:ring-2 hover:ring-blue-500 pr-10 pl-4">
+                  <img src="images/blue-Download.svg" alt="">
+                  Export Report
+                
+                  <div class="absolute right-0 top-0 h-full w-10 bg-[#4F46E5] flex items-center justify-center text-white rounded-r-md">
+                    <img src="images/down-white-arrow.svg" alt="">
+                  </div>
+                </button>
+                
+                <div id="exportMenu" class="hidden absolute z-10 w-56 bg-white border border-gray-200 rounded-md shadow-lg">
+                  <ul class="text-sm text-[14px] text-[#000112]">
+                    <li id="showPopupBtn" class="px-4 py-2 hover:bg-[#F6F6FF] cursor-pointer">Download report to Excel</li>
+                    <li class="px-4 py-2 hover:bg-[#F6F6FF] cursor-pointer">Download report as CSV</li>
+                  </ul>
+                </div>
+
+                <div id="popupContainer" class="fixed inset-0 bg-black/40 flex items-center justify-center z-50 hidden">
+                  <!-- Loader Popup (a) -->
+                  <div id="popupA" class="w-[450px] h-[450px] bg-white rounded-lg flex flex-col items-center justify-center text-center gap-6">
+                    <div class="w-16 h-16 border-4 border-[#4F46E5] border-t-transparent rounded-full animate-spin"></div>
+                    <p class="text-[23px] text-[#150E67] font-bold leading-[100%]">We’re getting your <br> report ready…</p>
+                  </div>
+                
+                  <!-- Result Popup (b) -->
+                  <div id="popupB" class="w-[450px] h-[450px] bg-white rounded-lg flex flex-col items-center justify-center gap-8 hidden p-8 text-center">
+                    <img src="images/Report-ready.svg" alt="Download Ready" class="w-[130px] h-[105px] mx-auto">
+                    <div class="flex flex-col gap-2">
+                      <h2 class="text-[23px] font-bold text-[#150E67] leading-[100%]">Your report is Ready!</h2>
+                      <p class="text-[16px] text-[#1F2937] leading-[100%]">If the download didn’t start automatically, click button below to start it manually.</p>
+                    </div>
+                    <button class="btn-secondary w-[65%] rounded-md text-[17.5px]">Download Report</button>
+
+                  </div>
+                </div>
+            </div>
+
+            </div>
+            <!-- Main Content -->
+            <div class="flex flex-col gap-8 p-4 mx-8 justify-between w-full" 
+            >
+
+            <div class="summary-card w-full  flex flex-col lg:flex-row gap-6 ">
+              <!-- first part -->
+
+            <div class="w-full  flex flex-col md:flex-row gap-6">
+              <div class="flex flex-col justify-between gap-2 bg-white rounded-2xl p-6 w-full" style="box-shadow: 0 -1px 2px #919EAB33, 0 12px 24px -14px #919EAB1F;">
+                  <div class="flex justify-between items-center">
+                      <div class="flex flex-col gap-1">
+                          <h3 class="font-semibold text-[18px]">Total Agents</h3>
+                          <p class="text-[14px] text-[#626973]">Active Agents</p>
+                      </div>
+                      <img src="images/agent-blue.svg" class="w-12 h-12 object-contain" alt="">
+                  </div>
+                  <h2 class="font-bold text-[32px] leading-[100%]">120</h2>
+              </div>
+              <div class="flex flex-col justify-between gap-2 bg-white rounded-2xl p-6 w-full" style="box-shadow: 0 -1px 2px #919EAB33, 0 12px 24px -14px #919EAB1F;">
+                <div class="flex justify-between items-center">
+                    <div class="flex flex-col gap-1">
+                        <h3 class="font-semibold text-[18px]">Overall Avg Score</h3>
+                        <p class="text-[14px] text-[#626973]">System-Wide Perf.</p>
+                    </div>
+                    <img src="images/overall-avg-score-yellow.svg" class="w-12 h-12 object-contain" alt="">
+                </div>
+                <h2 class="font-bold text-[32px] leading-[100%]">0.78</h2>
+            </div>
+            </div>
+
+                  <!-- Second part  -->
+
+            <div class=" w-full  flex flex-col md:flex-row gap-6">
+                <div class="flex flex-col justify-between gap-2 bg-white rounded-2xl p-6 w-full" style="box-shadow: 0 -1px 2px #919EAB33, 0 12px 24px -14px #919EAB1F;">
+                  <div class="flex justify-between items-center">
+                      <div class="flex flex-col gap-1">
+                          <h3 class="font-semibold text-[18px]">Avg. Calls / Agent</h3>
+                          <p class="text-[14px] text-[#626973]">Average Daily</p>
+                      </div>
+                      <img src="images/avg-calls-agents.svg" class="w-12 h-12 object-contain" alt="">
+                  </div>
+                  <h2 class="font-bold text-[32px] leading-[100%]">2.6</h2>
+              </div>
+          
+                  <div class="flex flex-col justify-between gap-4 bg-white rounded-2xl p-6 w-full" style="box-shadow: 0 -1px 2px #919EAB33, 0 12px 24px -14px #919EAB1F;">
+                  <div class="flex justify-between items-center">
+                      <div class="flex flex-col gap-1">
+                        <h3 class="font-semibold text-[18px]">Customer Satisfaction Score</h3>
+                        <p class="text-[14px] text-[#626973]">Average based on call ratings</p>
+                      </div>
+                  </div>
+                  <div class="flex justify-between items-end gap-4 flex-wrap">
+                      <div class="flex flex-col gap-1">
+                        <p class="font-bold text-[36px] text-[#1F2937]">87%</p>
+                        <p class="text-[10px] text-[#626973]">Compare to previous day</p>
+                      </div>
+                      <img src="images/colors.svg" alt="" class="w-full max-w-[233px] h-[28px] object-contain">
+                  </div>
+                  </div>
+              </div>
+            </div>
+
+              <!-- Section A: 3 Row Containers -->
+              <div class="flex flex-col md:flex-row gap-6">
+
+                <!-- chart  -->
+                <div class="flex-1 flex-col bg-[#FFFFFF]  gap-8 p-6 rounded-lg shadow">
+                    <div class="flex flex-col gap-2">
+                      <h2 class="font-semibold text-[20px] text-[#1F2937] leading-[100%]">Key Metrics</h2>
+                      <p class="text-[13px] leading-[20.91px] text-[#1F2937]">Average Score on all the metrics <br> based on <span>320</span> Agent calls.</p>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row items-center mt-8  gap-8">
+                      <canvas id="membersChart" class="w-[250px] h-[250px]"></canvas>
+                      
+                      <!-- Legend Section -->
+                      <div class="flex flex-col gap-4 text-[14px] text-[#1f2937]">
+                        <div class="flex items-center gap-2">
+                          <div class="w-[40px] font-bold leading-[100%]">1.5</div>
+                          <div class="w-3 h-3 rounded-full shrink-0" style="background-color: #B8E866;"></div>
+                          <div>Greeting</div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                          <div class="w-[40px] font-bold leading-[100%]">2.0</div>
+                          <div class="w-3 h-3 rounded-full shrink-0" style="background-color: #4F46E5;"></div>
+                          <div>Avg. Pace</div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                          <div class="w-[40px] font-bold leading-[100%]">2.0</div>
+                          <div class="w-3 h-3 rounded-full shrink-0" style="background-color: #0EA5E9;"></div>
+                          <div>Empathy</div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                          <div class="w-[40px] font-bold leading-[100%]">1.5</div>
+                          <div class="w-3 h-3 rounded-full shrink-0" style="background-color: #F59E0B;"></div>
+                          <div>Interruption</div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                          <div class="w-[40px] font-bold leading-[100%]">3.0</div>
+                          <div class="w-3 h-3 rounded-full shrink-0" style="background-color: #10B981;"></div>
+                          <div>Closure</div>
+                        </div>
+                      </div>
+                      
+                    </div>
+
+                </div>
+                <!-- colored reports  -->
+                <div class="flex flex-col flex-1 gap-8 bg-[#FFFFFF] p-8 rounded-lg shadow">
+                  <div class="flex flex-col gap-2">
+                    <h2 class="font-semibold text-lg text-[#1F2937] leading-[100%]">Top 3 / Bottom 3 Agents by Calls</h2>
+                    <p class="text-sm leading-[20.91px] text-[#1F2937]">Score Distribution</p>
+                  </div>
+                  <div class="max-w-5xl">
+                    <!-- Headers -->
+                    <div class="grid grid-cols-[120px_repeat(5,90px)] gap-2 mb-8 text-sm">
+                      <div class="font-bold"></div>
+                      <div class="text-center font-bold">Greeting</div>
+                      <div class="text-center font-bold">Avg. Pace</div>
+                      <div class="text-center font-bold">Empathy</div>
+                      <div class="text-center font-bold">Interruption</div>
+                      <div class="text-center font-bold">Closure</div>
+                    </div>
+                
+                    <!-- Rows go here -->
+                    <div id="scoreGrid" class="space-y-2"></div>
+                  </div>
+                
+                </div>
+              </div>
+            
+              <!-- Section B: Table Container -->
+              <div class="flex flex-col gap-8 bg-[#ffffff]  p-8 rounded-lg">
+                <!-- Header -->
+                <div class="flex flex-col gap-4">
+                  <h2 class="text-[18px] leading-[100%] font-semibold">All Agents</h2>
+                  <p class="text-[14px] text-[#626973] leading-[100%]">Performance Details</p>
+                </div>
+            
+                <!-- Table -->
+                <div class="overflow-x-auto">
+                  <table class="min-w-full border-gray-200 text-sm text-left">
+                    <thead class="bg-[#F3F2FD] text-[#626973]">
+                      <tr class=" text-[14px] p-4">
+                        <th class="p-4 border-b">#</th>
+                        <th class="p-4 border-b">Agent Name</th>
+                        <th class="p-4 border-b">Supervisor</th>
+                        <th class="p-4 border-b">Status</th>
+                        <th class="p-4 border-b">Calls Handled</th>
+                        <th class="p-4 border-b">Avg. Score</th>
+                        <th class="p-4 border-b">Avg. Handle Time</th>
+                        <th class="p-4 border-b">CSAT</th>
+                        <th class="p-4 border-b">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody class="text-[16px] text-[#1F2937]">
+                      <tr >
+                        <td class="p-4 border-b text-[14px]">1</td>
+                        <td class="p-4 border-b">USR001</td>
+                        <td class="p-4 border-b">John Doe</td>
+                        <td class="p-4 border-b"><div class="flex justify-center items-center text-[#10B981] bg-[#CFF1E6] rounded-full text-center w-28 h-[30px]">Online</div></td>
+                        <td class="p-4 border-b">25</td>
+                        <td class="p-4 border-b">
+                            <div class="flex justify-center items-center gap-2 font-semibold text-[16px] text-[#10B981] bg-[#B7EAD966] rounded-md text-center px-4 w-20 h-[30px]">
+                             <img src="images/green-mark.svg" class="h-3 w-3" alt="">
+                              0.75
+                            </div>
+                        </td>
+                        <td class="p-4 border-b">5.45</td>
+                        <td class="p-4 border-b">85%</td>
+                        <td class="p-4 border-b"><a href="" class="flex gap-2 text-[#4F46E5] text-[14px] font-medium items-center">View Profile <img src="images/right-arrow-blue.svg" class="w-2 h-3" alt=""></a></td>
+                      </tr>
+                      <tr>
+                        <td class="p-4 border-b text-[14px]">2</td>
+                        <td class="p-4 border-b">USR002</td>
+                        <td class="p-4 border-b">Jane Smith</td>
+                        <td class="p-4 border-b"><div class="flex justify-center items-center text-[#10B981] bg-[#CFF1E6] rounded-full text-center w-28 h-[30px]">Online</div></td>
+                        <td class="p-4 border-b">25</td>
+                        <td class="p-4 border-b">
+                          <div class="flex justify-center items-center gap-2 font-semibold text-[16px] text-[#10B981] bg-[#B7EAD966] rounded-md text-center px-4 w-20 h-[30px]">
+                           <img src="images/green-mark.svg" class="h-3 w-3" alt="">
+                            0.75
+                          </div>
+                      </td>
+                        <td class="p-4 border-b">5.45</td>
+                        <td class="p-4 border-b">85%</td>
+                        <td class="p-4 border-b"><a href="" class="flex gap-2 text-[#4F46E5] text-[14px] font-medium items-center">View Profile <img src="images/right-arrow-blue.svg" class="w-2 h-3" alt=""></a></td>
+                      </tr>
+                      <tr>
+                        <td class="p-4 border-b text-[14px]">3</td>
+                        <td class="p-4 border-b">USR003</td>
+                        <td class="p-4 border-b">Samuel Lark</td>
+                        <td class="p-4 border-b"><div class="flex justify-center items-center text-[#EF4444] bg-[#EF444433] rounded-full text-center w-28 h-[30px]">Offline</div></td>
+                        <td class="p-4 border-b">25</td>
+                        <td class="p-4 border-b">
+                          <div class="flex justify-center items-center gap-2 font-semibold text-[16px] text-[#10B981] bg-[#B7EAD966] rounded-md text-center px-4 w-20 h-[30px]">
+                           <img src="images/green-mark.svg" class="h-3 w-3" alt="">
+                            0.75
+                          </div>
+                      </td>
+                        <td class="p-4 border-b">5.45</td>
+                        <td class="p-4 border-b">85%</td>
+                        <td class="p-4 border-b"><a href="" class="flex gap-2 text-[#4F46E5] text-[14px] font-medium items-center">View Profile <img src="images/right-arrow-blue.svg" class="w-2 h-3" alt=""></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              
+                 <!-- Pagination -->
+                 <div class="flex justify-end w[202px] h-[44px] items-center mt-24 mb-4 bottom-0">
+                  <button class="px-2 py-2 text-[#6269734D] rounded hover:bg-gray-300 transition">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5  text-[#6269734D]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                      </svg>
+                  </button>
+
+                  <div class="flex">
+                      <button class="px-3 py-1 bg-blue-700 text-white rounded hover:bg-blue-700 transition">
+                          1
+                      </button>
+                      <button class="px-3 py-1 text-gray-600 text-[#626973] rounded hover:bg-gray-300 transition">
+                          2
+                      </button>
+                      <button class="px-3 py-1 text-gray-600 text-[#626973] rounded hover:bg-gray-300 transition">
+                          3
+                      </button>
+                  </div>
+
+                  <button class="px-2 py-2 text-gray-600 rounded hover:bg-gray-300 transition">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                  </button>
+              </div>
+              </div>
+            </div>
+   `   </div>
+    </div>
+</div>
+   
+
+
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const centerTextPlugin = {
+    id: 'centerText',
+    beforeDraw(chart) {
+      const { width, height, ctx } = chart;
+      ctx.restore();
+      ctx.font = '14px Rubik, sans-serif';
+      ctx.textBaseline = 'middle';
+      ctx.fillStyle = '#111827';
+      const label = 'Total Calls';
+      const total = '320';
+      const labelWidth = ctx.measureText(label).width;
+      const totalWidth = ctx.measureText(total).width;
+      const labelX = (width - labelWidth) / 2;
+      const totalX = (width - totalWidth) / 2;
+      const labelY = height / 2 - 10;
+      const totalY = height / 2 + 10;
+      ctx.fillText(label, labelX, labelY);
+      ctx.fillText(total, totalX, totalY);
+      ctx.save();
+    }
+  };
+
+  const ctx = document.getElementById('membersChart').getContext('2d');
+  const totalMembers = 320;
+
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Greeting', 'Avg. Pace', 'Empathy', 'Interruption', 'Closure'],
+      datasets: [{
+        data: [1.5, 2.0, 2.0, 1.5, 3.0],
+        backgroundColor: ['#B8E866', '#4F46E5', '#0EA5E9', '#F59E0B', '#10B981'],
+        borderWidth: 1,
+      }]
+    },
+    options: {
+  responsive: false,
+  cutout: '60 %',
+  plugins: {
+    legend: { display: false },
+    tooltip: {
+      backgroundColor: '#ffffff',
+      titleColor: '#111827',
+      bodyColor: '#111827',
+      borderColor: '#e5e7eb',
+      borderWidth: 1,
+      padding: 12,
+      cornerRadius: 8,
+      displayColors: true,
+      usePointStyle: true, // enables small dot customization
+      callbacks: {
+        title: () => '',
+        label: function (context) {
+          const value = context.parsed;
+          const label = context.label;
+          const percentage = value.toFixed(1);
+          return `${percentage}`;
+        },
+        afterLabel: function (context) {
+          return context.label;
+        },
+        labelPointStyle: function () {
+          return {
+            pointStyle: 'circle',
+            rotation: 0,
+            radius: 1.5 // This makes the dot effectively 3px in diameter
+          };
+        },
+        labelColor: function (context) {
+          const bgColor = context.dataset.backgroundColor[context.dataIndex];
+          return {
+            backgroundColor: bgColor,
+            borderColor: bgColor,
+            borderWidth: 1,
+            borderRadius: 50,
+          };
+        }
+      }
+    }
+  }
+    },
+    plugins: [centerTextPlugin]
+  });
+
+
+  const btn = document.getElementById("dateBtn");
+  const popup = document.getElementById("datePopup");
+
+  btn.addEventListener("click", () => {
+    popup.classList.toggle("hidden");
+  });
+
+  // Optional: Close popup when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!popup.contains(e.target) && !btn.contains(e.target)) {
+      popup.classList.add("hidden");
+    }
+  });
+
+      // User Role Dropdown
+      const userRoleBtn = document.getElementById("userRoleBtn");
+      const userRoleMenu = document.getElementById("userRoleMenu");
+      const userRoleLabel = document.getElementById("userRoleLabel");
+
+      userRoleBtn.addEventListener("click", () => {
+        userRoleMenu.classList.toggle("hidden");
+        userRoleBtn.classList.toggle("bg-[#E9E8FC]")
+      });
+
+      userRoleMenu.querySelectorAll("li").forEach(item => {
+        item.addEventListener("click", () => {
+          userRoleLabel.textContent = item.textContent;
+          userRoleMenu.classList.add("hidden");
+        });
+      });
+
+      // Status Dropdown
+      const statusBtn = document.getElementById("statusBtn");
+      const statusMenu = document.getElementById("statusMenu");
+      const statusLabel = document.getElementById("statusLabel");
+
+      statusBtn.addEventListener("click", () => {
+        statusMenu.classList.toggle("hidden");
+        statusBtn.classList.toggle("bg-[#E9E8FC]")
+      });
+
+      statusMenu.querySelectorAll("li").forEach(item => {
+        item.addEventListener("click", () => {
+          statusLabel.textContent = item.textContent;
+          statusMenu.classList.add("hidden");
+        });
+      });
+
+      // Export Button Dropdown
+      const exportBtn = document.getElementById("exportBtn");
+      const exportMenu = document.getElementById("exportMenu");
+
+      exportBtn.addEventListener("click", () => {
+        exportMenu.classList.toggle("hidden");
+        exportBtn.classList.toggle("bg-[#E9E8FC]")
+      });
+
+      document.addEventListener("click", function (e) {
+        // if (!dateBtn.contains(e.target)) {
+        //   dateMenu.classList.add("hidden");
+        //   dateBtn.classList.remove("bg-[#E9E8FC]")
+        // } 
+
+        if (!userRoleBtn.contains(e.target)) {
+          userRoleMenu.classList.add("hidden");
+          userRoleBtn.classList.remove("bg-[#E9E8FC]")
+        } 
+
+        if (!statusBtn.contains(e.target)) {
+          statusMenu.classList.add("hidden");
+          statusBtn.classList.remove("bg-[#E9E8FC]")
+        }
+
+        if (!exportBtn.contains(e.target)) {
+          exportMenu.classList.add("hidden");
+          exportBtn.classList.remove("bg-[#E9E8FC]")
+        }
+      });
+
+
+      const showPopupBtn = document.getElementById('showPopupBtn');
+      const popupContainer = document.getElementById('popupContainer');
+      const popupA = document.getElementById('popupA');
+      const popupB = document.getElementById('popupB');
+
+      showPopupBtn.addEventListener('click', () => {
+        popupContainer.classList.remove('hidden');
+        popupA.classList.remove('hidden');
+        popupB.classList.add('hidden');
+
+        setTimeout(() => {
+          popupA.classList.add('hidden');
+          popupB.classList.remove('hidden');
+        }, 2000);
+      });
+
+      popupContainer.addEventListener('click', function (e) {
+        // Only close if the click is outside the popupB box
+        if (!popupB.contains(e.target)) {
+          popupContainer.classList.add('hidden');
+        }
+      });
+
+      
+</script>
+
+
+<!-- Flatpickr JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<script>
+ const dateBtn = document.getElementById("dateBtn");
+ const datePopup = document.getElementById("datePopup");
+
+ dateBtn.addEventListener("click", function () {
+  datePopup.classList.remove("hidden");
+
+  // Destroy previous instance if needed
+  if (datePopup._flatpickrInstance) {
+    datePopup._flatpickrInstance.destroy();
+  }
+
+  document.getElementById("cancelBtn").addEventListener("click", function () {
+    datePopup.classList.add("hidden");
+  });
+
+  document.getElementById("doneBtn").addEventListener("click", function () {
+    const popup = document.getElementById("datePopup");
+    const label = document.querySelector(".range-label");
+    const rangeText = label.textContent.trim();
+
+    if (rangeText && rangeText.includes(" - ")) {
+      console.log(`Selected Date: ${rangeText}`);
+    } else {
+      console.log("Please select a full date range.");
+    }
+
+    // Close popup
+    popup.classList.add("hidden");
+  
+  });
+
+
+  const label = document.querySelector(".range-label");
+    let selectedRange = [];
+
+    if (label && label.textContent.includes(" - ")) {
+      const [startStr, endStr] = label.textContent.split(" - ");
+      const startDate = new Date(startStr);
+      const endDate = new Date(endStr);
+
+      // Only push if both dates are valid
+      if (!isNaN(startDate) && !isNaN(endDate)) {
+        selectedRange = [startDate, endDate];
+      }
+    }
+
+  // Delay slightly to ensure DOM is ready
+  setTimeout(() => {
+    datePopup.flatpickrInstance = flatpickr("#flatpickrContainer", {
+      inline: true,
+  mode: "range",
+  dateFormat: "M j, Y",
+  defaultDate: selectedRange.length === 2 ? selectedRange : null,
+  onChange: function (selectedDates) {
+    const label = document.querySelector(".range-label");
+    if (selectedDates.length === 2) {
+      const start = selectedDates[0].toLocaleDateString('en-US', {
+        month: 'short', day: 'numeric', year: 'numeric'
+      });
+      const end = selectedDates[1].toLocaleDateString('en-US', {
+        month: 'short', day: 'numeric', year: 'numeric'
+      });
+      label.textContent = `${start} - ${end}`;
+        }
+      }
+    });
+  }, 100);
+});
+
+
+  // setting and picking range 
+  function setDateRange(start, end) {
+    datePopup.flatpickrInstance.setDate([start, end], true);
+  }
+
+  document.getElementById("todayBtn").addEventListener("click", () => {
+    const today = new Date();
+    setDateRange(today, today)
+  })
+
+  document.getElementById("yesterdayBtn").addEventListener("click", () => {
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1)
+    setDateRange(yesterday, yesterday)
+  })
+
+  document.getElementById("last7daysBtn").addEventListener("click", () => {
+    const end = new Date();
+    const start = new Date();
+    start.setDate(end.getDate() - 6);
+    setDateRange(start, end);
+  });
+
+
+  document.getElementById("lastWeekBtn").addEventListener("click", () => {
+  const today = new Date();
+  const dayOfWeek = today.getDay(); // Sunday = 0, Monday = 1, ...
+  const daysSinceMonday = (dayOfWeek + 6) % 7;
+
+  const lastWeekEnd = new Date(today);
+  lastWeekEnd.setDate(today.getDate() - daysSinceMonday - 1); // Last Sunday
+
+  const lastWeekStart = new Date(lastWeekEnd);
+  lastWeekStart.setDate(lastWeekEnd.getDate() - 6); // Previous Monday
+
+  setDateRange(lastWeekStart, lastWeekEnd);
+});
+
+
+  document.getElementById("last30daysBtn").addEventListener("click", () => {
+    const end = new Date();
+    const start = new Date();
+    start.setDate(end.getDate() - 29);
+    setDateRange(start, end);
+  });
+
+  document.getElementById("thisMonthBtn").addEventListener("click", () => {
+    const now = new Date();
+    const start = new Date(now.getFullYear(), now.getMonth(), 1);
+    const end = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+    setDateRange(start, end);
+  });
+
+  document.getElementById("customRangeBtn").addEventListener("click", () => {
+   const today = new Date();
+   setDateRange(today, today)
+
+  //  Reset the range label text
+  const label = document.querySelector(".range-label");
+  if (label) {
+    label.textContent = "Select a date range";
+  }
+});
+
+
+</script>
+
+
+
+<script>
+  const scoreData = [
+    { name: "Agent A", scores: [4.5, 3.4, 4.1, 3.1, 4.2] },
+    { name: "Jane Doe", scores: [3.1, 3.0, 3.1, 3.0, 3.1] },
+    { name: "Cheyenne Kenter", scores: [2.8, 2.6, 4.1, 2.8, 3.5] },
+    { name: "John Smith", scores: [2.1, 1.8, 2.5, 2.3, 2.2] },
+    { name: "Felix Kay", scores: [1.8, 1.2, 1.9, 2.0, 1.7] },
+    { name: "Glory Green", scores: [0.9, 0.2, 0.6, 0.3, 0.8] },
+  ];
+
+  const getColorByScore = (score) => {
+    if (score >= 4) return "#A5EAC3";
+    if (score >= 3) return "#C9F1E0";
+    if (score >= 2) return "#FFF199";
+    if (score >= 1) return "#FFD280";
+    return "#FFB6B6";
+  };
+
+  const scoreGrid = document.getElementById("scoreGrid");
+
+  scoreData.forEach(person => {
+    const row = document.createElement("div");
+    row.className = "grid grid-cols-[120px_repeat(5,90px)] gap-2 items-center";
+
+    // Name cell
+    const nameCell = document.createElement("div");
+    nameCell.className = "text-[15px] text-[#1F2937]";
+    nameCell.textContent = person.name;
+    row.appendChild(nameCell);
+
+    // Score cells
+    person.scores.forEach(score => {
+      const cell = document.createElement("div");
+      cell.className = "h-[40px] flex items-center justify-center rounded text-sm";
+      cell.style.width = "90px";
+      cell.textContent = score;
+      cell.style.backgroundColor = getColorByScore(score);
+      row.appendChild(cell);
+    });
+
+    scoreGrid.appendChild(row);
+  });
+</script>
+
+<script src="Index.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+

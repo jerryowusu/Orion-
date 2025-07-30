@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dynamic Score Grid</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+
+  <div class="max-w-5xl mx-auto">
+    <!-- Headers -->
+    <div class="grid grid-cols-[120px_repeat(5,90px)] gap-2 mb-4">
+      <div class="font-bold">Name</div>
+      <div class="text-center font-bold">Greeting</div>
+      <div class="text-center font-bold">Avg. Pace</div>
+      <div class="text-center font-bold">Empathy</div>
+      <div class="text-center font-bold">Interruption</div>
+      <div class="text-center font-bold">Closure</div>
+    </div>
+
+    <!-- Rows go here -->
+    <div id="scoreGrid" class="space-y-2"></div>
+  </div>
+
+  <script>
+    const scoreData = [
+      { name: "Alice", scores: [4.5, 3.7, 2.8, 1.2, 0.8] },
+      { name: "Brian", scores: [5, 4, 3.5, 2.4, 1.8] },
+      { name: "Carla", scores: [3.8, 3.2, 2.1, 1.9, 1] },
+      { name: "Daniel", scores: [4.2, 4.0, 3.0, 2.5, 0.5] },
+      { name: "Eve", scores: [1.5, 2.2, 3.1, 4.5, 5] },
+      { name: "Frank", scores: [0.9, 1.6, 2.8, 3.3, 4.7] },
+    ];
+
+    const getColorByScore = (score) => {
+      if (score >= 4) return "#A5EAC3";
+      if (score >= 3) return "#C9F1E0";
+      if (score >= 2) return "#FFF199";
+      if (score >= 1) return "#FFD280";
+      return "#FFB6B6";
+    };
+
+    const scoreGrid = document.getElementById("scoreGrid");
+
+    scoreData.forEach(person => {
+      const row = document.createElement("div");
+      row.className = "grid grid-cols-[120px_repeat(5,90px)] gap-2 items-center";
+
+      // Name cell
+      const nameCell = document.createElement("div");
+      nameCell.className = "font-medium";
+      nameCell.textContent = person.name;
+      row.appendChild(nameCell);
+
+      // Score cells
+      person.scores.forEach(score => {
+        const cell = document.createElement("div");
+        cell.className = "h-[40px] flex items-center justify-center rounded text-sm font-semibold";
+        cell.style.width = "90px";
+        cell.textContent = score;
+        cell.style.backgroundColor = getColorByScore(score);
+        row.appendChild(cell);
+      });
+
+      scoreGrid.appendChild(row);
+    });
+  </script>
+</body>
+</html>
